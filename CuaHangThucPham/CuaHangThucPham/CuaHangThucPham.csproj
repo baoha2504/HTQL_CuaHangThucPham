@@ -129,14 +129,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BlogController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BlogAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomerAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
-    <Compile Include="Areas\Admin\Controllers\StaffController.cs" />
-    <Compile Include="Areas\Admin\Controllers\VoucherController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StaffAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VoucherAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -3882,7 +3882,6 @@
     <Content Include="Areas\Admin\Public\vendor\jquery\jquery.min.map" />
     <Content Include="Areas\Admin\Public\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Voucher\Index.cshtml" />
     <Content Include="Areas\Admin\assets\css\icons.css.map" />
     <Content Include="Areas\Admin\assets\css\style.css.map" />
     <Content Include="Areas\Admin\assets\css\typicons.css.map" />
@@ -4083,12 +4082,13 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Account\" />
-    <Folder Include="Areas\Admin\Views\Blog\" />
-    <Folder Include="Areas\Admin\Views\Customer\" />
-    <Folder Include="Areas\Admin\Views\Order\" />
-    <Folder Include="Areas\Admin\Views\Product\" />
-    <Folder Include="Areas\Admin\Views\Staff\" />
+    <Folder Include="Areas\Admin\Views\AccountAdmin\" />
+    <Folder Include="Areas\Admin\Views\BlogAdmin\" />
+    <Folder Include="Areas\Admin\Views\CustomerAdmin\" />
+    <Folder Include="Areas\Admin\Views\OrderAdmin\" />
+    <Folder Include="Areas\Admin\Views\ProductAdmin\" />
+    <Folder Include="Areas\Admin\Views\StaffAdmin\" />
+    <Folder Include="Areas\Admin\Views\VoucherAdmin\" />
     <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
