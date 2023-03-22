@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_layoutLeft1.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9" id="content">
+            <h1>Liên hệ chúng tôi</h1>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4 left">
+                            <address>
+                                <strong> Tên cửa hàng:</strong>Quoc Bao Fresh Food<br>
+                                <br>
+                                <strong>Địa chỉ:</strong>
+                                <div class="address"> 236 Hoàng Quốc Việt, Cổ Nhuế 1, Bắc Từ Liêm</div>
+                                <br>
+                                <strong>Thành phố:</strong> Hà Nội <br>
+                                <br>
+                                <strong>Số điện thoại: </strong>0358.775.132
+                            </address>
+                        </div>
+                        <div class="col-sm-8 rigt">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d388.58487668222745!2d105.78621558036836!3d21.046599145742395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab2d88bb4195%3A0x3006e474cce20274!2zSOG7jWMgdmnhu4duIEvhu7kgdGh14bqtdCBRdcOibiBz4bux!5e0!3m2!1svi!2s!4v1666924312502!5m2!1svi!2s"
+                                    width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form class="form-horizontal" enctype="multipart/form-data" method="post" action="#">
+                <fieldset>
+                    <h3>Mẫu liên hệ</h3>
+                    <div class="form-group required">
+                        <label for="input-name" class="col-sm-2 control-label">Tên của bạn</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="input-name" value="" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="input-email" class="col-sm-2 control-label">Địa chỉ Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="input-email" value="" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="input-enquiry" class="col-sm-2 control-label">Câu hỏi thắc mắc</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="input-enquiry" rows="10" name="enquiry"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="buttons">
+                    <div class="pull-right">
+                        <input type="submit" value="Gửi" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

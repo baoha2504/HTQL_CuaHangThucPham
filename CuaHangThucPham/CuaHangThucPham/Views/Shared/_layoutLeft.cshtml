@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fresh Food</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="e-commerce site well design with responsive view." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @Styles.Render("~/Public/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("~/Public/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("https://fonts.googleapis.com/css?family=Work+Sans:100,300,400,500,700,900")
+    @Styles.Render("~/Public/css/stylesheet.css")
+    @Styles.Render("~/Public/css/responsive.css")
+    @Styles.Render("~/Public/owl-carousel/owl.carousel.css")
+    @Styles.Render("~/Public/owl-carousel/owl.transitions.css")
+    @Scripts.Render("~/Public/javascript/jquery-2.1.1.min.js")
+    @Scripts.Render("~/Public/bootstrap/js/bootstrap.min.js")
+    @Scripts.Render("~/Public/javascript/jstree.min.js")
+    @Scripts.Render("~/Public/javascript/template.js")
+    @Scripts.Render("~/Public/javascript/common.js")
+    @Scripts.Render("~/Public/javascript/global.js")
+    @Scripts.Render("~/Public/owl-carousel/owl.carousel.min.js")
+</head>
+
+<body class="category col-2 left-col">
+    <div class="preloader loader" style="display: block; background:#f2f2f2;"> <img src="~/Public/image/loader.gif" alt="#" /></div>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="top-left pull-left">
+                            <div class="language">
+                                <form action="#" method="post" enctype="multipart/form-data" id="language">
+                                    <div class="btn-group">
+                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="~/Public/image/flags/gb.png" alt="English" title="English">English <i class="fa fa-caret-down"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="#"><img src="~/Public/image/flags/lb.png" alt="Arabic" title="Arabic"> Arabic</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><img src="~/Public/image/flags/gb.png" alt="English" title="English"> English</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="currency">
+                                <form action="#" method="post" enctype="multipart/form-data" id="currency">
+                                    <div class="btn-group">
+                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"> <strong>$</strong> <i class="fa fa-caret-down"></i> </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€ Euro</button>
+                                            </li>
+                                            <li>
+                                                <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£ Pound Sterling</button>
+                                            </li>
+                                            <li>
+                                                <button class="currency-select btn btn-link btn-block" type="button" name="USD">$ US Dollar</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="top-right pull-right">
+                            <div id="top-links" class="nav pull-right">
+                                <ul class="list-inline">
+                                    <li class="dropdown">
+                                        <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i>
+                                        <span>Đăng ký</span> <span class="caret"></span></a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="register.html">Register</a></li>
+                                            <li><a href="\Account\Login">Login</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" id="wishlist-total" title="Wish List (0)"><i class="fa fa-lock"></i><span>Đăng ký</span><span></span></a></li>
+                                </ul>
+                                <div class="search-box">
+                                    <input class="input-text" placeholder="search.." type="text">
+                                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="header-inner">
+                <div class="col-sm-4 col-xs-6 header-left">
+                    <div class="shipping">
+                        <div class="shipping-img"></div>
+                        <div class="shipping-text">0358.775.132 - 0329.281.596<span class="shipping-detail">Week From 8:00am To 9:00pm</span></div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12 header-middle">
+                    <div class="header-middle-top">
+                        <div id="logo">
+                            <a href="index.html"><img src="~/Public/image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12 header-right">
+                    <div id="cart" class="btn-group btn-block">
+                        <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
+                            <span id="cart-total">
+                                <span class="cart-title">Giỏ hảng</span><br>
+                                0 item(s) - $0.00
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
+                            <li>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <a href="#"><img class="img-thumbnail" style="width:59px; height:50px" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="~/Public/image/product/product7.jpg"></a>
+                                            </td>
+                                            <td class="text-left"><a href="#">lorem ippsum dolor dummy</a></td>
+                                            <td class="text-right">x 1</td>
+                                            <td class="text-right">$254.00</td>
+                                            <td class="text-center"><button class="btn btn-danger btn-xs" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <div>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-right"><strong>Sub-Total</strong></td>
+                                                <td class="text-right">$210.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
+                                                <td class="text-right">$2.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right"><strong>VAT (20%)</strong></td>
+                                                <td class="text-right">$42.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right"><strong>Total</strong></td>
+                                                <td class="text-right">$254.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="text-right"> <span class="btn-viewcart"><a href="\Cart\Index"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span class="btn-checkout"><a href=""\CheckOut\Index""><strong><i class="fa fa-share"></i> Checkout</strong></a></span>                                        </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav id="menu" class="navbar">
+        <div class="nav-inner container">
+            <div class="navbar-header">
+                <span id="category" class="visible-xs">Categories</span>
+                <button type="button" class="btn btn-navbar navbar-toggle"><i class="fa fa-bars"></i></button>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="main-navigation">
+                    <li><a href="/Home/Index" class="parent">Trang chủ</a> </li>
+                    <li><a href="/Categories/Index" class="parent">Thực phẩm</a> </li>
+                    <li><a href="/Categories/Index" class="parent">Rau củ</a> </li>
+                    <li><a href="/Categories/Index" class="parent">Gia vị</a> </li>
+                    <li><a href="/Categories/Index" class="parent">Đồ uống</a> </li>
+                    <li><a href="/Blog/Index" class="parent">Bài viết</a></li>
+                    <li><a href="/Home/About">Giới thiệu</a></li>
+                    <li><a href="/Home/Contact">Liên hệ</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="\Home\Index"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">Electronics</a></li>
+        </ul>
+        <div class="row">
+            <div id="column-left" class="col-sm-3 hidden-xs column-left">
+                <div class="column-block">
+                    <div class="columnblock-title">Danh Mục</div>
+                    <div class="category_block">
+                        <ul class="box-category treeview-list treeview">
+                            <li>
+                                <a href="#" class="activSub">Lương thực</a>
+                                <ul>
+                                    <li><a href="#">Gạo các loại</a></li>
+                                    <li><a href="#">Bột các loại</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="activSub">Rau, củ, quả</a>
+                                <ul>
+                                    <li><a href="#">Dạng củ</a></li>
+                                    <li><a href="#">Dạng hạt</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="activSub">Thực phẩm chế biến</a>
+                                <ul>
+                                    <li><a href="#">Rau củ chế biến</a></li>
+                                    <li>
+                                        <a href="#" class="activSub">Thịt chế biến</a>
+                                        <ul>
+                                            <li><a href="#">Lạp xưởng</a></li>
+                                            <li><a href="#">Thịt viên</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Thủy sản chế biến</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Thực phẩm đóng hộp</a></li>
+                            <li><a href="#">Gia vị</a></li>
+                            <li><a href="#">Thực phẩm tươi sống</a></li>
+                            <li><a href="#">Thức uống</a></li>
+                            <li><a href="#">Thực phẩm khác</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default filter">
+                    <div class="panel-heading columnblock-title">Lọc</div>
+                    <div class="filter-block">
+                        <div class="list-group">
+                            <a class="list-group-item">Màu</a>
+                            <div class="list-group-item">
+                                <div id="filter-group1">
+                                    <label class="checkbox">
+                                        <input name="filter[]" type="checkbox" value="1" />
+                                        Trắng
+                                    </label>
+                                    <label class="checkbox">
+                                        <input name="filter[]" type="checkbox" value="2" />
+                                        Xanh
+                                    </label>
+                                    <label class="checkbox">
+                                        <input name="filter[]" type="checkbox" value="3" />
+                                        Đỏ
+                                    </label>
+                                </div>
+                            </div>
+                            <a class="list-group-item">Price</a>
+                            <div class="list-group-item">
+                                <div id="filter-group2">
+                                    <label class="checkbox">
+                                        <input name="filter[]" type="checkbox" value="4" />
+                                        $100-$300 (6)
+                                    </label>
+                                    <label class="checkbox">
+                                        <input name="filter[]" type="checkbox" value="5" />
+                                        $301-$1000 (6)
+                                    </label>
+                                </div>
+                            </div>
+                            <a class="list-group-item">Size</a>
+                            <div class="list-group-item">
+                                <div id="filter-group3">
+                                    <label class="checkbox">
+                                        <input name="filter[]" type="checkbox" value="6" />
+                                        Lớn (3)
+                                    </label>
+                                    <label class="checkbox">
+                                        <input name="filter[]" type="checkbox" value="7" />
+                                        Vừa (3)
+                                    </label>
+                                    <label class="checkbox">
+                                        <input name="filter[]" type="checkbox" value="8" />
+                                        Bé (1)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer text-right">
+                            <button type="button" id="button-filter" class="btn btn-primary">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner">
+                    <div class="item">
+                        <a href="#"><img src="~/Public/image/banners/LeftBanner.jpg" alt="Left Banner" class="img-responsive" /></a>
+                    </div>
+                </div>
+                <h3 class="productblock-title">Nổi bật</h3>
+                <div class="row special-grid product-grid">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 product-grid-item">
+                        <div class="product-thumb transition">
+                            <div class="image product-imageblock">
+                                <a href="#"><img src="~/Public/image/product/product5.jpg" alt="women's clothing" title="women's clothing" class="img-responsive" /></a>
+                                <div class="button-group">
+                                    <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
+                                    <button type="button" class="addtocart-btn">Add to Cart</button>
+                                    <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fa fa-exchange"></i></button>
+                                </div>
+                            </div>
+                            <div class="caption product-detail">
+                                <h4 class="product-name"> <a href="product.html" title="women's clothing">Clothing</a> </h4>
+                                <p class="price product-price"> <span class="price-new">$254.00</span><span class="price-tax">Ex Tax: $210.00</span> </p>
+                            </div>
+                            <div class="button-group">
+                                <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
+                                <button type="button" class="addtocart-btn">Add to Cart</button>
+                                <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fa fa-exchange"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 product-grid-item">
+                        <div class="product-thumb transition">
+                            <div class="image product-imageblock">
+                                <a href="#"><img src="~/Public/image/product/product1.jpg" alt="women's clothing" title="women's clothing" class="img-responsive" /></a>
+                                <div class="button-group">
+                                    <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
+                                    <button type="button" class="addtocart-btn">Add to Cart</button>
+                                    <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fa fa-exchange"></i></button>
+                                </div>
+                            </div>
+                            <div class="caption product-detail">
+                                <h4 class="product-name"> <a href="product.html" title="women's clothing">Clothing</a> </h4>
+                                <p class="price product-price"> <span class="price-new">$254.00</span><span class="price-tax">Ex Tax: $210.00</span> </p>
+                            </div>
+                            <div class="button-group">
+                                <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
+                                <button type="button" class="addtocart-btn">Add to Cart</button>
+                                <button type="button" class="compare" data-toggle="tooltip" title="Compare this Product"><i class="fa fa-exchange"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer-top-cms">
+                    <div class="col-sm-7">
+                        <div class="newslatter">
+                            <form>
+                                <h5>Newsletter</h5>
+                                <div class="input-group">
+                                    <input type="text" class=" form-control" placeholder="Email Here......">
+                                    <button type="submit" value="Sign up" class="btn btn-large btn-primary">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="footer-social">
+                            <h5>Social</h5>
+                            <ul>
+                                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li class="gplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 footer-block">
+                    <h5 class="footer-title">Information</h5>
+                    <ul class="list-unstyled ul-wrapper">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href=""\CheckOut\Index"">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 footer-block">
+                    <h5 class="footer-title">Customer Service</h5>
+                    <ul class="list-unstyled ul-wrapper">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Site Map</a></li>
+                        <li><a href="#">Wish List</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 footer-block">
+                    <h5 class="footer-title">Extras</h5>
+                    <ul class="list-unstyled ul-wrapper">
+                        <li><a href="#">Brands</a></li>
+                        <li><a href="gift.html">Gift Vouchers</a></li>
+                        <li><a href="affiliate.html">Affiliates</a></li>
+                        <li><a href="#">Specials</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 footer-block">
+                    <div class="content_footercms_right">
+                        <div class="footer-contact">
+                            <h5 class="contact-title footer-title">Contact Us</h5>
+                            <ul class="ul-wrapper">
+                                <li>
+                                    <i class="fa fa-map-marker"></i><span class="location2">
+                                        236 Hoàng Quốc Việt<br>
+                                        Cổ Nhuế 1, Bắc Từ Liêm<br>
+                                        Hà Nội
+                                    </span>
+                                </li>
+                                <li><i class="fa fa-envelope"></i><span class="mail2"><a href="#">hacongquoclun@gmail.com</a></span></li>
+                                <li><i class="fa fa-mobile"></i><span class="phone2">0358.775.132</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="scrollup">Scroll</a>
+    </footer>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="copyright">Bản quyền thuộc về<a class="yourstore" href="https://www.facebook.com/baothuong2504"> Quốc Bảo &copy; 2023 </a> </div>
+            <div class="footer-bottom-cms">
+                <div class="footer-payment">
+                    <ul>
+                        <li class="mastero">
+                            <a href="#"><img alt="" src="~/Public/image/payment/mastero.jpg"></a>
+                        </li>
+                        <li class="visa">
+                            <a href="#"><img alt="" src="~/Public/image/payment/visa.jpg"></a>
+                        </li>
+                        <li class="currus">
+                            <a href="#"><img alt="" src="~/Public/image/payment/currus.jpg"></a>
+                        </li>
+                        <li class="discover">
+                            <a href="#"><img alt="" src="~/Public/image/payment/discover.jpg"></a>
+                        </li>
+                        <li class="bank">
+                            <a href="#"><img alt="" src="~/Public/image/payment/bank.jpg"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
