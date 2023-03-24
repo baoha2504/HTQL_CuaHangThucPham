@@ -167,10 +167,10 @@
             <div class="navbar-collapse">
                 <ul class="main-navigation">
                     <li><a href="/Home/Index" class="parent">Trang chủ</a> </li>
-                    <li><a href="/Categories/Index" class="parent">Thực phẩm</a> </li>
-                    <li><a href="/Categories/Index" class="parent">Rau củ</a> </li>
-                    <li><a href="/Categories/Index" class="parent">Gia vị</a> </li>
-                    <li><a href="/Categories/Index" class="parent">Đồ uống</a> </li>
+                    <li><a href="/Categories/Index?CategoriesID=1" class="parent">Thực phẩm</a> </li>
+                    <li><a href="/Categories/Index?CategoriesID=2" class="parent">Rau củ</a> </li>
+                    <li><a href="/Categories/Index?CategoriesID=5" class="parent">Gia vị</a> </li>
+                    <li><a href="/Categories/Index?CategoriesID=7" class="parent">Đồ uống</a> </li>
                     <li><a href="/Blog/Index" class="parent">Bài viết</a></li>
                     <li><a href="/Home/About">Giới thiệu</a></li>
                     <li><a href="/Home/Contact">Liên hệ</a> </li>
@@ -184,9 +184,6 @@
             <li><a href="blog.html">Bài viết</a></li>
         </ul>
         <div class="row">
-
-            @RenderBody()
-
             <div id="column-right" class="col-sm-3 hidden-xs column-left">
                 <div class="column-block">
                     <div class="columnblock-title">Danh mục</div>
@@ -208,10 +205,9 @@
     #">Gallery Post Format</a> <a class="list-group-item" href="#">Standard Post Format</a> <a class="list-group-item last" href="#">Image Post Format</a>
                     </div>
                 </div>
-
                 <!-- end blog-sidebar -->
-
             </div>
+            @RenderBody()
         </div>
     </div>
     <footer>

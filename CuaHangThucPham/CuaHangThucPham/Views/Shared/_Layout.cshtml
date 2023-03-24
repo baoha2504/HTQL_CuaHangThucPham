@@ -36,7 +36,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="top-left pull-left">
+                        @*<div class="top-left pull-left">
                             <div class="language">
                                 <form action="#" method="post" enctype="multipart/form-data" id="language">
                                     <div class="btn-group">
@@ -52,47 +52,48 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="currency">
-                                <form action="#" method="post" enctype="multipart/form-data" id="currency">
-                                    <div class="btn-group">
-                                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"> <strong>$</strong> <i class="fa fa-caret-down"></i> </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€ Euro</button>
-                                            </li>
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£ Pound Sterling</button>
-                                            </li>
-                                            <li>
-                                                <button class="currency-select btn btn-link btn-block" type="button" name="USD">$ US Dollar</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        </div>*@
                         <div class="top-right pull-right">
                             <div id="top-links" class="nav pull-right">
                                 <ul class="list-inline">
-                                    <li class="dropdown">
-                                        <a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="fa fa-user"></i>
-                                            <span>Đăng ký</span> <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="\Account\Login">Login</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" id="wishlist-total" title="Wish List (0)">
-                                            <i class="fa fa-lock"></i>
-                                            <span>Đăng nhập</span><span></span>
-                                        </a>
-                                    </li>
+                                    @if (Session["name"] == null)
+                                    {
+                                        <li class="dropdown">
+                                            <a href="\Account\Register" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="fa fa-user"></i>
+                                                <span>Đăng ký</span> <span class="caret"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="\Account\Login" id="wishlist-total" title="Wish List (0)">
+                                                <i class="fa fa-lock"></i>
+                                                <span>Đăng nhập</span><span></span>
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a id="wishlist-total" title="Wish List (0)">
+                                                <i class="fa fa-user"></i>
+                                                <span>Xin chào </span><span><strong>@Session["name"]</strong></span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="\Account\Register" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="fa fa-lock"></i>
+                                                <span>Tài khoản</span> <span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="\Account\Register">Thông tin tài khoản</a></li>
+                                                <li><a href="">Đơn mua</a></li>
+                                                <li><a href="\Account\Logout">Đăng xuất</a></li>
+                                            </ul>
+                                        </li>
+                                    }
                                 </ul>
                                 <div class="search-box">
-                                    <input class="input-text" placeholder="search.." type="text">
+                                    <input class="input-text" placeholder="Tìm kiếm" type="text">
                                     <button class="search-btn"><i class="fa fa-search"></i></button>
                                 </div>
 
@@ -182,10 +183,10 @@
             <div class="navbar-collapse">
                 <ul class="main-navigation">
                     <li><a href="/Home/Index" class="parent">Trang chủ</a> </li>
-                    <li><a href="/Categories/Index" class="parent">Thực phẩm</a> </li>
-                    <li><a href="/Categories/Index" class="parent">Rau củ</a> </li>
-                    <li><a href="/Categories/Index" class="parent">Gia vị</a> </li>
-                    <li><a href="/Categories/Index" class="parent">Đồ uống</a> </li>
+                    <li><a href="/Categories/Index?CategoriesID=1" class="parent">Thực phẩm</a> </li>
+                    <li><a href="/Categories/Index?CategoriesID=2" class="parent">Rau củ</a> </li>
+                    <li><a href="/Categories/Index?CategoriesID=5" class="parent">Gia vị</a> </li>
+                    <li><a href="/Categories/Index?CategoriesID=7" class="parent">Đồ uống</a> </li>
                     <li><a href="/Blog/Index" class="parent">Bài viết</a></li>
                     <li><a href="/Home/About">Giới thiệu</a></li>
                     <li><a href="/Home/Contact">Liên hệ</a> </li>

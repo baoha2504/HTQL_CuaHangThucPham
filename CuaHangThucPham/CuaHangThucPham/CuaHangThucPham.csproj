@@ -149,6 +149,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Library\Mail.cs" />
+    <Compile Include="Library\Message.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\BillDetail.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -168,6 +170,7 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\Voucher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\Support.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\assets\css\bootstrap.min.css" />
@@ -4078,6 +4081,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\SubCategories\Index.cshtml" />
     <Content Include="Views\Product\DetailProduct.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\_MessageAlert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

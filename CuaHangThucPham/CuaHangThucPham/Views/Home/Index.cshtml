@@ -56,14 +56,14 @@
                                     </div>
                                 </div>
                             }
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- tab-latest-->
                 <div id="tab-special" class="tab-content">
                     <div class="box">
                         <div id="special-slidertab" class="row owl-carousel product-slider">
-                            @for (int i = 1; i < 13; i+=2)
+                            @for (int i = 1; i < 13; i += 2)
                             {
                                 <div class="item">
                                     <div class="product-thumb transition">
@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
                             }
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- tab-special-->
@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
                             }
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <h3 class="productblock-title">Top Bán Trong Tuần</h3>
@@ -148,7 +148,7 @@
                                 </div>
                             </div>
                         }
-                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -196,7 +196,7 @@
                             </div>
                         </div>
                     }
-                    </div>
+                </div>
             </div>
             <div class="blog">
                 <div class="blog-heading">
@@ -206,20 +206,20 @@
                     <ul class="list-unstyled blog-wrapper" id="latest-blog">
                         @foreach (var item in blogs)
                         {
-                        <li class="item blog-slider-item">
-                            <div class="panel-default">
-                                <div class="blog-image">
-                                    <a href="#" class="blog-imagelink"><img src="~/Public/image/blog/@item.Image" alt="#"></a> <span class="blog-hover"></span> <span class="blog-date">15/05/2023</span> <span class="blog-readmore-outer"><a href="#" class="blog-readmore">Đọc tiếp</a></span>
+                            <li class="item blog-slider-item">
+                                <div class="panel-default">
+                                    <div class="blog-image">
+                                        <a href="#" class="blog-imagelink"><img src="~/Public/image/blog/@item.Image" alt="#"></a> <span class="blog-hover"></span> <span class="blog-date">15/05/2023</span> <span class="blog-readmore-outer"><a href="#" class="blog-readmore">Đọc tiếp</a></span>
+                                    </div>
+                                    <div class="blog-content">
+                                        <a href="#" class="blog-name">
+                                            <h2>@item.Title</h2>
+                                        </a>
+                                        <div class="blog-desc">@item.Content.Substring(0, 100);...</div>
+                                        <a href="#" class="blog-readmore">Đọc tiếp</a> <span class="blog-date">@item.DateAdded</span>
+                                    </div>
                                 </div>
-                                <div class="blog-content">
-                                    <a href="#" class="blog-name">
-                                        <h2>@item.Title</h2>
-                                    </a>
-                                    <div class="blog-desc">@item.Content.Substring(0, 100);...</div>
-                                    <a href="#" class="blog-readmore">Đọc tiếp</a> <span class="blog-date">@item.DateAdded</span>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
                         }
                     </ul>
                 </div>

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_layoutLogin.cshtml";
 }
@@ -13,12 +12,18 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Chào Mừng Bạn Trở Lại!</h1>
                     </div>
-                    <form class="user">
+                    <form class="user" action="CheckLogin" method="post" enctype="multipart/form-data">
+                        @if (TempData["Error"] != null) //kiểm tra thông báo để hiển thị
+                        {
+                            <div id="alert" class="alert alert-danger">
+                                <i class="fa fa-exclamation-circle"></i>Thất bại : @TempData["Error"]
+                            </div>
+                        }
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+                            <input type="text" name="email" value="" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                            <input type="password" name="pass" value="" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-checkbox small">
@@ -28,9 +33,7 @@
                                 </label>
                             </div>
                         </div>
-                        <a href="\Home\Index" class="btn btn-primary btn-user btn-block">
-                            Đăng nhập
-                        </a>
+                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Đăng nhập" />
                         <hr>
                         <a href="#" class="btn btn-google btn-user btn-block">
                             <i class="fab fa-google fa-fw"></i> Đăng nhập với Google
@@ -41,13 +44,25 @@
                     </form>
                     <hr>
                     <div class="text-center">
-                        <a class="small" href="\Account\ForgetPassword">Quên mật khẩu?</a>
+                        <a class="small" href="/Account/ForgetPassword">Quên mật khẩu?</a>
                     </div>
                     <div class="text-center">
-                        <a class="small" href="\Account\Register">Tạo tài khoản mới</a>
+                        <a class="small" href="/Account/Register">Tạo tài khoản mới</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+        function remove() {
+            var alert = document.getElementById("alert");
+            alert.remove();
+        }
+        window.onload = function () {
+            document.onclick = function () {
+                remove();
+            };
+        }
+</script>
