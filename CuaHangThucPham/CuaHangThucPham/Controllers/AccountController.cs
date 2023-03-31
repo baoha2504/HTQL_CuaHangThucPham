@@ -2,6 +2,7 @@
 using CuaHangThucPham.Models;
 using System;
 using System.Linq;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace CuaHangThucPham.Controllers
@@ -30,7 +31,6 @@ namespace CuaHangThucPham.Controllers
                 Session["name"] = customers[0].FirstName + " " + customers[0].LastName;
                 Session["email"] = email;
                 Session["pass"] = pass;
-                Console.Write(Session["name"]);
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -43,7 +43,11 @@ namespace CuaHangThucPham.Controllers
 
         public ActionResult Logout()
         {
-            return RedirectToAction("Login", "Account");
+            Session["id"] = null;
+            Session["name"] = null;
+            Session["email"] = null;
+            Session["pass"] = null;
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Register()

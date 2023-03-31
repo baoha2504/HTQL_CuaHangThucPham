@@ -1,0 +1,252 @@
+﻿@using CuaHangThucPham.Models;
+@{
+    ViewBag.Title = "OrderImformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listOrderDetail = (List<CuaHangThucPham.Models.OrderDetail>)ViewBag.OrderDetail;
+    var listOrderStatus = (List<CuaHangThucPham.Models.OrderStatusHistory>)ViewBag.OrderStatus;
+    var sum = (int)ViewBag.sum;
+}
+<div class="main-container container">
+
+    <div class="row">
+        <!--Left Part Start -->
+        <!--Left Part End -->
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-10 col-sm-offset-1">
+            <h1 class="title" style="padding-top: 20px">Thông Tin Đơn Hàng</h1>
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td colspan="2" class="text-left">Đơn Hàng</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 50%;" class="text-left">
+                            <b>Mã Đơn Hàng:</b> #@listOrderDetail[0].OrderID
+                            <br>
+                            <b>Ngày Tạo   :</b> @String.Format("{0:d/M/yyyy HH:mm:ss}", listOrderDetail[0].Order.DateAdd)
+                        </td>
+                        <td style="width: 50%;" class="text-left">
+                            <b>Phương Thức Thanh Toán:</b> @listOrderDetail[0].Order.Payment.PaymentName
+                            <br>
+                            <b>Phương Thức Vận Chuyển:</b> @listOrderDetail[0].Order.Shipping.ShippingName
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td style="width: 50%; vertical-align: top;" class="text-left">Họ Tên Người Nhận</td>
+                        <td style="width: 50%; vertical-align: top;" class="text-left">Địa Chỉ Nhận Hàng</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-left">
+                            @listOrderDetail[0].Order.Customer.FirstName @listOrderDetail[0].Order.Customer.LastName
+                            <br>@listOrderDetail[0].Order.Customer.Phone
+                        </td>
+                        <td class="text-left">
+                            @listOrderDetail[0].Order.Customer.Address1
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td class="text-center">Ảnh </td>
+                            <td class="text-left">Tên Sản Phẩm</td>
+                            <td class="text-left">Nhãn Hiệu</td>
+                            <td class="text-left">Model</td>
+                            <td class="text-left">Số Lượng</td>
+                            <td class="text-right">Giá Tiền</td>
+                            <td class="text-right">Tổng Tiền</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in listOrderDetail)
+                        {
+                            <tr>
+                                <td class="text-center"><a href="/Product/DetailProduct/@item.ProductID"><img style="width:70px" src="~/Public/image/product/@item.Product.Image" alt="@item.Product.ProductName" title="@item.Product.ProductName" class="img-thumbnail" /></a></td>
+                                <td class="text-left">
+                                    <a href="/Product/DetailProduct/@item.ProductID">@item.Product.ProductName</a><br />
+                                </td>
+                                <td class="text-left">@item.Product.Brand</td>
+                                <td class="text-left">@item.Product.Model</td>
+                                <td class="text-left" width="200px">
+                                    @item.Quantity
+                                </td>
+                                @{int price = (int)(@item.Price);
+
+                                }
+                                <td class="text-right">@price.ToString("N0")</td>
+                                @{int total = (int)(@item.Price) * (int)(@item.Quantity);
+
+                                }
+                                <td class="text-right">@total.ToString("N0")</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+
+                        @{int sub_total = sum + (int)@listOrderDetail[0].Order.Discount + (int)@listOrderDetail[0].Order.ShippingFee;
+                        }
+                        <tr>
+                            <td colspan="5"></td>
+                            <td class="text-right">
+                                <b>Tổng sản phẩm</b>
+                            </td>
+                            <td class="text-right">@ViewBag.sum.ToString("N0")</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td class="text-right">
+                                <b>Phí vận chuyển</b>
+                            </td>
+                            <td class="text-right">@listOrderDetail[0].Order.ShippingFee</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td class="text-right">
+                                <b>Giảm giá</b>
+                            </td>
+                            <td class="text-right">-@listOrderDetail[0].Order.Discount</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                            <td class="text-right">
+                                <b>Tổng Cộng</b>
+                            </td>
+                            <td class="text-right">@sub_total.ToString("N0")</td>
+
+                        </tr>
+
+                    </tfoot>
+                </table>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-pencil"></i> Lưu ý về đơn hàng cho người bán</h4>
+                </div>
+                <div class="panel-body">
+                    <textarea rows="4" class="form-control" id="confirm_comment" name="comments" readonly>@listOrderDetail[0].Order.Note</textarea>
+                </div>
+            </div>
+            <h3>Lịch Sử Trạng Thái</h3>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td class="text-left">Ngày</td>
+                        <td class="text-left">Trạng Thái</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in listOrderStatus)
+                    {
+                        <tr>
+                            <td class="text-left">@item.DateAdd</td>
+                            <td class="text-left">@item.OrderStatusName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @if (@listOrderStatus[0].OrderStatusName == "Đang Chờ Xác Nhận")
+            {
+                <div id="cancel" class="buttons clearfix">
+                    <div class="col-sm-offset-3 col-sm-7">
+                        <a class="btn btn-primary" href="/Order/Index">Quay lại trang trước</a>
+                        <a class="btn btn-danger" data-toggle="modal" data-target="#myModal_cancel"> Hủy Đơn Hàng</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="buttons">
+                    <div class="col-sm-offset-5 col-sm-10">
+                        <a class="btn btn-primary" data-toggle="modal" href="/Order/Index">Quay lại trang trước</a>
+                    </div>
+                </div>
+            }
+        </div>
+        <!--Middle Part End-->
+
+    </div>
+</div>
+
+<div class="container">
+    <!-- Button to Open the Modal -->
+    <div class="modal fade" id="myModal_cancel">
+        <div class="modal-dialog">
+            <div class="modal-content panel panel-default no-padding">
+
+                <div class="checkout-shipping-methods">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="panel-title"><i class="fa fa-truck"></i> Chọn Lý Do Hủy Đơn</h4>
+                    </div>
+                    <div class="panel-body ">
+                        <div class="alert alert-warning">
+                            <i class="fa fa-warning"></i> Vui lòng chọn lý do hủy đơn hàng. Lưu ý: Yêu cầu hủy đơn hàng chỉ
+                            được chấp nhận khi đang chờ xác nhận, không thế hủy khi đang giao hàng
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" checked="checked" id="cancel" value="1" name="Cancel">
+                                Muốn thay đổi địa chỉ giao hàng
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="cancel" name="Cancel" value="2">
+                                Người bán không trả lời thắc mắc hay yêu cầu của tôi
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="cancel" name="Cancel" value="3">
+                                Đổi ý không muốn mua nữa
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="cancel" name="Cancel" value="4">
+                                Lý do Khác
+                            </label>
+                        </div>
+                        <div class="col-sm-offset-5">
+                            <button class="btn btn-success"
+                                    onclick="cancelClick();">
+                                Xác Nhận
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function cancelClick() {
+
+    $.ajax({
+                url: '/Order/Cancel/',
+             dataType: 'json',
+             data: { id: '@listOrderDetail[0].Order.OrderID'},
+                type: 'POST',
+                success: function (response) {
+                    window.location.href = '@Url.Content("~/Order/OrderHistory")';
+                }
+            });
+    }
+</script>

@@ -21,6 +21,7 @@
     @Scripts.Render("~/Public/javascript/common.js")
     @Scripts.Render("~/Public/javascript/global.js")
     @Scripts.Render("~/Public/owl-carousel/owl.carousel.min.js")
+    @Scripts.Render("~/Public/addtocart.js")
     <style>
         #gmap_canvas img {
             max-width: none !important;
@@ -61,7 +62,7 @@
                                         <li class="dropdown">
                                             <a href="\Account\Register" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
                                                 <i class="fa fa-user"></i>
-                                                <span>Đăng ký</span> <span class="caret"></span>
+                                                <span>Đăng ký</span> <span></span>
                                             </a>
                                         </li>
                                         <li>
@@ -86,7 +87,7 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-right">
                                                 <li><a href="\Account\Register">Thông tin tài khoản</a></li>
-                                                <li><a href="">Đơn mua</a></li>
+                                                <li><a href="\Order\Index">Đơn mua</a></li>
                                                 <li><a href="\Account\Logout">Đăng xuất</a></li>
                                             </ul>
                                         </li>
@@ -164,7 +165,14 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <p class="text-right"> <span class="btn-viewcart"><a href="\Cart\Index"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span class="btn-checkout"><a href="" \CheckOut\Index""><strong><i class="fa fa-share"></i> Checkout</strong></a></span>                                        </p>
+                                    <p class="text-right"> 
+                                        <span class="btn-viewcart">
+                                            <a href="\Cart\Index"><strong><i class="fa fa-shopping-cart"></i>  Giỏ Hàng</strong></a>
+                                        </span> 
+                                        <span class="btn-checkout">
+                                            <a href="\CheckOut\Index"><strong><i class="fa fa-share"></i>  Thanh Toán</strong></a>
+                                        </span>
+                                    </p>
                                 </div>
                             </li>
                         </ul>

@@ -1,0 +1,179 @@
+﻿@using CuaHangThucPham.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutLeft2.cshtml";
+    var dangchoxacnhan = (List<CuaHangThucPham.Models.Order>)ViewBag.dangchoxacnhan;
+    var danggiaohang = (List<CuaHangThucPham.Models.Order>)ViewBag.danggiaohang;
+    var dagiaohang = (List<CuaHangThucPham.Models.Order>)ViewBag.dagiaohang;
+    var dahuy = (List<CuaHangThucPham.Models.Order>)ViewBag.dahuy;
+}
+
+<div class="main-container container">
+    <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-9 ">
+            <h2 class="title">Lịch Sử Mua Hàng</h2>
+            <ul class="nav nav-tabs" style="padding-bottom:15px">
+                <li class="active">
+                    <a data-toggle="tab" href="#tab-1"> Chờ Xác Nhận </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab-2"> Đang Giao </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab-3"> Đã Giao </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab-4"> Đã Hủy </a>
+                </li>
+            </ul>
+            <div class="tab-content" style="min-height:300px">
+                <div class="tab-pane active" id="tab-1">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+
+                                    <td class="text-center"><strong>Mã Đơn Hàng</strong></td>
+                                    <td class="text-center"><strong>Trạng Thái</strong></td>
+                                    <td class="text-center"><strong>Ngày Đặt</strong></td>
+                                    <td class="text-right"><strong>Tổng Tiền</strong></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            @foreach (var item in dangchoxacnhan)
+                            {
+
+                                <tbody>
+                                    <tr>
+
+                                        <td class="text-center"> @item.OrderID</td>
+                                        <td class="text-center">Chờ Xác Nhận</td>
+                                        <td class="text-center"> @String.Format("{0:d/M/yyyy HH:mm:ss}", item.DateAdd)</td>
+                                        @{int total = (int)(item.Total);
+
+                                        }
+                                        <td class="text-right"> @total.ToString("N0")</td>
+                                        <td class="text-center">
+                                            <a class="btn btn-info" title="" data-toggle="tooltip" href="/Order/OrderInformation?orderid=@item.OrderID" data-original-title="View"><i class="fa fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-2">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+
+                                    <td class="text-center"><strong>Mã Đơn Hàng</strong></td>
+                                    <td class="text-center"><strong>Trạng Thái</strong></td>
+                                    <td class="text-center"><strong>Ngày Đặt</strong></td>
+                                    <td class="text-right"><strong>Tổng Tiền</strong></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            @foreach (var item in danggiaohang)
+                            {
+
+                            <tbody>
+                                <tr>
+
+                                    <td class="text-center"> @item.OrderID</td>
+                                    <td class="text-center">Đang Giao Hàng</td>
+                                    <td class="text-center"> @String.Format("{0:d/M/yyyy HH:mm:ss}", item.DateAdd)</td>
+                                    @{int total = (int)( item.Total);
+
+                                    }
+                                    <td class="text-right"> @total.ToString("N0")</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-info" title="" data-toggle="tooltip" href="/Order/OrderInformation?orderid=@item.OrderID" data-original-title="View"><i class="fa fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-3">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+
+                                    <td class="text-center"><strong>Mã Đơn Hàng</strong></td>
+                                    <td class="text-center"><strong>Trạng Thái</strong></td>
+                                    <td class="text-center"><strong>Ngày Đặt</strong></td>
+                                    <td class="text-right"><strong>Tổng Tiền</strong></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            @foreach (var item in dagiaohang)
+                            {
+
+                            <tbody>
+                                <tr>
+
+                                    <td class="text-center"> @item.OrderID</td>
+                                    <td class="text-center">Đã Giao Hàng</td>
+                                    <td class="text-center"> @String.Format("{0:d/M/yyyy HH:mm:ss}", item.DateAdd)</td>
+                                    @{int total = (int)( item.Total);
+
+                                    }
+                                    <td class="text-right"> @total.ToString("N0")</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-info" title="" data-toggle="tooltip" href="/Order/OrderInformation?orderid=@item.OrderID" data-original-title="View"><i class="fa fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-4">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+
+                                    <td class="text-center"><strong>Mã Đơn Hàng</strong></td>
+                                    <td class="text-center"><strong>Trạng Thái</strong></td>
+                                    <td class="text-center"><strong>Ngày Đặt</strong></td>
+                                    <td class="text-right"><strong>Tổng Tiền</strong></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            @foreach (var item in dahuy)
+                            {
+
+                            <tbody>
+                                <tr>
+
+                                    <td class="text-center"> @item.OrderID</td>
+                                    <td class="text-center">Đã Hủy</td>
+                                    <td class="text-center"> @String.Format("{0:d/M/yyyy HH:mm:ss}", item.DateAdd)</td>
+                                    @{int total = (int)( item.Total);
+
+                                    }
+                                    <td class="text-right"> @total.ToString("N0")</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-info" title="" data-toggle="tooltip" href="/Order/OrderInformation?orderid= item.OrderID" data-original-title="View"><i class="fa fa-eye"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

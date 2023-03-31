@@ -155,10 +155,12 @@
     <Compile Include="Models\BillDetail.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Cart_item.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\GroceryStoreDbContext.cs" />
     <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\OrderStatusHistory.cs" />
@@ -3585,6 +3587,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Public\addtocart.js" />
     <Content Include="Public\bootstrap\css\bootstrap.min.css" />
     <Content Include="Public\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Public\bootstrap\js\bootstrap.min.js" />
@@ -4083,6 +4086,8 @@
     <Content Include="Views\Product\DetailProduct.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\_MessageAlert.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\OrderInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4094,7 +4099,6 @@
     <Folder Include="Areas\Admin\Views\ProductAdmin\" />
     <Folder Include="Areas\Admin\Views\StaffAdmin\" />
     <Folder Include="Areas\Admin\Views\VoucherAdmin\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
