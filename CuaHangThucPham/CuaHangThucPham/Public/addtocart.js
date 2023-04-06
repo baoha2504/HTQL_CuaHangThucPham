@@ -13,11 +13,9 @@
         add: function (product_id, quantity, name, image) {
             addProduct(product_id, quantity);
             addProductNotice('Sản phẩm đã thêm vào giỏ hàng', "<img src='/Public/image/product/" + image + "' alt=''>", '<h3><a href="#">' + name + '</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
-            
-            
         },
         remove: function (product_id) {
-            removeProduct(product_id);
+           removeProduct(product_id);
             removeProductNotice('Sản phẩm đã xóa khỏi giỏ hàng', "", '<h3><a href="#">Product</a> remove <a href="#">shopping cart</a>!</h3>', 'success');
         }
 	}
@@ -34,7 +32,7 @@
 		//$.jGrowl.defaults.sticky = true;
 		var tpl = thumb + "<h3>"+text+"</h3>";
 		$.jGrowl(tpl, {		
-			life: 4000,
+			life: 2000,
 			header: title,
 			speed: 'slow',
 			theme: type
@@ -46,7 +44,7 @@
         //$.jGrowl.defaults.sticky = true;
         var tpl = thumb + "<h3>" + text + "</h3>";
         $.jGrowl(tpl, {
-            life: 4000,
+            life: 2000,
             header: title,
             speed: 'slow',
             theme: type
@@ -62,7 +60,6 @@
                 product: {
                     ProductID: product_id
                 }
-                
             }
         ];
         $.ajax({
@@ -117,6 +114,39 @@
                 }
             });
     }   
-       
-	
 
+
+function UpdateCart(product_id) {
+    var input_text = document.getElementById('quan_' + product_id);
+    var value = input_text.value;
+    $.ajax({
+        url: '/Cart/Update/',
+        dataType: 'json',
+        data: { id: product_id, quantity: value },
+        type: 'POST',
+        success: function (response) {
+            if (response.status == true) {
+                //window.location.reload();
+                //document.getElementById("tr_" + response.productid).remove();
+                document.getElementById("cartnum").innerHTML = response.Count + ' sản phẩm';
+                document.getElementById("subtotal").innerHTML = response.subtotal.toString("N0");
+                document.getElementById('quantity_' + response.productid).innerHTML = response.quantity;
+                document.getElementById("tempprice").innerText = response.tempprice.toString("N0");
+                document.getElementById("subtotol").innerText = response.subtotal.toString("N0");
+            }
+        }
+    });
+};
+
+function updateProductNotice(title, thumb, text, type) {
+    $.jGrowl.defaults.closer = false;
+    //Stop jGrowl
+    //$.jGrowl.defaults.sticky = true;
+    var tpl = thumb + "<h3>" + text + "</h3>";
+    $.jGrowl(tpl, {
+        life: 2000,
+        header: title,
+        speed: 'slow',
+        theme: type
+    });
+}

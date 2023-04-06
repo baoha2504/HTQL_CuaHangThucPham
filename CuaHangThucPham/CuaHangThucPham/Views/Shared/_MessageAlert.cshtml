@@ -1,4 +1,4 @@
-﻿@*@{
+﻿@{
 
     Layout = null;
 }
@@ -7,7 +7,7 @@
 {
     MessageModel ms = Message.get_flash();
     <div class="alertContainer position-fixed col-sm-12" style="z-index:10000; left:0; bottom:0;">
-        <div class="alert1 ">
+        <div class="alert1">
             <div class="icon @ms.msg_css col-sm-2">
                 <i class="fa fa-check-circle"></i>
             </div>
@@ -20,7 +20,7 @@
         </div>
     </div>
 }
- custom alert ajax
+<!-- custom alert ajax-->
 <div id="custom-alert-ajax" class="alertContainer position-fixed col-sm-12" style="z-index:10000; left:0; bottom:0; display:none;">
     <div class="alert1 col-sm-2">
         <div id="alert-class" class="icon">
@@ -39,7 +39,7 @@
     //$("#messageAlert").hide();
     setTimeout(function () {
         $(".alertContainer").fadeOut("slow");
-    }, 5000);
+    }, 2000);
 </script>
 <style>
     .success {
@@ -85,4 +85,4 @@
         height: 100%;
         padding-right: 20px;
     }
-</style>*@
+</style>

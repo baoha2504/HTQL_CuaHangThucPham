@@ -3,6 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var products = (List<CuaHangThucPham.Models.Product>)ViewBag.Products;
     var blogs = (List<CuaHangThucPham.Models.Blog>)ViewBag.Blogs;
+    var carts = (List<CuaHangThucPham.Models.Cart>)ViewBag.Carts;
 }
 <div class="mainbanner">
     <div id="main-banner" class="owl-carousel home-slider">
@@ -36,7 +37,7 @@
                                 <div class="item">
                                     <div class="product-thumb transition">
                                         <div class="image product-imageblock">
-                                            <a href="product.html"><img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                            <a href="\Product\DetailProduct?id=@products[i].ProductID"><img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                             <div class="button-group">
                                                 <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
                                                 <button type="button" class="addtocart-btn" onclick="cart.add('@products[i].ProductID', '1' ,'@products[i].ProductName','@products[i].Image')";>Thêm vào giỏ</button>
@@ -44,8 +45,8 @@
                                             </div>
                                         </div>
                                         <div class="caption product-detail">
-                                            <h4 class="product-name"><a href="#" title="lorem ippsum dolor dummy">@products[i].ProductName</a></h4>
-                                            <p class="price product-price">@products[i].PriceOld đ<span class="price-tax">Ex Tax: @products[i].PriceNew đ</span></p>
+                                            <h4 class="product-name"><a href="\Product\DetailProduct?id=@products[i].ProductID" title="lorem ippsum dolor dummy">@products[i].ProductName</a></h4>
+                                            <p class="price product-price">@string.Format("{0:#,##0}", products[i].PriceOld) đ<span class="price-tax">Ex Tax: @string.Format("{0:#,##0}", products[i].PriceNew) đ</span></p>
                                             <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>                                                </div>
                                         </div>
                                         <div class="button-group">
@@ -68,7 +69,7 @@
                                 <div class="item">
                                     <div class="product-thumb transition">
                                         <div class="image product-imageblock">
-                                            <a href="product.html"> <img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                            <a href="\Product\DetailProduct?id=@products[i].ProductID"> <img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                             <div class="button-group">
                                                 <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
                                                 <button type="button" class="addtocart-btn" onclick="cart.add('@products[i].ProductID', '1' ,'@products[i].ProductName','@products[i].Image')";>Thêm vào giỏ</button>
@@ -76,8 +77,8 @@
                                             </div>
                                         </div>
                                         <div class="caption product-detail">
-                                            <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">@products[i].ProductName đ</a></h4>
-                                            <p class="price product-price"> <span class="price-new">@products[i].PriceNew đ</span> <span class="price-old">@products[i].PriceOld đ</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                            <h4 class="product-name"><a href="\Product\DetailProduct?id=@products[i].ProductID" title="lorem ippsum dolor dummy">@products[i].ProductName đ</a></h4>
+                                            <p class="price product-price"> <span class="price-new">@string.Format("{0:#,##0}", products[i].PriceNew) đ</span> <span class="price-old">@string.Format("{0:#,##0}", products[i].PriceOld) đ</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                         </div>
                                         <div class="button-group">
                                             <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
@@ -99,7 +100,7 @@
                                 <div class="item">
                                     <div class="product-thumb transition">
                                         <div class="image product-imageblock">
-                                            <a href="#"> <img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                            <a href="\Product\DetailProduct?id=@products[i].ProductID"> <img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                             <div class="button-group">
                                                 <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
                                                 <button type="button" class="addtocart-btn" onclick="cart.add('@products[i].ProductID', '1' ,'@products[i].ProductName','@products[i].Image')";>Thêm vào giỏ</button>
@@ -107,8 +108,8 @@
                                             </div>
                                         </div>
                                         <div class="caption product-detail">
-                                            <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">@products[i].ProductName</a></h4>
-                                            <p class="price product-price"> <span class="price-new">@products[i].PriceNew đ</span> <span class="price-old">@products[i].PriceOld đ</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                            <h4 class="product-name"><a href="\Product\DetailProduct?id=@products[i].ProductID" title="lorem ippsum dolor dummy">@products[i].ProductName</a></h4>
+                                            <p class="price product-price"> <span class="price-new">@string.Format("{0:#,##0}", products[i].PriceNew) đ</span> <span class="price-old">@string.Format("{0:#,##0}", products[i].PriceOld) đ</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                         </div>
                                         <div class="button-group">
                                             <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
@@ -129,7 +130,7 @@
                             <div class="item product-slider-item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock">
-                                        <a href="product.html"> <img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                        <a href="\Product\DetailProduct?id=@products[i].ProductID"> <img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                         <div class="button-group">
                                             <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
                                             <button type="button" class="addtocart-btn" onclick="cart.add('@products[i].ProductID', '1' ,'@products[i].ProductName','@products[i].Image')";>Thêm vào giỏ</button>
@@ -137,8 +138,8 @@
                                         </div>
                                     </div>
                                     <div class="caption product-detail">
-                                        <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">@products[i].ProductName</a></h4>
-                                        <p class="price product-price"> <span class="price-new">@products[i].PriceNew đ</span> <span class="price-old">@products[i].PriceOld đ</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                        <h4 class="product-name"><a href="\Product\DetailProduct?id=@products[i].ProductID" title="lorem ippsum dolor dummy">@products[i].ProductName</a></h4>
+                                        <p class="price product-price"> <span class="price-new">@string.Format("{0:#,##0}", products[i].PriceNew) đ</span> <span class="price-old">@string.Format("{0:#,##0}", products[i].PriceOld) đ</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                     </div>
                                     <div class="button-group">
                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
@@ -177,7 +178,7 @@
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock">
-                                    <a href="product.html"> <img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
+                                    <a href="\Product\DetailProduct?id=@products[i].ProductID"> <img src="~/Public/image/product/@products[i].Image" alt="lorem ippsum dolor dummy" title="lorem ippsum dolor dummy" class="img-responsive" /> </a>
                                     <div class="button-group">
                                         <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>
                                         <button type="button" class="addtocart-btn" onclick="cart.add('@products[i].ProductID', '1' ,'@products[i].ProductName','@products[i].Image')";>Thêm vào giỏ</button>
@@ -185,8 +186,8 @@
                                     </div>
                                 </div>
                                 <div class="caption product-detail">
-                                    <h4 class="product-name"><a href="product.html" title="lorem ippsum dolor dummy">@products[i].ProductName</a></h4>
-                                    <p class="price product-price"> <span class="price-new">@products[i].PriceNew đ</span> <span class="price-old">@products[i].PriceOld đ</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
+                                    <h4 class="product-name"><a href="\Product\DetailProduct?id=@products[i].ProductID" title="lorem ippsum dolor dummy">@products[i].ProductName</a></h4>
+                                    <p class="price product-price"> <span class="price-new">@string.Format("{0:#,##0}", products[i].PriceNew) đ</span> <span class="price-old">@string.Format("{0:#,##0}", products[i].PriceOld) đ</span> <span class="price-tax">Ex Tax: $210.00</span> </p>
                                 </div>
                                 <div class="button-group">
                                     <button type="button" class="wishlist" data-toggle="tooltip" title="Add to Wish List"><i class="fa fa-heart-o"></i></button>

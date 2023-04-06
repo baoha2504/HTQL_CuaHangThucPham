@@ -69,9 +69,9 @@
             </div>
             <ul class="list-unstyled productinfo-details-top">
                 <li>
-                    <h2 class="productpage-price">@product[0].PriceOld đ</h2>
+                    <h2 class="productpage-price">@string.Format("{0:#,##0}", product[0].PriceOld) đ</h2>
                 </li>
-                <li><span class="productinfo-tax">Giá cũ: @product[0].PriceNew đ</span></li>
+                <li><span class="productinfo-tax">Giá cũ: @string.Format("{0:#,##0}", product[0].PriceNew) đ</span></li>
             </ul>
             <hr>
             <ul class="list-unstyled product_info">

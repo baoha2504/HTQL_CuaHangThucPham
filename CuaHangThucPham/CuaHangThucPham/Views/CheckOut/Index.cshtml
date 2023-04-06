@@ -1,8 +1,12 @@
-﻿
+﻿@using CuaHangThucPham.Models;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutLeft1.cshtml";
+    var customers = (List<CuaHangThucPham.Models.Customer>)ViewBag.customers;
+    var carts = (List<CuaHangThucPham.Models.Cart>)ViewBag.carts;
+    int sum = 0;
 }
+
 <div class="container">
     <div class="row">
         <div class="col-sm-9" id="content">
@@ -18,21 +22,21 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="input-email" class="control-label">Họ</label>
-                                        <input type="text" class="form-control" id="" placeholder="Họ..." value="" name="ho" readonly>
+                                        <input type="text" class="form-control" id="" placeholder="Họ..." value="@customers[0].FirstName" name="ho" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="input-password" class="control-label">Tên</label>
-                                        <input type="text" class="form-control" id="" placeholder="Tên..." value="" name="ten" readonly>
+                                        <input type="text" class="form-control" id="" placeholder="Tên..." value="@customers[0].LastName" name="ten" readonly>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="input-email" class="control-label">Email</label>
-                                        <input type="text" class="form-control" id="" placeholder="Email..." value="" name="email" readonly>
+                                        <label for="input-email" class="control-label">Địa chỉ</label>
+                                        <input type="text" class="form-control" id="" placeholder="Email..." value="@customers[0].Address1" name="diachi" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="input-password" class="control-label">Số điện thoại</label>
-                                        <input type="text" class="form-control" id="" placeholder="Số điện thoại..." value="" name="sdt" readonly>
+                                        <input type="text" class="form-control" id="" placeholder="Số điện thoại..." value="@customers[0].Phone" name="dienthoai" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +57,7 @@
                                     </label>
                                 </div>
                                 <div id="payment-existing">
-                                    <input type="text" class="form-control" id="input-payment-address" placeholder="Địa chỉ..." value="" name="address" readonly>
+                                    <input type="text" class="form-control" id="input-payment-address" placeholder="@customers[0].Address1" value="" name="address" readonly>
                                 </div>
                                 <div class="radio">
                                     <label>
@@ -96,15 +100,15 @@
                                 </div>
                             </form>
                             <script type="text/javascript">
-                                    $('input[name=\'payment_address\']').on('change', function() {
-                                        if (this.value == 'new') {
-                                            $('#payment-existing').hide();
-                                            $('#payment-new').show();
-                                        } else {
-                                            $('#payment-existing').show();
-                                            $('#payment-new').hide();
-                                        }
-                                    });
+                                $('input[name=\'payment_address\']').on('change', function () {
+                                    if (this.value == 'new') {
+                                        $('#payment-existing').hide();
+                                        $('#payment-new').show();
+                                    } else {
+                                        $('#payment-existing').show();
+                                        $('#payment-new').hide();
+                                    }
+                                });
                             </script>
                         </div>
                     </div>
@@ -152,15 +156,15 @@
                                 </div>
                             </form>
                             <script type="text/javascript">
-                                    $('input[name=\'shipping_address\']').on('change', function() {
-                                        if (this.value == 'new') {
-                                            $('#shipping-existing').hide();
-                                            $('#shipping-new').show();
-                                        } else {
-                                            $('#shipping-existing').show();
-                                            $('#shipping-new').hide();
-                                        }
-                                    });
+                                $('input[name=\'shipping_address\']').on('change', function () {
+                                    if (this.value == 'new') {
+                                        $('#shipping-existing').hide();
+                                        $('#shipping-new').show();
+                                    } else {
+                                        $('#shipping-existing').show();
+                                        $('#shipping-new').hide();
+                                    }
+                                });
                             </script>
                         </div>
                     </div>
@@ -178,62 +182,72 @@
                                 </div>
                             </div>
                             <div class="pull-right">
-                                <input type="button" class="btn btn-primary" data-loading-text="Loading..." id="button-shipping-method" value="Continue">
+                                <input type="button" class="btn btn-primary" data-loading-text="Loading..." id="button-shipping-method" value="Kiểm tra">
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Giỏ Hàng <i class="fa fa-caret-down"></i></a></h4>
-                    </div>
-                    <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse in" aria-expanded="true" style="">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover">
-                                    <thead>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-confirm" aria-expanded="true">Giỏ Hàng <i class="fa fa-caret-down"></i></a></h4>
+                </div>
+                <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse in" aria-expanded="true" style="">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <td class="text-left"><strong>Tên sản phẩm</strong></td>
+                                        <td class="text-left"><strong>Ảnh</strong></td>
+                                        <td class="text-right"><strong>Số lượng</strong></td>
+                                        <td class="text-right"><strong>Đơn giá</strong></td>
+                                        <td class="text-right"><strong>Thành tiền</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in carts)
+                                    {
                                         <tr>
-                                            <td class="text-left">Tên sản phẩm</td>
-                                            <td class="text-left">Ảnh</td>
-                                            <td class="text-right">Số lượng</td>
-                                            <td class="text-right">Đơn giá</td>
-                                            <td class="text-right">Thành tiền</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-left"><a href="/Product/DetailProduct?id=1">Sony VAIO</a></td>
+                                            <td class="text-left"><a href="/Product/DetailProduct?id=@item.Product.ProductID">@item.Product.ProductName</a></td>
                                             <td class="text-left"><img class="img-thumbnail" style="width:59px; height:50px" title="women's clothing" alt="women's clothing" src="~/Public/image/product/product3.jpg"></td>
-                                            <td class="text-right">1</td>
-                                            <td class="text-right">$1,000.00</td>
-                                            <td class="text-right">$1,000.00</td>
+                                            <td class="text-right">@item.Quantity</td>
+                                            <td class="text-right">@string.Format("{0:#,##0}", item.Product.PriceNew)</td>
+                                            <td class="text-right">@string.Format("{0:#,##0}", (item.Quantity * item.Product.PriceNew))</td>
+                                            @{sum += (int)item.Quantity * (int)item.Product.PriceNew;}
                                         </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td class="text-right" colspan="4"><strong>Tổng:</strong></td>
-                                            <td class="text-right">$1,000.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right" colspan="4"><strong>Phí vận chuyển:</strong></td>
-                                            <td class="text-right" id="shipfees">0</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right" colspan="4"><strong>Giảm giá:</strong></td>
-                                            <td class="text-right">$5.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-right" colspan="4"><strong>Tổng Cộng:</strong></td>
-                                            <td class="text-right">$1,005.00</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <div class="buttons">
-                                <div class="pull-right" style="padding-left:90%">
-                                    <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" value="Đặt hàng">
-                                </div>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-right" colspan="4"><strong>Tổng:</strong></td>
+                                        <td class="text-right" id="sum">@string.Format("{0:#,##0}", sum)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right" colspan="4"><strong>Phí vận chuyển:</strong></td>
+                                        <td class="text-right" id="shipfees">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right" colspan="4"><strong>Giảm giá:</strong></td>
+                                        <td class="text-right" id="discount">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right" colspan="4"><strong>Tổng Cộng:</strong></td>
+                                        <td class="text-right" id="totalmonny">@sum</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><i class="fa fa-pencil"></i> Lưu ý về đơn hàng cho người bán</h4>
+                        </div>
+                        <div class="panel-body">
+                            <textarea rows="4" class="form-control" id="confirm_comment" name="comments"></textarea>
+                        </div>
+                        <input type="text" class="hidden" id="discount" placeholder="Discount" value="0" name="Discount">
+                        <div class="buttons">
+                            <div class="pull-right" style="padding-left:90%" onclick="order(@sum);">
+                                <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" value="Đặt hàng">
                             </div>
                         </div>
                     </div>
@@ -242,29 +256,32 @@
         </div>
     </div>
 </div>
+@*</div>*@
 
 <script>
 
     function removeCheckedShip(id1, id2) {
-        var name1 = 'Shipping' + id1;
-        var name2 = 'Shipping' + id2;
+                                            var name1 = 'Shipping' + id1;
+                                            var name2 = 'Shipping' + id2;
         $("input:radio[name=" + name2 + " ]").each(function (i) {
-            this.checked = false;
-        });
+                                                this.checked = false;
+                                                });
         $("input:radio[name=" + name1 + " ]").each(function (i) {
-            this.checked = true;
-        });
-        var value1 = $('input[id=ship]:checked').val();
-        if (value1 == 2) {
+                                                    this.checked = true;
+                                                    });
+                                                    var value1 = $('input[id=ship]:checked').val();
+                                                    if (value1 == 2) {
             @*var Total = @ViewBag.PriceAfterDiscount;
             Total += 30000;
-            var sTotal = Total.toString();*@
-            //document.getElementById("TotalOrder").innerText = format(sTotal);
+            var sTotal = Total.toString();
+            //document.getElementById("TotalOrder").innerText = format(sTotal);*@
+            document.getElementById("totalmonny").innerText = (parseInt(document.getElementById("totalmonny").innerText, 10) - parseInt(document.getElementById("discount").innerText, 10) + 30000).toString();
             document.getElementById("shipfees").innerText = '30,000';
         }
         else if (value1 == 1) {
-            @*var Total = @ViewBag.PriceAfterDiscount;*@
-            //document.getElementById("TotalOrder").innerText  = format(Total);
+            @*var Total = @ViewBag.PriceAfterDiscount;
+            //document.getElementById("TotalOrder").innerText  = format(Total);*@
+            document.getElementById("totalmonny").innerText = (parseInt(document.getElementById("totalmonny").innerText, 10) + parseInt(document.getElementById("discount").innerText, 10) - 30000).toString();
             document.getElementById("shipfees").innerText  = '0';
         }
 
@@ -279,13 +296,23 @@
             this.checked = true;
         });
     }
-    @*function order(Totalorder) {
+    function order(Totalorder) {
+        //Totalorder = document.getElementById("totalmonny").innerText;
+        //var value1 = $('input[id=ship]:checked').val();
+        //var value2 = $('input[id=payment]:checked').val();
+        //var shippingadd = $('input[name="address_1"]').val();
+        //var name = $('input[name="firstname"]').val() +' '+$('input[name="lastname"]').val();
+        //alert(name);
+        //var phone = $('input[name="telephone"]').val();
+        //var comment = $('textarea[id=confirm_comment]').val();
+        //var discount = $('input[id="discount"]').val();
+        Totalorder = document.getElementById("totalmonny").innerText;
         var value1 = $('input[id=ship]:checked').val();
         var value2 = $('input[id=payment]:checked').val();
-        var shippingadd = $('input[name="address_1"]').val();
-        var name = $('input[name="firstname"]').val() +' '+$('input[name="lastname"]').val();
+        var shippingadd = $('input[name="diachi"]').val();
+        var name = $('input[name="ho"]').val() + ' ' + $('input[name="ten"]').val();
         alert(name);
-        var phone = $('input[name="telephone"]').val();
+        var phone = $('input[name="dienthoai"]').val();
         var comment = $('textarea[id=confirm_comment]').val();
         var discount = $('input[id="discount"]').val();
         $.ajax({
@@ -295,15 +322,16 @@
                 type: 'POST',
                 success: function (response) {
                     if (response.status == true) {
-                        window.location.href = '@Url.Content("~/Order/OrderHistory")';
+                        window.location.href = '@Url.Content("~/Order/Index")';
                     }
                 }
             });
 
     }
+    @*
     function format(x) {
     return isNaN(x)?"":x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }*@
+    *@
     window.onload = function () {
         var cart = document.getElementById("cart");
         cart.setAttribute("class","hidden");

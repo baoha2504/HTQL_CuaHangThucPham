@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using CuaHangThucPham.Models;
 
-namespace CuaHangThucPham.Library
+namespace CuaHangThucPham
 {
     public class Message
     {

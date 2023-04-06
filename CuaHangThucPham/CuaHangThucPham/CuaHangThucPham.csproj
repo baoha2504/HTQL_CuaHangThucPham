@@ -3600,7 +3600,9 @@
     <Content Include="Public\css\fancybox_overlay.png" />
     <Content Include="Public\css\fancybox_sprite.png" />
     <Content Include="Public\css\jquery.fancybox.css" />
+    <Content Include="Public\css\lib.css" />
     <Content Include="Public\css\responsive.css" />
+    <Content Include="Public\css\ringphone.css" />
     <Content Include="Public\css\stylesheet.css" />
     <Content Include="Public\font-awesome\css\font-awesome.min.css" />
     <Content Include="Public\font-awesome\fonts\fontawesome-webfont862f.svg" />
@@ -3691,6 +3693,7 @@
     <Content Include="Public\javascript\jstree.min.js" />
     <Content Include="Public\javascript\parally.js" />
     <Content Include="Public\javascript\template.js" />
+    <Content Include="Public\libs.js" />
     <Content Include="Public\license\Creditlink.txt" />
     <Content Include="Public\owl-carousel\owl.carousel.css" />
     <Content Include="Public\owl-carousel\owl.carousel.min.js" />

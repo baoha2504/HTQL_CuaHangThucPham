@@ -12,6 +12,8 @@
     <title>Đăng nhập</title>
 
     @Styles.Render("~/Public/create/style.css")
+    @Styles.Render("~/Public/css/ringphone.css")
+    @Styles.Render("~/Public/css/themecss/lib.css")
 
 </head>
 
@@ -31,6 +33,9 @@
         </div>
 
     </div>
+    <section class="fix_tel">
+        @Html.Partial("_MessageAlert")
+    </section>
 </body>
 
 </html>

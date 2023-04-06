@@ -41,6 +41,9 @@ namespace CuaHangThucPham.Controllers
                 "and dbo.[Order].CustomerID = '" + Session["id"] + "'";
             var dahuy = ctx.Orders.SqlQuery(query).ToList();
             ViewBag.dahuy = dahuy;
+            query = "select * from Cart where CustomerID = N'" + Session["id"] + "'";
+            var carts = ctx.Carts.SqlQuery(query).ToList();
+            ViewBag.Carts = carts;
             return View();
         }
 
@@ -64,6 +67,9 @@ namespace CuaHangThucPham.Controllers
             {
                 sum += (int)item.Quantity * (int)item.Price;
             }
+            query = "select * from Cart where CustomerID = N'" + Session["id"] + "'";
+            var carts = ctx.Carts.SqlQuery(query).ToList();
+            ViewBag.Carts = carts;
             ViewBag.sum = sum;
             return View();
         }

@@ -1,7 +1,10 @@
 ﻿
+@using CuaHangThucPham.Models;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_layoutLeft1.cshtml";
+    var carts = (List<CuaHangThucPham.Models.Cart>)ViewBag.Carts;
+    int sum = 0;
 }
 <div class="container">
     <div class="row">
@@ -21,42 +24,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">
-                                    <a href="product.html"><img class="img-thumbnail" style="width:59px; height:50px" title="women's clothing" alt="women's clothing" src="~/Public/image/product/product2.jpg"></a>
-                                </td>
-                                <td class="text-left"><a href="product.html">women's clothing</a></td>
-                                <td class="text-left">product 11</td>
-                                <td class="text-left">
-                                    <div style="max-width: 200px;" class="input-group btn-block">
-                                        <input type="text" class="form-control quantity" size="1" value="1" name="quantity">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary" title="" data-toggle="tooltip" type="submit" data-original-title="Update"><i class="fa fa-refresh"></i></button>
-                                            <button class="btn btn-danger" title="" data-toggle="tooltip" type="button" data-original-title="Remove"><i class="fa fa-times-circle"></i></button>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="text-right">$254.00</td>
-                                <td class="text-right">$254.00</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">
-                                    <a href="product.html"><img class="img-thumbnail" style="width:59px; height:50px" title="women's clothing" alt="women's clothing" src="~/Public/image/product/product3.jpg"></a>
-                                </td>
-                                <td class="text-left"><a href="product.html">women's clothing</a></td>
-                                <td class="text-left">product 11</td>
-                                <td class="text-left">
-                                    <div style="max-width: 200px;" class="input-group btn-block">
-                                        <input type="text" class="form-control quantity" size="1" value="1" name="quantity">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary" title="" data-toggle="tooltip" type="submit" data-original-title="Update"><i class="fa fa-refresh"></i></button>
-                                            <button class="btn btn-danger" title="" data-toggle="tooltip" type="button" data-original-title="Remove"><i class="fa fa-times-circle"></i></button>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="text-right">$254.00</td>
-                                <td class="text-right">$254.00</td>
-                            </tr>
+                            @foreach (var item in carts)
+                            {
+                                <tr id="q_@item.ProductID">
+                                    <td class="text-center">
+                                        <a href="product.html"><img class="img-thumbnail" style="width:59px; height:50px" title="@item.Product.ProductName" alt="@item.Product.ProductName" src="~/Public/image/product/@item.Product.Image"></a>
+                                    </td>
+                                    <td class="text-left"><a href="product.html">@item.Product.ProductName</a></td>
+                                    <td class="text-left">@item.Product.SubCategory.SubCategoriesName</td>
+                                    <td class="text-left">
+                                        <div style="max-width: 200px;" class="input-group btn-block">
+                                            <input type="text" id="quan_@item.ProductID" class="form-control quantity" size="1" value="@item.Quantity" name="quantity">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" title="" data-toggle="tooltip" type="submit" data-original-title="Update" onclick="UpdateCart(@item.ProductID)"><i class="fa fa-refresh"></i></button>
+                                                <button class="btn btn-danger" title="" data-toggle="tooltip" type="button" data-original-title="Remove" onClick="cart.remove(@item.ProductID);"><i class="fa fa-times-circle"></i></button>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="text-right">@string.Format("{0:#,##0}", item.Product.PriceNew)</td>
+                                    <td class="text-right">@(string.Format("{0:#,##0}", item.Quantity * item.Product.PriceNew))</td>
+                                    @{ sum += (int)item.Quantity * (int)item.Product.PriceNew;}
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -153,7 +142,7 @@
                         <tbody>
                             <tr>
                                 <td class="text-right">Tổng tiền sản phầm:</td>
-                                <td class="text-right"><strong>$21000.00</strong></td>
+                                <td class="text-right"><strong>@string.Format("{0:#,##0}", sum)</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -166,3 +155,8 @@
         </div>
     </div>
 </div>
+<script>
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Chức năng ước tính chưa hoàn thành";
+    }
+</script>
