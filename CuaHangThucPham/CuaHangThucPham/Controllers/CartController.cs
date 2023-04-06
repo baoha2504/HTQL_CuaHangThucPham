@@ -89,7 +89,6 @@ namespace CuaHangThucPham.Controllers
 
                         }
                     }
-                    Message.set_flash("Thêm vào giỏ hàng thành công", "success");
                     return Json(new
                     {
                         status = true,
@@ -131,7 +130,6 @@ namespace CuaHangThucPham.Controllers
                             priceTotal += temp;
                         }
                     }
-                    Message.set_flash("Thêm vào giỏ hàng thành công", "success");
                     return Json(new
                     {
                         status = true,
@@ -168,7 +166,6 @@ namespace CuaHangThucPham.Controllers
                     ctx.Carts.Add(icart);
                     ctx.SaveChanges();
                 }
-                Message.set_flash("Thêm vào giỏ hàng thành công", "success");
                 return Json(new
                 {
                     status = true,
@@ -202,7 +199,6 @@ namespace CuaHangThucPham.Controllers
                 int temp = ((int)item1.Price) * ((int)item1.Quantity);
                 priceTotal += temp;
             }
-            Message.set_flash("Xóa sản phẩm giỏ hàng thành công", "success");
             return Json(new
             {
                 status = true,
@@ -242,7 +238,6 @@ namespace CuaHangThucPham.Controllers
                 int temp = ((int)item1.Price) * ((int)item1.Quantity);
                 priceTotal += temp;
             }
-            Message.set_flash("Cập nhật sản phẩm giỏ hàng thành công", "success");
             return Json(new
             {
                 status = true,

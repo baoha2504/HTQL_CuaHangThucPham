@@ -24,7 +24,7 @@
     @Scripts.Render("~/Public/owl-carousel/owl.carousel.min.js")
     @Scripts.Render("~/Public/addtocart.js")
     @Scripts.Render("~/Public/libs.js")
-    @Styles.Render("~/Public/css/themecss/lib.css")
+    @Styles.Render("~/Public/css/lib.css")
     <style>
         #gmap_canvas img {
             max-width: none !important;
@@ -128,7 +128,7 @@
                         <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
                             <span id="cart-total">
                                 <span class="cart-title">Giỏ hảng</span><br>
-                                @ViewBag.Carts.Count sản phẩm
+                                    <span id="cartnum">@ViewBag.Carts.Count sản phẩm</span>
                             </span>
                         </button>
                         <ul class="dropdown-menu pull-right cart-dropdown-menu">
@@ -143,7 +143,7 @@
                                                     <a href="#"><img class="img-thumbnail" style="width:59px; height:50px" title="@item.Product.ProductName" alt="@item.Product.ProductName" src="~/Public/image/product/@item.Product.Image"></a>
                                                 </td>
                                                 <td class="text-left"><a href="#">@item.Product.ProductName</a></td>
-                                                <td class="text-right">x @item.Quantity</td>
+                                                <td class="text-right" id="quantity_@item.Product.ProductID">x @item.Quantity</td>
                                                 <td class="text-right">@string.Format("{0:#,##0}", item.Product.PriceNew)</td>
                                                 <td class="text-center"><button class="btn btn-danger btn-xs" title="Xóa" onClick="cart.remove(@item.ProductID);" type="button"><i class="fa fa-times"></i></button></td>
                                             </tr>
