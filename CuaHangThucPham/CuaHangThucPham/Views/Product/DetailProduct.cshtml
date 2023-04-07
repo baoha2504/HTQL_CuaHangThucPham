@@ -18,36 +18,6 @@
                             <a class="thumbnail  " href="/Public/image/product/@product[0].Image" title="lorem ippsum dolor dummy"> <img src="/Public/image/product/@product[0].Image" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" /></a>
                         </div>
                     </div>
-                    @*<div class="item">
-                        <div class="image-additional">
-                            <a class="thumbnail  " href="/Public/image/product/product2.jpg" title="lorem ippsum dolor dummy"> <img src="/Public/image/product/product2.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" /></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image-additional">
-                            <a class="thumbnail  " href="/Public/image/product/product3.jpg" title="lorem ippsum dolor dummy"> <img src="/Public/image/product/product3.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" /></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image-additional">
-                            <a class="thumbnail  " href="/Public/image/product/product4.jpg" title="lorem ippsum dolor dummy"> <img src="/Public/image/product/product4.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" /></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image-additional">
-                            <a class="thumbnail  " href="/Public/image/product/product5.jpg" title="lorem ippsum dolor dummy"> <img src="/Public/image/product/product5.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" /></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image-additional">
-                            <a class="thumbnail  " href="/Public/image/product/product6.jpg" title="lorem ippsum dolor dummy"> <img src="/Public/image/product/product6.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" /></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image-additional">
-                            <a class="thumbnail  " href="/Public/image/product/product7.jpg" title="lorem ippsum dolor dummy"> <img src="/Public/image/product/product7.jpg" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" /></a>
-                        </div>
-                    </div>*@
                 </div>
             </div>
         </div>
@@ -96,7 +66,7 @@
                 <div class="form-group">
                     <div class="btn-group">
                         <button type="button" data-toggle="tooltip" class="btn btn-default wishlist" title="Thêm vào danh sách yêu thích"><i class="fa fa-heart-o"></i></button>
-                        <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block addtocart">Thêm vào giỏ</button>
+                        <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block addtocart" onclick="cart.add('@products[0].ProductID', '1' ,'@products[0].ProductName','@products[0].Image')";>Thêm vào giỏ</button>
                         <button type="button" data-toggle="tooltip" class="btn btn-default compare" title="Chuyển ảnh sản phẩm"><i class="fa fa-exchange"></i></button>
                     </div>
                 </div>
@@ -112,14 +82,6 @@
             <div class="tab-pane active" id="tab-description">
                 <div class="cpt_product_description ">
                     <div>
-                        @*<p> <strong>More room to move.</strong></p>
-                        <p> With 80GB or 160GB of storage and up to 40 hours of battery life, the new lorem ippsum dolor dummy lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.</p>
-                        <p> <strong>Cover Flow.</strong></p>
-                        <p> Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.</p>
-                        <p> <strong>Enhanced interface.</strong></p>
-                        <p> Experience a whole new way to browse and view your music and video.</p>
-                        <p> <strong>Sleeker design.</strong></p>
-                        <p> Beautiful, durable, and sleeker than ever, lorem ippsum dolor dummy now features an anodized aluminum and polished stainless steel enclosure with rounded edges.</p>*@
                         <p>@product[0].Description</p>
                     </div>
                 </div>

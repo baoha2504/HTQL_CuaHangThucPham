@@ -34,6 +34,19 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+        [HttpGet("{id}&{SubCategoriesId}")]
+        public IActionResult GetByIdOder(int id, int SubCategoriesId)
+        {
+            var dsProduct = _context.Products.SingleOrDefault(m => m.ProductId == id && m.SubCategoriesId == SubCategoriesId);
+            if (dsProduct != null)
+            {
+                return Ok(dsProduct);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
         [HttpPost]
         public IActionResult CreateProduct(Product product)
         {

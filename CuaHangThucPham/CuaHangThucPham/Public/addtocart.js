@@ -12,11 +12,11 @@
 	var cart = {
         add: function (product_id, quantity, name, image) {
             addProduct(product_id, quantity);
-            addProductNotice('Sản phẩm đã thêm vào giỏ hàng', "<img src='/Public/image/product/" + image + "' alt=''>", '<h3><a href="#">' + name + '</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
+            addProductNotice('Sản phẩm đã thêm vào giỏ hàng', "<img src='/Public/image/product/" + image + "' alt=''>", '<h3><a href="#">' + name + '</a> đã thêm vào <a href="#">giỏ hàng</a>!</h3>', 'success');
         },
         remove: function (product_id) {
            removeProduct(product_id);
-            removeProductNotice('Sản phẩm đã xóa khỏi giỏ hàng', "", '<h3><a href="#">Product</a> remove <a href="#">shopping cart</a>!</h3>', 'success');
+            removeProductNotice('Sản phẩm đã xóa khỏi giỏ hàng', "", '<h3><a href="#">'+ name +'</a> đã xóa khỏi <a href="#">giỏ hàng</a>!</h3>', 'success');
         }
 	}
 	

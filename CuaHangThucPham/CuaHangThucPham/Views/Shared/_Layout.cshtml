@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Fresh Food</title>
+    <title>Thực Phẩm Sạch</title>
+    <link rel="shortcut icon" href="~/Public/image/basket.png" type="image/png">
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="e-commerce site well design with responsive view." />
@@ -40,36 +41,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        @*<div class="top-left pull-left">
-                                <div class="language">
-                                    <form action="#" method="post" enctype="multipart/form-data" id="language">
-                                        <div class="btn-group">
-                                            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="~/Public/image/flags/gb.png" alt="English" title="English">English <i class="fa fa-caret-down"></i></button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="#"><img src="~/Public/image/flags/lb.png" alt="Arabic" title="Arabic"> Arabic</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><img src="~/Public/image/flags/gb.png" alt="English" title="English"> English</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>*@
                         <div class="top-right pull-right">
                             <div id="top-links" class="nav pull-right">
                                 <ul class="list-inline">
                                     @if (Session["name"] == null)
                                     {
-                                        <li class="dropdown">
-                                            <a href="\Account\Register" title="My Account" class="dropdown-toggle" data-toggle="dropdown">
+                                        <li>
+                                            <a href="\Account\Register" id="wishlist-total" title="">
                                                 <i class="fa fa-user"></i>
-                                                <span>Đăng ký</span> <span></span>
+                                                <span>Đăng ký</span><span></span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="\Account\Login" id="wishlist-total" title="Wish List (0)">
+                                            <a href="\Account\Login" id="wishlist-total" title="">
                                                 <i class="fa fa-lock"></i>
                                                 <span>Đăng nhập</span><span></span>
                                             </a>
@@ -125,53 +109,95 @@
                 </div>
                 <div class="col-sm-4 col-xs-12 header-right">
                     <div id="cart" class="btn-group btn-block">
-                        <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
-                            <span id="cart-total">
-                                <span class="cart-title">Giỏ hảng</span><br>
+                        @if (ViewBag.Carts != null)
+                        {
+                            <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
+                                <span id="cart-total">
+                                    <span class="cart-title">Giỏ hảng</span><br>
                                     <span id="cartnum">@ViewBag.Carts.Count sản phẩm</span>
-                            </span>
-                        </button>
-                        <ul class="dropdown-menu pull-right cart-dropdown-menu">
-                            <li>
-                                <table class="table table-striped">
-                                    <tbody>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu pull-right cart-dropdown-menu">
+                                <li>
+                                    <table class="table table-striped">
+                                        <tbody>
 
-                                        @foreach (var item in ViewBag.Carts)
-                                        {
-                                            <tr>
-                                                <td class="text-center">
-                                                    <a href="#"><img class="img-thumbnail" style="width:59px; height:50px" title="@item.Product.ProductName" alt="@item.Product.ProductName" src="~/Public/image/product/@item.Product.Image"></a>
-                                                </td>
-                                                <td class="text-left"><a href="#">@item.Product.ProductName</a></td>
-                                                <td class="text-right" id="quantity_@item.Product.ProductID">x @item.Quantity</td>
-                                                <td class="text-right">@string.Format("{0:#,##0}", item.Product.PriceNew)</td>
-                                                <td class="text-center"><button class="btn btn-danger btn-xs" title="Xóa" onClick="cart.remove(@item.ProductID);" type="button"><i class="fa fa-times"></i></button></td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            </li>
-                            <li>
-                                <div>
-                                    <table class="table table-bordered">
+                                            @foreach (var item in ViewBag.Carts)
+                                            {
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <a href="#"><img class="img-thumbnail" style="width:59px; height:50px" title="@item.Product.ProductName" alt="@item.Product.ProductName" src="~/Public/image/product/@item.Product.Image"></a>
+                                                    </td>
+                                                    <td class="text-left"><a href="#">@item.Product.ProductName</a></td>
+                                                    <td class="text-right" id="quantity_@item.Product.ProductID">x @item.Quantity</td>
+                                                    <td class="text-right">@string.Format("{0:#,##0}", item.Product.PriceNew)</td>
+                                                    <td class="text-center"><button class="btn btn-danger btn-xs" title="Xóa" onClick="cart.remove(@item.ProductID);" type="button"><i class="fa fa-times"></i></button></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <div>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-right"><strong>Tổng tiền</strong></td>
+                                                    <td class="text-right">@string.Format("{0:#,##0}", ViewBag.sum)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p class="text-right">
+                                            <span class="btn-viewcart">
+                                                <a href="\Cart\Index"><strong><i class="fa fa-shopping-cart"></i>  Giỏ Hàng</strong></a>
+                                            </span>
+                                            <span class="btn-checkout">
+                                                <a href="\CheckOut\Index"><strong><i class="fa fa-share"></i>  Thanh Toán</strong></a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
+                                <span id="cart-total">
+                                    <span class="cart-title">Giỏ hảng</span><br>
+                                    1 sản phẩm
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu pull-right cart-dropdown-menu">
+                                <li>
+                                    <table class="table table-striped">
                                         <tbody>
                                             <tr>
-                                                <td class="text-right"><strong>Tổng tiền</strong></td>
-                                                <td class="text-right">@string.Format("{0:#,##0}", ViewBag.sum)</td>
+                                                <td class="text-center">
+                                                    <a href="#"><img class="img-thumbnail" style="width:59px; height:50px" title="lorem ippsum dolor dummy" alt="lorem ippsum dolor dummy" src="~/Public/image/product/product7.jpg"></a>
+                                                </td>
+                                                <td class="text-left"><a href="#">Cam sành</a></td>
+                                                <td class="text-right">x 1</td>
+                                                <td class="text-right">25,000</td>
+                                                <td class="text-center"><button class="btn btn-danger btn-xs" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <p class="text-right">
-                                        <span class="btn-viewcart">
-                                            <a href="\Cart\Index"><strong><i class="fa fa-shopping-cart"></i>  Giỏ Hàng</strong></a>
-                                        </span>
-                                        <span class="btn-checkout">
-                                            <a href="\CheckOut\Index"><strong><i class="fa fa-share"></i>  Thanh Toán</strong></a>
-                                        </span>
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                                <li>
+                                    <div>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-right"><strong>Tổng tiền</strong></td>
+                                                    <td class="text-right">25,000 đ</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p class="text-right"> <span class="btn-viewcart"><a href="\Cart\Index"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span class="btn-checkout"><a href="" \CheckOut\Index""><strong><i class="fa fa-share"></i> Checkout</strong></a></span>                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        }
                     </div>
                 </div>
             </div>
@@ -280,7 +306,7 @@
     </footer>
     <div class="footer-bottom">
         <div class="container">
-            <div class="copyright">Bản quyền thuộc về&nbsp;<a class="yourstore" href="https://www.facebook.com/baothuong2504"> Quốc Bảo &copy; 2017 </a> </div>
+            <div class="copyright">Bản quyền thuộc về&nbsp;<a class="yourstore" href="https://www.facebook.com/baothuong2504"> Quốc Bảo &copy; 2023 </a> </div>
             <div class="footer-bottom-cms">
                 <div class="footer-payment">
                     <ul>

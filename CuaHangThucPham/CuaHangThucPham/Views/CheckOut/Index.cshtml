@@ -210,7 +210,7 @@
                                     {
                                         <tr>
                                             <td class="text-left"><a href="/Product/DetailProduct?id=@item.Product.ProductID">@item.Product.ProductName</a></td>
-                                            <td class="text-left"><img class="img-thumbnail" style="width:59px; height:50px" title="women's clothing" alt="women's clothing" src="~/Public/image/product/product3.jpg"></td>
+                                            <td class="text-left"><img class="img-thumbnail" style="width:59px; height:50px" title="women's clothing" alt="women's clothing" src="~/Public/image/product/@item.Product.Image"></td>
                                             <td class="text-right">@item.Quantity</td>
                                             <td class="text-right">@string.Format("{0:#,##0}", item.Product.PriceNew)</td>
                                             <td class="text-right">@string.Format("{0:#,##0}", (item.Quantity * item.Product.PriceNew))</td>

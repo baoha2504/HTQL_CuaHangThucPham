@@ -20,6 +20,17 @@ namespace CuaHangThucPham.Controllers
                 query = "select * from Cart where CustomerID = N'" + Session["id"] + "'";
                 var carts = ctx.Carts.SqlQuery(query).ToList();
                 ViewBag.Carts = carts;
+                var list = new List<Cart_item>();
+                for (int i = 0; i < carts.Count; i++)
+                {
+                    Cart_item cartitem = new Cart_item();
+                    cartitem.product = carts[i].Product;
+                    cartitem.Quantity = (int)carts[i].Quantity;
+                    cartitem.ProductID = (int)carts[i].ProductID;
+                    cartitem.Price = (int)carts[i].Product.PriceNew;
+                    list.Add(cartitem);
+                }
+                Session["SessionCart"] = (List<Cart_item>)list;
                 foreach (var cart in carts)
                 {
                     sum += (int)cart.Product.PriceNew;

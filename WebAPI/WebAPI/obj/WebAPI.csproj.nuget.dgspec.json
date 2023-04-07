@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WebAPI\\WebAPI\\WebAPI.csproj": {}
+    "D:\\HTQL_CuaHangThucPham\\WebAPI\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\WebAPI\\WebAPI\\WebAPI.csproj": {
+    "D:\\HTQL_CuaHangThucPham\\WebAPI\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "D:\\HTQL_CuaHangThucPham\\WebAPI\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "D:\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "projectPath": "D:\\HTQL_CuaHangThucPham\\WebAPI\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\hacon\\.nuget\\packages\\",
-        "outputPath": "D:\\WebAPI\\WebAPI\\obj\\",
+        "outputPath": "D:\\HTQL_CuaHangThucPham\\WebAPI\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"

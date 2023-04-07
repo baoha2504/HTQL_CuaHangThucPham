@@ -18,13 +18,13 @@ namespace CuaHangThucPham.Controllers
             {
                 var sessionCart = Session[SessionCart];
                 var list = new List<Cart_item>();
-                Cart_item cartitem = new Cart_item();
                 query = "select * from Cart where CustomerID = N'" + Session["id"] + "'";
                 var carts = ctx.Carts.SqlQuery(query).ToList();
                 ViewBag.Carts = carts;
 
                 for (int i = 0; i < carts.Count; i++)
                 {
+                    Cart_item cartitem = new Cart_item();
                     cartitem.product = carts[i].Product;
                     cartitem.Quantity = (int)carts[i].Quantity;
                     cartitem.ProductID = (int)carts[i].ProductID;

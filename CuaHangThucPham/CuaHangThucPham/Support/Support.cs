@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 
-namespace CuaHangThucPham.Support
+namespace CuaHangThucPham
 {
     public class Support
     {
