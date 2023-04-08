@@ -70,6 +70,36 @@
     <Compile Include="BanHang\frmBanHang.Designer.cs">
       <DependentUpon>frmBanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="BanHang\usrDanhSachThucPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BanHang\usrDanhSachThucPham.Designer.cs">
+      <DependentUpon>usrDanhSachThucPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BanHang\usrDoiMatKhau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BanHang\usrDoiMatKhau.Designer.cs">
+      <DependentUpon>usrDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BanHang\usrLapDonHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BanHang\usrLapDonHang.Designer.cs">
+      <DependentUpon>usrLapDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BanHang\usrLichSuBanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BanHang\usrLichSuBanHang.Designer.cs">
+      <DependentUpon>usrLichSuBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BanHang\usrQuetMaSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BanHang\usrQuetMaSanPham.Designer.cs">
+      <DependentUpon>usrQuetMaSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +111,42 @@
     </Compile>
     <Compile Include="KhoHang\frmKhoHang.Designer.cs">
       <DependentUpon>frmKhoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhoHang\usrDoiMatKhau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KhoHang\usrDoiMatKhau.Designer.cs">
+      <DependentUpon>usrDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhoHang\usrHangHetHan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KhoHang\usrHangHetHan.Designer.cs">
+      <DependentUpon>usrHangHetHan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhoHang\usrKhoHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KhoHang\usrKhoHang.Designer.cs">
+      <DependentUpon>usrKhoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhoHang\usrLichSuNhapHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KhoHang\usrLichSuNhapHang.Designer.cs">
+      <DependentUpon>usrLichSuNhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhoHang\usrNhapHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KhoHang\usrNhapHang.Designer.cs">
+      <DependentUpon>usrNhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhoHang\usrTrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KhoHang\usrTrangChu.Designer.cs">
+      <DependentUpon>usrTrangChu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\BillDetail.cs" />
@@ -106,11 +172,44 @@
     <EmbeddedResource Include="BanHang\frmBanHang.resx">
       <DependentUpon>frmBanHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\usrDanhSachThucPham.resx">
+      <DependentUpon>usrDanhSachThucPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\usrDoiMatKhau.resx">
+      <DependentUpon>usrDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\usrLapDonHang.resx">
+      <DependentUpon>usrLapDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\usrLichSuBanHang.resx">
+      <DependentUpon>usrLichSuBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\usrQuetMaSanPham.resx">
+      <DependentUpon>usrQuetMaSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhoHang\frmKhoHang.resx">
       <DependentUpon>frmKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhoHang\usrDoiMatKhau.resx">
+      <DependentUpon>usrDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhoHang\usrHangHetHan.resx">
+      <DependentUpon>usrHangHetHan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhoHang\usrKhoHang.resx">
+      <DependentUpon>usrKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhoHang\usrLichSuNhapHang.resx">
+      <DependentUpon>usrLichSuNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhoHang\usrNhapHang.resx">
+      <DependentUpon>usrNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhoHang\usrTrangChu.resx">
+      <DependentUpon>usrTrangChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,6 +219,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -137,6 +237,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Support\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9c-logo-trai-cay-nhap-khau-inkythuatso.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-pixabay-264636.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trang chu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

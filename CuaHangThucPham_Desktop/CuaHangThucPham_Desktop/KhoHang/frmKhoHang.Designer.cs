@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
-            this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.btnTrangChu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnKhoHang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnNhapHang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -40,6 +38,7 @@
             this.btnLichSuNhapHang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnDoiMatKhau = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnDangXuat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
@@ -47,18 +46,20 @@
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
             this.lblTieuDe = new DevExpress.XtraBars.BarStaticItem();
+            this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
             this.SuspendLayout();
             // 
-            // fluentDesignFormContainer1
+            // mainContainer
             // 
-            this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(260, 39);
-            this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1045, 665);
-            this.fluentDesignFormContainer1.TabIndex = 0;
+            this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainContainer.Location = new System.Drawing.Point(312, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mainContainer.Name = "mainContainer";
+            this.mainContainer.Size = new System.Drawing.Size(993, 665);
+            this.mainContainer.TabIndex = 0;
             // 
             // accordionControl1
             // 
@@ -72,11 +73,61 @@
             this.btnDoiMatKhau,
             this.btnDangXuat});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(260, 665);
+            this.accordionControl1.Size = new System.Drawing.Size(312, 665);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
+            // 
+            // btnTrangChu
+            // 
+            this.btnTrangChu.Name = "btnTrangChu";
+            this.btnTrangChu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnTrangChu.Text = "Trang Chủ";
+            this.btnTrangChu.Click += new System.EventHandler(this.btnTrangChu_Click);
+            // 
+            // btnKhoHang
+            // 
+            this.btnKhoHang.Name = "btnKhoHang";
+            this.btnKhoHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnKhoHang.Text = "Kho Hàng";
+            this.btnKhoHang.Click += new System.EventHandler(this.btnKhoHang_Click);
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnNhapHang.Text = "Nhập Hàng";
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
+            // 
+            // btnHangHetHan
+            // 
+            this.btnHangHetHan.Name = "btnHangHetHan";
+            this.btnHangHetHan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnHangHetHan.Text = "Hàng Hết Hạn";
+            this.btnHangHetHan.Click += new System.EventHandler(this.btnHangHetHan_Click);
+            // 
+            // btnLichSuNhapHang
+            // 
+            this.btnLichSuNhapHang.Name = "btnLichSuNhapHang";
+            this.btnLichSuNhapHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnLichSuNhapHang.Text = "Lịch Sử Nhập Hàng";
+            this.btnLichSuNhapHang.Click += new System.EventHandler(this.btnLichSuNhapHang_Click);
+            // 
+            // btnDoiMatKhau
+            // 
+            this.btnDoiMatKhau.Name = "btnDoiMatKhau";
+            this.btnDoiMatKhau.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
+            this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDangXuat.Text = "Đăng Xuất";
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -102,61 +153,6 @@
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.barStaticItem5);
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblTieuDe);
             // 
-            // fluentFormDefaultManager1
-            // 
-            this.fluentFormDefaultManager1.Form = this;
-            this.fluentFormDefaultManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barSubItem1,
-            this.barStaticItem1,
-            this.barStaticItem2,
-            this.barStaticItem3,
-            this.barStaticItem4,
-            this.barStaticItem5,
-            this.lblTieuDe});
-            this.fluentFormDefaultManager1.MaxItemId = 7;
-            // 
-            // btnTrangChu
-            // 
-            this.btnTrangChu.Name = "btnTrangChu";
-            this.btnTrangChu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnTrangChu.Text = "Trang Chủ";
-            // 
-            // btnKhoHang
-            // 
-            this.btnKhoHang.Name = "btnKhoHang";
-            this.btnKhoHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnKhoHang.Text = "Kho Hàng";
-            // 
-            // btnNhapHang
-            // 
-            this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnNhapHang.Text = "Nhập Hàng";
-            // 
-            // btnHangHetHan
-            // 
-            this.btnHangHetHan.Name = "btnHangHetHan";
-            this.btnHangHetHan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnHangHetHan.Text = "Hàng Hết Hạn";
-            // 
-            // btnLichSuNhapHang
-            // 
-            this.btnLichSuNhapHang.Name = "btnLichSuNhapHang";
-            this.btnLichSuNhapHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnLichSuNhapHang.Text = "Lịch Sử Nhập Hàng";
-            // 
-            // btnDoiMatKhau
-            // 
-            this.btnDoiMatKhau.Name = "btnDoiMatKhau";
-            this.btnDoiMatKhau.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
-            // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnDangXuat.Text = "Đăng Xuất";
-            // 
             // barSubItem1
             // 
             this.barSubItem1.Caption = "barSubItem1";
@@ -165,7 +161,7 @@
             // 
             // barStaticItem1
             // 
-            this.barStaticItem1.Caption = "      ";
+            this.barStaticItem1.Caption = "   ";
             this.barStaticItem1.Id = 1;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
@@ -217,19 +213,35 @@
             this.lblTieuDe.ItemAppearance.Normal.Options.UseFont = true;
             this.lblTieuDe.Name = "lblTieuDe";
             // 
+            // fluentFormDefaultManager1
+            // 
+            this.fluentFormDefaultManager1.Form = this;
+            this.fluentFormDefaultManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barSubItem1,
+            this.barStaticItem1,
+            this.barStaticItem2,
+            this.barStaticItem3,
+            this.barStaticItem4,
+            this.barStaticItem5,
+            this.lblTieuDe});
+            this.fluentFormDefaultManager1.MaxItemId = 7;
+            // 
             // frmKhoHang
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 704);
-            this.ControlContainer = this.fluentDesignFormContainer1;
-            this.Controls.Add(this.fluentDesignFormContainer1);
+            this.ControlContainer = this.mainContainer;
+            this.Controls.Add(this.mainContainer);
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.Name = "frmKhoHang";
             this.NavigationControl = this.accordionControl1;
             this.Text = "PHẦN MỀM QUẢN LÝ BÁN HÀNG CHO CỬA HÀNG";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
@@ -238,7 +250,7 @@
         }
 
         #endregion
-        private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer fluentDesignFormContainer1;
+        private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer mainContainer;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager1;
