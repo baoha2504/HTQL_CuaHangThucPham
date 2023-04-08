@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBanHang));
             this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.btnTrangChu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -54,14 +55,20 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(406, 39);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mainContainer.Location = new System.Drawing.Point(298, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(895, 635);
+            this.mainContainer.Size = new System.Drawing.Size(1003, 635);
             this.mainContainer.TabIndex = 0;
             // 
             // accordionControl1
             // 
+            this.accordionControl1.Appearance.Item.Hovered.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControl1.Appearance.Item.Hovered.Options.UseFont = true;
+            this.accordionControl1.Appearance.Item.Normal.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.accordionControl1.Appearance.Item.Normal.Options.UseFont = true;
+            this.accordionControl1.Appearance.Item.Pressed.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControl1.Appearance.Item.Pressed.Options.UseFont = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnTrangChu,
@@ -72,15 +79,16 @@
             this.btnDoiMatKhau,
             this.btnDangXuat});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(406, 635);
+            this.accordionControl1.Size = new System.Drawing.Size(298, 635);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
             // btnTrangChu
             // 
+            this.btnTrangChu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTrangChu.ImageOptions.SvgImage")));
             this.btnTrangChu.Name = "btnTrangChu";
             this.btnTrangChu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnTrangChu.Text = "Trang Chủ";
@@ -88,6 +96,7 @@
             // 
             // btnDSThucPham
             // 
+            this.btnDSThucPham.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDSThucPham.ImageOptions.SvgImage")));
             this.btnDSThucPham.Name = "btnDSThucPham";
             this.btnDSThucPham.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnDSThucPham.Text = "Danh Sách Thực Phẩm";
@@ -95,6 +104,7 @@
             // 
             // btnLapDonHang
             // 
+            this.btnLapDonHang.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLapDonHang.ImageOptions.SvgImage")));
             this.btnLapDonHang.Name = "btnLapDonHang";
             this.btnLapDonHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnLapDonHang.Text = "Lập Đơn Hàng";
@@ -102,6 +112,7 @@
             // 
             // btnQuetMaSP
             // 
+            this.btnQuetMaSP.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnQuetMaSP.ImageOptions.SvgImage")));
             this.btnQuetMaSP.Name = "btnQuetMaSP";
             this.btnQuetMaSP.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnQuetMaSP.Text = "Quét Mã Sản Phẩm";
@@ -109,6 +120,7 @@
             // 
             // btnLichSuBanHang
             // 
+            this.btnLichSuBanHang.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLichSuBanHang.ImageOptions.SvgImage")));
             this.btnLichSuBanHang.Name = "btnLichSuBanHang";
             this.btnLichSuBanHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnLichSuBanHang.Text = "Lịch Sử Bán Hàng";
@@ -116,6 +128,7 @@
             // 
             // btnDoiMatKhau
             // 
+            this.btnDoiMatKhau.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDoiMatKhau.ImageOptions.SvgImage")));
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
@@ -123,6 +136,7 @@
             // 
             // btnDangXuat
             // 
+            this.btnDangXuat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDangXuat.ImageOptions.SvgImage")));
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnDangXuat.Text = "Đăng Xuất";
@@ -159,7 +173,6 @@
             // 
             // lblTieuDe
             // 
-            this.lblTieuDe.Caption = "lblTieuDe";
             this.lblTieuDe.Id = 1;
             this.lblTieuDe.ItemAppearance.Normal.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTieuDe.ItemAppearance.Normal.Options.UseFont = true;
@@ -230,6 +243,7 @@
             this.Name = "frmBanHang";
             this.NavigationControl = this.accordionControl1;
             this.Text = "PHẦN MỀM QUẢN LÝ BÁN HÀNG CHO CỬA HÀNG";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();

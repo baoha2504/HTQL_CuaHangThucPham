@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKhoHang));
             this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.btnTrangChu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -55,14 +56,20 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(312, 39);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mainContainer.Location = new System.Drawing.Point(318, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(993, 665);
+            this.mainContainer.Size = new System.Drawing.Size(987, 665);
             this.mainContainer.TabIndex = 0;
             // 
             // accordionControl1
             // 
+            this.accordionControl1.Appearance.Item.Hovered.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControl1.Appearance.Item.Hovered.Options.UseFont = true;
+            this.accordionControl1.Appearance.Item.Normal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControl1.Appearance.Item.Normal.Options.UseFont = true;
+            this.accordionControl1.Appearance.Item.Pressed.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.accordionControl1.Appearance.Item.Pressed.Options.UseFont = true;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnTrangChu,
@@ -73,15 +80,16 @@
             this.btnDoiMatKhau,
             this.btnDangXuat});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(312, 665);
+            this.accordionControl1.Size = new System.Drawing.Size(318, 665);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
             // btnTrangChu
             // 
+            this.btnTrangChu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTrangChu.ImageOptions.SvgImage")));
             this.btnTrangChu.Name = "btnTrangChu";
             this.btnTrangChu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnTrangChu.Text = "Trang Chủ";
@@ -89,6 +97,7 @@
             // 
             // btnKhoHang
             // 
+            this.btnKhoHang.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnKhoHang.ImageOptions.SvgImage")));
             this.btnKhoHang.Name = "btnKhoHang";
             this.btnKhoHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnKhoHang.Text = "Kho Hàng";
@@ -96,6 +105,7 @@
             // 
             // btnNhapHang
             // 
+            this.btnNhapHang.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNhapHang.ImageOptions.SvgImage")));
             this.btnNhapHang.Name = "btnNhapHang";
             this.btnNhapHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnNhapHang.Text = "Nhập Hàng";
@@ -103,6 +113,7 @@
             // 
             // btnHangHetHan
             // 
+            this.btnHangHetHan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHangHetHan.ImageOptions.SvgImage")));
             this.btnHangHetHan.Name = "btnHangHetHan";
             this.btnHangHetHan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnHangHetHan.Text = "Hàng Hết Hạn";
@@ -110,6 +121,7 @@
             // 
             // btnLichSuNhapHang
             // 
+            this.btnLichSuNhapHang.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLichSuNhapHang.ImageOptions.SvgImage")));
             this.btnLichSuNhapHang.Name = "btnLichSuNhapHang";
             this.btnLichSuNhapHang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnLichSuNhapHang.Text = "Lịch Sử Nhập Hàng";
@@ -117,6 +129,7 @@
             // 
             // btnDoiMatKhau
             // 
+            this.btnDoiMatKhau.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDoiMatKhau.ImageOptions.SvgImage")));
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
@@ -124,6 +137,7 @@
             // 
             // btnDangXuat
             // 
+            this.btnDangXuat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDangXuat.ImageOptions.SvgImage")));
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnDangXuat.Text = "Đăng Xuất";
@@ -207,7 +221,6 @@
             // 
             // lblTieuDe
             // 
-            this.lblTieuDe.Caption = "lblTieuDe";
             this.lblTieuDe.Id = 6;
             this.lblTieuDe.ItemAppearance.Normal.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTieuDe.ItemAppearance.Normal.Options.UseFont = true;

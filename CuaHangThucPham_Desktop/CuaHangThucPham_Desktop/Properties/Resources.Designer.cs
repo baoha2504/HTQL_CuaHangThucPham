@@ -63,9 +63,39 @@ namespace CuaHangThucPham_Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5_stars {
+            get {
+                object obj = ResourceManager.GetObject("5-stars", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _9c_logo_trai_cay_nhap_khau_inkythuatso {
             get {
                 object obj = ResourceManager.GetObject("9c-logo-trai-cay-nhap-khau-inkythuatso", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dau_cong {
+            get {
+                object obj = ResourceManager.GetObject("dau cong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dau_tru {
+            get {
+                object obj = ResourceManager.GetObject("dau tru", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

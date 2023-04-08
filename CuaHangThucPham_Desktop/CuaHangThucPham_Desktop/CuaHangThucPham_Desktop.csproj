@@ -70,6 +70,18 @@
     <Compile Include="BanHang\frmBanHang.Designer.cs">
       <DependentUpon>frmBanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="BanHang\ThucPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BanHang\ThucPham.Designer.cs">
+      <DependentUpon>ThucPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BanHang\ThucPhamAdded.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BanHang\ThucPhamAdded.Designer.cs">
+      <DependentUpon>ThucPhamAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="BanHang\usrDanhSachThucPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,6 +184,12 @@
     <EmbeddedResource Include="BanHang\frmBanHang.resx">
       <DependentUpon>frmBanHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\ThucPham.resx">
+      <DependentUpon>ThucPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\ThucPhamAdded.resx">
+      <DependentUpon>ThucPhamAdded.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BanHang\usrDanhSachThucPham.resx">
       <DependentUpon>usrDanhSachThucPham.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +270,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trang chu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5-stars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dau cong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dau tru.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
