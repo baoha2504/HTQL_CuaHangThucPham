@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.txtNoiDung = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -57,11 +57,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin đơn hàng";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 26);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(424, 351);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.btnTimKiem);
+            this.groupBox3.Controls.Add(this.txtNoiDung);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.groupBox3.Location = new System.Drawing.Point(763, 474);
@@ -71,22 +80,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm kiếm thực phẩm";
             // 
-            // button1
+            // btnTimKiem
             // 
-            this.button1.Location = new System.Drawing.Point(129, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 36);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Location = new System.Drawing.Point(129, 151);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(145, 36);
+            this.btnTimKiem.TabIndex = 16;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // textBox3
+            // txtNoiDung
             // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 10.2F);
-            this.textBox3.Location = new System.Drawing.Point(29, 82);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(378, 27);
-            this.textBox3.TabIndex = 15;
+            this.txtNoiDung.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            this.txtNoiDung.Location = new System.Drawing.Point(29, 82);
+            this.txtNoiDung.Name = "txtNoiDung";
+            this.txtNoiDung.Size = new System.Drawing.Size(378, 27);
+            this.txtNoiDung.TabIndex = 15;
             // 
             // label5
             // 
@@ -103,7 +113,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.flowLayoutPanel2);
+            this.groupBox1.Controls.Add(this.flowLayoutPanel);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -112,28 +122,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách thực phẩm";
             // 
-            // flowLayoutPanel2
+            // flowLayoutPanel
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 26);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(748, 661);
-            this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 26);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(424, 351);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel.AutoScroll = true;
+            this.flowLayoutPanel.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel.Location = new System.Drawing.Point(3, 26);
+            this.flowLayoutPanel.Name = "flowLayoutPanel";
+            this.flowLayoutPanel.Size = new System.Drawing.Size(748, 661);
+            this.flowLayoutPanel.TabIndex = 2;
             // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.btnThanhToan);
             this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.groupBox4.Location = new System.Drawing.Point(763, 389);
             this.groupBox4.Name = "groupBox4";
@@ -142,14 +144,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Đặt hàng";
             // 
-            // button2
+            // btnThanhToan
             // 
-            this.button2.Location = new System.Drawing.Point(132, 29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 36);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Thanh toán";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Location = new System.Drawing.Point(132, 29);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(145, 36);
+            this.btnThanhToan.TabIndex = 16;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
             // 
             // usrLapDonHang
             // 
@@ -161,6 +163,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "usrLapDonHang";
             this.Size = new System.Drawing.Size(1196, 696);
+            this.Load += new System.EventHandler(this.usrLapDonHang_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -174,13 +177,13 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.TextBox txtNoiDung;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnThanhToan;
     }
 }

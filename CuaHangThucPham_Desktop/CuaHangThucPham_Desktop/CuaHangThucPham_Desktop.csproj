@@ -112,6 +112,12 @@
     <Compile Include="BanHang\usrQuetMaSanPham.Designer.cs">
       <DependentUpon>usrQuetMaSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="BanHang\usrTrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BanHang\usrTrangChu.Designer.cs">
+      <DependentUpon>usrTrangChu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BanHang\usrQuetMaSanPham.resx">
       <DependentUpon>usrQuetMaSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BanHang\usrTrangChu.resx">
+      <DependentUpon>usrTrangChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

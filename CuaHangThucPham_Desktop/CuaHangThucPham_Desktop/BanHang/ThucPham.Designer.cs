@@ -89,6 +89,7 @@
             // 
             // picture
             // 
+            this.picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picture.Dock = System.Windows.Forms.DockStyle.Top;
             this.picture.Location = new System.Drawing.Point(3, 3);
             this.picture.Name = "picture";

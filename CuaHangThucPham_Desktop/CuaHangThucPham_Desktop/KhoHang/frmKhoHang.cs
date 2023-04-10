@@ -15,6 +15,18 @@ namespace CuaHangThucPham_Desktop.KhoHang
         public frmKhoHang()
         {
             InitializeComponent();
+            if (usrTrangChu == null)
+            {
+                usrTrangChu usrTrangChu = new usrTrangChu();
+                usrTrangChu.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usrTrangChu);
+                usrTrangChu.BringToFront();
+            }
+            else
+            {
+                usrTrangChu.BringToFront();
+            }
+            lblTieuDe.Caption = "Trang chủ";
         }
 
         usrDoiMatKhau usrDoiMatKhau;

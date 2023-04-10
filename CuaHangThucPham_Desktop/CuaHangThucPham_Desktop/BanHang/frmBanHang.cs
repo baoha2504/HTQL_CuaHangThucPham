@@ -1,5 +1,4 @@
-﻿using CuaHangThucPham_Desktop.KhoHang;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +15,18 @@ namespace CuaHangThucPham_Desktop.BanHang
         public frmBanHang()
         {
             InitializeComponent();
+            if (usrTrangChu == null)
+            {
+                usrTrangChu usrTrangChu = new usrTrangChu();
+                usrTrangChu.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usrTrangChu);
+                usrTrangChu.BringToFront();
+            }
+            else
+            {
+                usrTrangChu.BringToFront();
+            }
+            lblTieuDe.Caption = "Trang chủ";
         }
 
         usrDanhSachThucPham usrDanhSachThucPham;

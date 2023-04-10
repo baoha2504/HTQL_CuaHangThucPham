@@ -12,9 +12,16 @@ namespace CuaHangThucPham_Desktop.BanHang
 {
     public partial class usrLichSuBanHang : UserControl
     {
+        private readonly WebApiService webApiService = new WebApiService();
         public usrLichSuBanHang()
         {
             InitializeComponent();
+        }
+
+        private async void usrLichSuBanHang_Load(object sender, EventArgs e)
+        {
+            var bill = await webApiService.GetAllBill();
+            dtgv.DataSource = bill;
         }
     }
 }

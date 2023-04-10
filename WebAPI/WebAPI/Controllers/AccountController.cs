@@ -14,18 +14,13 @@ namespace WebAPI.Controllers
             _context = ctx;
         }
 
-        [HttpGet("{emailCustomer}")]
-        public IActionResult CheckCustomer(string email, string pass)
+        [HttpGet]
+        public IActionResult GetAll()
         {
-            var customer = _context.Customers.SingleOrDefault(m => m.Email == email);
+            var customer = _context.Customers.ToList();
             if (customer != null)
             {
-                if (customer.PassWord == pass && customer.Access == 3 && customer.Prohibit == 1) {
                     return Ok(customer);
-                } 
-                else {
-                    return BadRequest();
-                }
             }
             else
             {
@@ -33,13 +28,13 @@ namespace WebAPI.Controllers
             }
         }
 
-        [HttpGet("{emailAdmin}")]
-        public IActionResult CheckAdmin(string email, string pass)
+        [HttpGet("{email}&{pass}")]
+        public IActionResult GetAllCustomerByID(string email, string pass)
         {
             var customer = _context.Customers.SingleOrDefault(m => m.Email == email);
             if (customer != null)
             {
-                if (customer.PassWord == pass && (customer.Access == 1 || customer.Access == 2) && customer.Prohibit == 1)
+                if (customer.PassWord == pass && customer.Prohibit == 1)
                 {
                     return Ok(customer);
                 }

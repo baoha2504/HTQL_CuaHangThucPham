@@ -12,23 +12,62 @@ namespace CuaHangThucPham_Desktop
 {
     public class WebApiService
     {
-        private readonly HttpClient _httpClient;
+        private static readonly HttpClient client = new HttpClient();
 
         public WebApiService()
         {
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7295/api/"); // Đổi địa chỉ của WebAPI của bạn ở đây
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        }
+            // Thiết lập base URL cho Web API Service
+            try
+            {
+                client.BaseAddress = new Uri("https://localhost:7295");
 
+                // Thiết lập header cho HTTP request
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            }
+            catch
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            }
+        }
+        //Product
         public async Task<Product> GetProductById(int id)
         {
-            var response = await _httpClient.GetAsync($"Product/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            var response = await client.GetAsync($"api/Product/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             var myObject = JsonConvert.DeserializeObject<Product>(json);
             return myObject;
         }
+        public async Task<List<Product>> GetAllProduct()
+        {
+            var response = await client.GetAsync("api/Product");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<Product>>(json);
+            return myObject;
+        }
+
+        //Inventory
+        public async Task<List<Inventory>> GetAllInventory()
+        {
+            var response = await client.GetAsync("api/Inventory");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject< List<Inventory>>(json);
+            return myObject;
+        }
+
+        //Bill
+        public async Task<List<Bill>> GetAllBill()
+        {
+            var response = await client.GetAsync("api/Bill");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<Bill>>(json);
+            return myObject;
+        }
+
     }
 }

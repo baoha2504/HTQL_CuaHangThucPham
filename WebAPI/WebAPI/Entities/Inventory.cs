@@ -5,7 +5,7 @@ namespace WebAPI.Entities
 {
     public partial class Inventory
     {
-        public int InventoryId { get; set; }
+        public int InventoryID { get; set; }
         public int? Quantity { get; set; }
         public int? InventoryNumber { get; set; }
         public DateTime? DateAdded { get; set; }

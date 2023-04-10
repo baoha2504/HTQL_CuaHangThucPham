@@ -7,6 +7,7 @@ namespace WebAPI.Entities
     {
         public Product()
         {
+            BillDetails = new HashSet<BillDetail>();
             Carts = new HashSet<Cart>();
             Inventories = new HashSet<Inventory>();
             OrderDetails = new HashSet<OrderDetail>();
@@ -28,6 +29,7 @@ namespace WebAPI.Entities
         public DateTime? DateAdded { get; set; }
 
         public virtual SubCategory? SubCategories { get; set; }
+        public virtual ICollection<BillDetail> BillDetails { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<Inventory> Inventories { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

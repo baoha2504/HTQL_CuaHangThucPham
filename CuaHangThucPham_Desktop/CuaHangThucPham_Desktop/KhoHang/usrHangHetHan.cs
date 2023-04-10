@@ -12,9 +12,24 @@ namespace CuaHangThucPham_Desktop.KhoHang
 {
     public partial class usrHangHetHan : UserControl
     {
+        private readonly WebApiService webApiService = new WebApiService();
         public usrHangHetHan()
         {
             InitializeComponent();
+        }
+
+        private async void usrHangHetHan_Load(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            var inventory = await webApiService.GetAllInventory();
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i].ExpirationDate <= dt)
+                {
+                    inventory.Remove(inventory[i]);
+                }
+            }
+            dtgv.DataSource = inventory;
         }
     }
 }

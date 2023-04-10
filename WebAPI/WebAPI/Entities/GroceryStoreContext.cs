@@ -16,6 +16,8 @@ namespace WebAPI.Entities
         {
         }
 
+        public virtual DbSet<Bill> Bills { get; set; } = null!;
+        public virtual DbSet<BillDetail> BillDetails { get; set; } = null!;
         public virtual DbSet<Blog> Blogs { get; set; } = null!;
         public virtual DbSet<Cart> Carts { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
@@ -35,12 +37,53 @@ namespace WebAPI.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-               optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=GroceryStore;Integrated Security=True");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=GroceryStore;Integrated Security=True");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Bill>(entity =>
+            {
+                entity.ToTable("Bill");
+
+                entity.Property(e => e.BillId).HasColumnName("BillID");
+
+                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+
+                entity.Property(e => e.OrderDate).HasColumnType("date");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Bills)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("fk_Bill_Customer");
+            });
+
+            modelBuilder.Entity<BillDetail>(entity =>
+            {
+                entity.HasKey(e => e.BillDetail1)
+                    .HasName("PK__BillDeta__2678F7C4401C4C24");
+
+                entity.ToTable("BillDetail");
+
+                entity.Property(e => e.BillDetail1).HasColumnName("BillDetail");
+
+                entity.Property(e => e.BillId).HasColumnName("BillID");
+
+                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+                entity.HasOne(d => d.Bill)
+                    .WithMany(p => p.BillDetails)
+                    .HasForeignKey(d => d.BillId)
+                    .HasConstraintName("fk_BillDetail_Bill");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.BillDetails)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("fk_BillDetail_Product");
+            });
+
             modelBuilder.Entity<Blog>(entity =>
             {
                 entity.ToTable("Blog");
@@ -132,7 +175,7 @@ namespace WebAPI.Entities
             {
                 entity.ToTable("Inventory");
 
-                entity.Property(e => e.InventoryId).HasColumnName("InventoryID");
+                entity.Property(e => e.InventoryID).HasColumnName("InventoryID");
 
                 entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 

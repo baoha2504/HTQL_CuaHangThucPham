@@ -7,6 +7,7 @@ namespace WebAPI.Entities
     {
         public Customer()
         {
+            Bills = new HashSet<Bill>();
             Blogs = new HashSet<Blog>();
             Carts = new HashSet<Cart>();
             Inventories = new HashSet<Inventory>();
@@ -28,6 +29,7 @@ namespace WebAPI.Entities
         public int Access { get; set; }
         public int Prohibit { get; set; }
 
+        public virtual ICollection<Bill> Bills { get; set; }
         public virtual ICollection<Blog> Blogs { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<Inventory> Inventories { get; set; }

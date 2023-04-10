@@ -37,7 +37,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -133,7 +133,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.flowLayoutPanel2);
+            this.groupBox1.Controls.Add(this.flowLayoutPanel);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -142,14 +142,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách thực phẩm";
             // 
-            // flowLayoutPanel2
+            // flowLayoutPanel
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 26);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(748, 661);
-            this.flowLayoutPanel2.TabIndex = 2;
+            this.flowLayoutPanel.AutoScroll = true;
+            this.flowLayoutPanel.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel.Location = new System.Drawing.Point(3, 26);
+            this.flowLayoutPanel.Name = "flowLayoutPanel";
+            this.flowLayoutPanel.Size = new System.Drawing.Size(748, 661);
+            this.flowLayoutPanel.TabIndex = 2;
             // 
             // usrQuetMaSanPham
             // 
@@ -161,6 +162,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "usrQuetMaSanPham";
             this.Size = new System.Drawing.Size(1196, 696);
+            this.Load += new System.EventHandler(this.usrQuetMaSanPham_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -181,6 +183,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
     }
 }

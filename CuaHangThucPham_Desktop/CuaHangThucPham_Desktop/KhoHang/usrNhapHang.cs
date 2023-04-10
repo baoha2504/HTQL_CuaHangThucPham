@@ -12,9 +12,16 @@ namespace CuaHangThucPham_Desktop.KhoHang
 {
     public partial class usrNhapHang : UserControl
     {
+        private readonly WebApiService webApiService = new WebApiService();
         public usrNhapHang()
         {
             InitializeComponent();
+        }
+
+        private async void usrNhapHang_Load(object sender, EventArgs e)
+        {
+            var products = await webApiService.GetAllProduct();
+            dtgv.DataSource = products;
         }
     }
 }
