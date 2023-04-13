@@ -23,11 +23,12 @@ namespace CuaHangThucPham_Desktop.BanHang
 
         private async void usrDanhSachThucPham_Load(object sender, EventArgs e)
         {
-            var bill = await webApiService.GetAllProduct();
-            for(int i = 0; i < bill.Count; i++)
+            var products = await webApiService.GetAllProduct();
+            List<ThucPham> thucPhams = new List<ThucPham>();
+            for (int i = 0; i < products.Count; i++)
             {
                 ThucPham thucPham = new ThucPham();
-                thucPham.set(bill[i].Image, bill[i].ProductName, (int)bill[i].PriceNew);
+                thucPham.set(products[i].ProductID, products[i].Image, products[i].ProductName, (int)products[i].PriceNew);
                 flowLayoutPanel.Controls.Add(thucPham);
                 thucPhams.Add(thucPham);
             }

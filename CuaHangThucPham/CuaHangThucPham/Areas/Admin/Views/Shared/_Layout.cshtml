@@ -10,13 +10,15 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Dashboard</title>
+    <link rel="shortcut icon" href="~/Public/image/basket.png" type="image/png">
 
     <!-- Custom fonts for this template-->
     @Styles.Render("~/Areas/Admin/Public/vendor/fontawesome-free/css/all.min.css")
-    @Styles.Render("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" )
+    @Styles.Render("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i")
 
     <!-- Custom styles for this template-->
     @Styles.Render("~/Areas/Admin/Public/css/sb-admin-2.min.css")
+    @Styles.Render("~/Areas/Admin/Public/vendor/datatables/dataTables.bootstrap4.min.css")
 
 </head>
 
@@ -44,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/Admin/Dashboard/Index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -66,8 +68,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="/Admin/OrderAdmin/Index">Danh sách đơn hàng</a>
+                        <a class="collapse-item" href="/Admin/OrderAdmin/Update">Cập nhật thông tin</a>
                     </div>
                 </div>
             </li>
@@ -79,8 +81,7 @@
                 </a>
                 <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Danh sách bán hàng</a>
                     </div>
                 </div>
             </li>
@@ -92,8 +93,9 @@
                 </a>
                 <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Danh sách kho hàng</a>
+                        <a class="collapse-item" href="cards.html">Lịch sử nhập kho</a>
+                        <a class="collapse-item" href="cards.html">Hàng hết hạn</a>
                     </div>
                 </div>
             </li>
@@ -105,8 +107,9 @@
                 </a>
                 <div id="collapseTwo3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Danh sách thực phẩm</a>
+                        <a class="collapse-item" href="cards.html">Thêm thực phẩm</a>
+                        <a class="collapse-item" href="cards.html">Sửa thông tin</a>
                     </div>
                 </div>
             </li>
@@ -118,8 +121,9 @@
                 </a>
                 <div id="collapseTwo4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Danh sách bài biết</a>
+                        <a class="collapse-item" href="cards.html">Thêm bài viết</a>
+                        <a class="collapse-item" href="cards.html">Sửa bài viết</a>
                     </div>
                 </div>
             </li>
@@ -131,8 +135,22 @@
                 </a>
                 <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Danh sách khuyến mãi</a>
+                        <a class="collapse-item" href="cards.html">Thêm khuyến mãi</a>
+                        <a class="collapse-item" href="cards.html">Sửa khuyến mãi</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Pages bình luận -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo5" aria-expanded="true" aria-controls="collapseTwo5">
+                    <i class="fas fa-fw fa-comments"></i>
+                    <span>Bình luận</span>
+                </a>
+                <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="buttons.html">Danh sách bình luận</a>
+                        <a class="collapse-item" href="cards.html">Trả lời bình luận</a>
                     </div>
                 </div>
             </li>
@@ -144,8 +162,7 @@
                 </a>
                 <div id="collapseTwo6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Danh sách khách hàng</a>
                     </div>
                 </div>
             </li>
@@ -157,8 +174,7 @@
                 </a>
                 <div id="collapseTwo7" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Danh sách nhân viên</a>
                     </div>
                 </div>
             </li>
@@ -170,8 +186,9 @@
                 </a>
                 <div id="collapseTwo8" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="buttons.html">Tài khoản khách hàng</a>
+                        <a class="collapse-item" href="cards.html">Tài khoản nhân viên</a>
+                        <a class="collapse-item" href="cards.html">Tài khoản admin</a>
                     </div>
                 </div>
             </li>
@@ -426,7 +443,11 @@
     <!-- Page level custom scripts -->
     @Scripts.Render("~/Areas/Admin/Public/js/demo/chart-area-demo.js")
     @Scripts.Render("~/Areas/Admin/Public/js/demo/chart-pie-demo.js")
+    @Scripts.Render("~/Areas/Admin/Public/vendor/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/Areas/Admin/Public/vendor/datatables/dataTables.bootstrap4.min.js")
 
+    <!-- Page level custom scripts -->
+    @Scripts.Render("~/Areas/Admin/Public/js/demo/datatables-demo.js")
 </body>
 
 </html>

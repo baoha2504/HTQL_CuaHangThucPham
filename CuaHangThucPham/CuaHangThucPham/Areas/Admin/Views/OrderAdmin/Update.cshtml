@@ -1,0 +1,92 @@
+﻿@using CuaHangThucPham.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var orders = (List<CuaHangThucPham.Models.Order>)ViewBag.orders;
+    var customers = (List<CuaHangThucPham.Models.Customer>)ViewBag.customers;
+    var orderStatusHistories = (List<CuaHangThucPham.Models.OrderStatusHistory>)ViewBag.orderStatusHistories;
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách đơn hàng</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Họ tên</th>
+                            <th>Ngày đặt</th>
+                            <th>Địa chỉ</th>
+                            <th>Hình thức</th>
+                            <th>Tổng tiền</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < orders.Count; i++)
+                        {
+                            <tr>
+                                <td>@orders[i].OrderID</td>
+                                <td>@customers[i].FirstName @customers[i].LastName</td>
+                                <td>@orders[i].DateAdd</td>
+                                <td>@orders[i].ShippingAddress</td>
+                                <td>@orderStatusHistories[i].OrderStatusName</td>
+                                <td>@string.Format("{0:#,##0}", orders[i].Total)</td>
+                                <td>
+                                    <div>
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="updatestatus(@orders[i].OrderID);">Cập Nhật</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    window.onload = function () {
+        var table1 = $('#datatable-buttons').DataTable();
+        // Sort by columns 1 and 2 and redraw
+        table1
+            .order([[0, 'desc']])
+            .draw();
+    };
+    function updatestatus(id) {
+        $.ajax({
+            url: '/Admin/OrderAdmin/UpdateStatus/',
+            dataType: 'json',
+            data: { id: id, status: result },
+            type: 'POST',
+            success: function (response) {
+                if (response.status == true) {
+                    swal({
+                        title: 'Thành công!',
+                        text: 'Cập nhật thành công.',
+                        type: 'success'
+                    }).then(function () {
+                        window.location.reload();
+                    })
+                }
+                else {
+                    swal({
+                        title: 'Không thành công!',
+                        text: 'Đã xảy ra lỗi.',
+                        type: 'success'
+                    })
+                }
+            }
+        });
+    };
+</script>

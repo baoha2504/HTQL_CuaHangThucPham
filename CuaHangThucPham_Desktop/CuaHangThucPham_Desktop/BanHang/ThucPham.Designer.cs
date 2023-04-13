@@ -95,6 +95,7 @@
             this.picture.Name = "picture";
             this.picture.Size = new System.Drawing.Size(184, 123);
             this.picture.TabIndex = 0;
+            this.picture.Click += new System.EventHandler(this.picture_Click);
             // 
             // ThucPham
             // 
@@ -108,6 +109,7 @@
             this.Name = "ThucPham";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Size = new System.Drawing.Size(190, 198);
+            this.Click += new System.EventHandler(this.ThucPham_Click);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

@@ -10,6 +10,19 @@ namespace WebAPI.Controllers
     public class OrderStatusHistoryController : ControllerBase
     {
         GroceryStoreContext _context = new GroceryStoreContext();
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var orderStatusHistory = _context.OrderStatusHistories.Where(m => m.OrderId == id).ToList();
+            if (orderStatusHistory != null)
+            {
+                return Ok(orderStatusHistory);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
         [HttpPost]
         public IActionResult CreateOrderStatusHistory(OrderStatusHistory orderStatusHistory)
         {

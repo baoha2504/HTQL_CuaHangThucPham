@@ -42,9 +42,9 @@
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.lblThoiGian = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
+            this.lblHoTen = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
             this.lblTieuDe = new DevExpress.XtraBars.BarStaticItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
@@ -56,10 +56,10 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(318, 39);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.mainContainer.Location = new System.Drawing.Point(291, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(987, 665);
+            this.mainContainer.Size = new System.Drawing.Size(1014, 665);
             this.mainContainer.TabIndex = 0;
             // 
             // accordionControl1
@@ -80,10 +80,10 @@
             this.btnDoiMatKhau,
             this.btnDangXuat});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(318, 665);
+            this.accordionControl1.Size = new System.Drawing.Size(291, 665);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -149,9 +149,9 @@
             this.fluentDesignFormControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barSubItem1,
             this.barStaticItem1,
-            this.barStaticItem2,
+            this.lblThoiGian,
             this.barStaticItem3,
-            this.barStaticItem4,
+            this.lblHoTen,
             this.barStaticItem5,
             this.lblTieuDe});
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
@@ -161,9 +161,9 @@
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.barStaticItem1);
-            this.fluentDesignFormControl1.TitleItemLinks.Add(this.barStaticItem2);
+            this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblThoiGian);
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.barStaticItem3);
-            this.fluentDesignFormControl1.TitleItemLinks.Add(this.barStaticItem4);
+            this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblHoTen);
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.barStaticItem5);
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblTieuDe);
             // 
@@ -179,16 +179,16 @@
             this.barStaticItem1.Id = 1;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
-            // barStaticItem2
+            // lblThoiGian
             // 
-            this.barStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barStaticItem2.Caption = "barStaticItem2";
-            this.barStaticItem2.Id = 2;
-            this.barStaticItem2.ItemAppearance.Normal.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.barStaticItem2.ItemAppearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.barStaticItem2.ItemAppearance.Normal.Options.UseFont = true;
-            this.barStaticItem2.ItemAppearance.Normal.Options.UseForeColor = true;
-            this.barStaticItem2.Name = "barStaticItem2";
+            this.lblThoiGian.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.lblThoiGian.Caption = "barStaticItem2";
+            this.lblThoiGian.Id = 2;
+            this.lblThoiGian.ItemAppearance.Normal.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblThoiGian.ItemAppearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblThoiGian.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblThoiGian.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.lblThoiGian.Name = "lblThoiGian";
             // 
             // barStaticItem3
             // 
@@ -199,21 +199,21 @@
             this.barStaticItem3.ItemAppearance.Normal.Options.UseFont = true;
             this.barStaticItem3.Name = "barStaticItem3";
             // 
-            // barStaticItem4
+            // lblHoTen
             // 
-            this.barStaticItem4.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barStaticItem4.Caption = "barStaticItem4";
-            this.barStaticItem4.Id = 4;
-            this.barStaticItem4.ItemAppearance.Normal.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.barStaticItem4.ItemAppearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.barStaticItem4.ItemAppearance.Normal.Options.UseFont = true;
-            this.barStaticItem4.ItemAppearance.Normal.Options.UseForeColor = true;
-            this.barStaticItem4.Name = "barStaticItem4";
+            this.lblHoTen.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.lblHoTen.Caption = "barStaticItem4";
+            this.lblHoTen.Id = 4;
+            this.lblHoTen.ItemAppearance.Normal.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblHoTen.ItemAppearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblHoTen.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblHoTen.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.lblHoTen.Name = "lblHoTen";
             // 
             // barStaticItem5
             // 
             this.barStaticItem5.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barStaticItem5.Caption = "Họ tên";
+            this.barStaticItem5.Caption = "Họ tên:";
             this.barStaticItem5.Id = 5;
             this.barStaticItem5.ItemAppearance.Normal.Font = new System.Drawing.Font("Times New Roman", 10.2F);
             this.barStaticItem5.ItemAppearance.Normal.Options.UseFont = true;
@@ -232,9 +232,9 @@
             this.fluentFormDefaultManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barSubItem1,
             this.barStaticItem1,
-            this.barStaticItem2,
+            this.lblThoiGian,
             this.barStaticItem3,
-            this.barStaticItem4,
+            this.lblHoTen,
             this.barStaticItem5,
             this.lblTieuDe});
             this.fluentFormDefaultManager1.MaxItemId = 7;
@@ -253,7 +253,7 @@
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.Name = "frmKhoHang";
             this.NavigationControl = this.accordionControl1;
-            this.Text = "PHẦN MỀM QUẢN LÝ BÁN HÀNG CHO CỬA HÀNG";
+            this.Text = "PHẦN MỀM QUẢN LÝ KHO HÀNG CHO CỬA HÀNG";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
@@ -276,10 +276,10 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDangXuat;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem4;
         private DevExpress.XtraBars.BarStaticItem barStaticItem5;
         private DevExpress.XtraBars.BarStaticItem lblTieuDe;
+        public DevExpress.XtraBars.BarStaticItem lblThoiGian;
+        public DevExpress.XtraBars.BarStaticItem lblHoTen;
     }
 }

@@ -22,13 +22,25 @@ namespace CuaHangThucPham.Controllers
             var customers = ctx.Customers.SqlQuery(query).ToList();
             if (customers.Count == 1)
             {
-                TempData["Error"] = null;
-                Message.set_flash("Đăng nhập thành công", "Thành công");
-                Session["id"] = customers[0].CustomerID;
-                Session["name"] = customers[0].FirstName + " " + customers[0].LastName;
-                Session["email"] = email;
-                Session["pass"] = pass;
-                return RedirectToAction("Index", "Home");
+                if (customers[0].Access == 1 && customers[0].Prohibit == 1)
+                {
+                    return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+                }
+                else if (customers[0].Access == 4 && customers[0].Prohibit == 1)
+                {
+                    TempData["Error"] = null;
+                    Message.set_flash("Đăng nhập thành công", "Thành công");
+                    Session["id"] = customers[0].CustomerID;
+                    Session["name"] = customers[0].FirstName + " " + customers[0].LastName;
+                    Session["email"] = email;
+                    Session["pass"] = pass;
+                    return RedirectToAction("Index", "Home");
+                } else
+                {
+                    TempData["Error"] = "Kiểm tra lại mật khẩu";
+                    Message.set_flash("Kiểm tra lại mật khẩu", "error");
+                    return RedirectToAction("Login", "Account");
+                }
             }
             else
             {
@@ -115,7 +127,7 @@ namespace CuaHangThucPham.Controllers
                 cus.Address2 = address_2;
                 cus.City = city;
                 cus.PassWord = support.EncodePassword(password);
-                cus.Access = 3;
+                cus.Access = 4;
                 cus.Prohibit = 1;
                 try
                 {

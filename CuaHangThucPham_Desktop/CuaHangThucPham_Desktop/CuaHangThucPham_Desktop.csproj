@@ -124,6 +124,18 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestion.Designer.cs">
+      <DependentUpon>frmQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang\KhachXemSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang\KhachXemSP.Designer.cs">
+      <DependentUpon>KhachXemSP.cs</DependentUpon>
+    </Compile>
     <Compile Include="KhoHang\frmKhoHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +198,7 @@
     <Compile Include="Models\Voucher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\Support.cs" />
     <Compile Include="WebApiService.cs" />
     <EmbeddedResource Include="BanHang\frmBanHang.resx">
       <DependentUpon>frmBanHang.cs</DependentUpon>
@@ -216,6 +229,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuestion.resx">
+      <DependentUpon>frmQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang\KhachXemSP.resx">
+      <DependentUpon>KhachXemSP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhoHang\frmKhoHang.resx">
       <DependentUpon>frmKhoHang.cs</DependentUpon>
@@ -263,7 +282,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Support\" />
+    <None Include="Resources\photography.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\9c-logo-trai-cay-nhap-khau-inkythuatso.jpg" />
@@ -288,6 +307,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dau tru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warehouse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

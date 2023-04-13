@@ -27,9 +27,22 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+        [HttpGet("{id}")]
+        public IActionResult GetAllCustomerByID(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(m => m.CustomerId == id);
+            if (customer != null)
+            {
+                return Ok(customer);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
         [HttpGet("{email}&{pass}")]
-        public IActionResult GetAllCustomerByID(string email, string pass)
+        public IActionResult GetAllCustomerEmail(string email, string pass)
         {
             var customer = _context.Customers.SingleOrDefault(m => m.Email == email);
             if (customer != null)

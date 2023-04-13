@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.Entities;
 
 namespace WebAPI.Controllers
 {
@@ -7,5 +8,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
+        GroceryStoreContext _context = new GroceryStoreContext();
+        [HttpGet]
+        public IActionResult GetAllOrder()
+        {
+            var orders = _context.Orders.ToList();
+            return Ok(orders);
+        }
     }
 }

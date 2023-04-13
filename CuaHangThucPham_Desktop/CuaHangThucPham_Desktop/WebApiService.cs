@@ -32,7 +32,7 @@ namespace CuaHangThucPham_Desktop
             }
         }
         //Product
-        public async Task<Product> GetProductById(int id)
+        public async Task<Product> GetProductById(int id)//lấy 1
         {
             var response = await client.GetAsync($"api/Product/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
             response.EnsureSuccessStatusCode();
@@ -40,6 +40,7 @@ namespace CuaHangThucPham_Desktop
             var myObject = JsonConvert.DeserializeObject<Product>(json);
             return myObject;
         }
+
         public async Task<List<Product>> GetAllProduct()
         {
             var response = await client.GetAsync("api/Product");
@@ -66,6 +67,16 @@ namespace CuaHangThucPham_Desktop
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             var myObject = JsonConvert.DeserializeObject<List<Bill>>(json);
+            return myObject;
+        }
+
+        //Account
+        public async Task<Customer> GetAccountByEmail(string email, string pass)//lấy 1
+        {
+            var response = await client.GetAsync($"api/Account/{email}&{pass}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<Customer>(json);
             return myObject;
         }
 
