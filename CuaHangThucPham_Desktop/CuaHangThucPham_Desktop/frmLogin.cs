@@ -12,8 +12,9 @@ namespace CuaHangThucPham_Desktop
             InitializeComponent();
         }
         Support support = new Support();
-        public static string emailNguoiDung;
-        public static string passNguoiDung;
+        public static string emailNguoiDung = null;
+        public static string passNguoiDung = null;
+        public static int id = 0;
         private readonly WebApiService webApiService = new WebApiService();
 
         private async void btnLogin_Click(object sender, EventArgs e)
@@ -23,6 +24,7 @@ namespace CuaHangThucPham_Desktop
                 var admins = await webApiService.GetAccountByEmail(email.Text, support.EncodePassword(pass.Text));
                 emailNguoiDung = email.Text;
                 passNguoiDung = support.EncodePassword(pass.Text);
+                id = admins.CustomerID;
                 if (admins != null)
                 {
                     if (admins.Access == 1 && admins.Prohibit == 1)

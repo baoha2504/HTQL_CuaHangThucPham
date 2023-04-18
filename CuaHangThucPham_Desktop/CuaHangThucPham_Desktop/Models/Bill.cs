@@ -10,10 +10,10 @@ namespace CuaHangThucPham_Desktop.Models
     public partial class Bill
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Bill()
-        {
-            BillDetails = new HashSet<BillDetail>();
-        }
+        //public Bill()
+        //{
+        //    BillDetails = new HashSet<BillDetail>();
+        //}
 
         public int BillID { get; set; }
 
@@ -24,9 +24,9 @@ namespace CuaHangThucPham_Desktop.Models
 
         public long? Total { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        //public virtual Customer Customer { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BillDetail> BillDetails { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<BillDetail> BillDetails { get; set; }
     }
 }

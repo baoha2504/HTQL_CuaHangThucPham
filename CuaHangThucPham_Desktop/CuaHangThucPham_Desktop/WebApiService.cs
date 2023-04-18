@@ -7,6 +7,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using CuaHangThucPham_Desktop.Models;
+using System.Windows.Forms;
+using DevExpress.XtraBars.Docking2010.Views.Widget;
 
 namespace CuaHangThucPham_Desktop
 {
@@ -19,7 +21,7 @@ namespace CuaHangThucPham_Desktop
             // Thiết lập base URL cho Web API Service
             try
             {
-                client.BaseAddress = new Uri("https://localhost:7295");
+                client.BaseAddress = new Uri("https://localhost:7295/");
 
                 // Thiết lập header cho HTTP request
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -68,6 +70,43 @@ namespace CuaHangThucPham_Desktop
             var json = await response.Content.ReadAsStringAsync();
             var myObject = JsonConvert.DeserializeObject<List<Bill>>(json);
             return myObject;
+        }
+
+        public async Task<Bill> CreateBill(Bill bill)
+        {
+            var jsonData = JsonConvert.SerializeObject(bill);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("api/Bill", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Bill>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
+
+        //BillDetail
+        public async Task<BillDetail> CreateBillDetail(BillDetail billDetail)
+        {
+            var jsonData = JsonConvert.SerializeObject(billDetail);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("api/BillDetail", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<BillDetail>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
         }
 
         //Account
