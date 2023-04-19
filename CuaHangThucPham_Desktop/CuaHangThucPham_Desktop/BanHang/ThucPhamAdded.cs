@@ -33,6 +33,7 @@ namespace CuaHangThucPham_Desktop.BanHang
             soluong = Int32.Parse(quantity.Text);
             total.Text = (Int32.Parse(quantity.Text) * gia).ToString();
             tong = Int32.Parse(quantity.Text) * gia;
+            
         }
 
         private void minus_Click(object sender, EventArgs e)

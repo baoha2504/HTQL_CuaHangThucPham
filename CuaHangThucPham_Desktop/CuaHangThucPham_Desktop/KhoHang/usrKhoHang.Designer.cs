@@ -104,6 +104,7 @@
             // time2
             // 
             this.time2.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            this.time2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.time2.Location = new System.Drawing.Point(69, 242);
             this.time2.Name = "time2";
             this.time2.Size = new System.Drawing.Size(341, 27);
@@ -112,6 +113,7 @@
             // time1
             // 
             this.time1.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            this.time1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.time1.Location = new System.Drawing.Point(69, 206);
             this.time1.Name = "time1";
             this.time1.Size = new System.Drawing.Size(341, 27);

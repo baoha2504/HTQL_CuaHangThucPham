@@ -14,6 +14,7 @@ namespace WebAPI.Entities
         public DateTime? OrderDate { get; set; }
         public int? CustomerId { get; set; }
         public long? Total { get; set; }
+        public int BillStatus { get; set; }// =0 là bán hàng; =1 là nhập hàng
 
         public virtual Customer? Customer { get; set; }
         public virtual ICollection<BillDetail> BillDetails { get; set; }

@@ -24,7 +24,7 @@ namespace CuaHangThucPham_Desktop.KhoHang
             var inventory = await webApiService.GetAllInventory();
             for (int i = 0; i < inventory.Count; i++)
             {
-                if (inventory[i].ExpirationDate <= dt)
+                if (inventory[i].ExpirationDate > dt)
                 {
                     inventory.Remove(inventory[i]);
                 }

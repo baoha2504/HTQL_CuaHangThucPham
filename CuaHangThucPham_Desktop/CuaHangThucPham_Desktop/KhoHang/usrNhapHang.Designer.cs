@@ -155,6 +155,7 @@
             // dtpNgayHetHan
             // 
             this.dtpNgayHetHan.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            this.dtpNgayHetHan.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayHetHan.Location = new System.Drawing.Point(33, 357);
             this.dtpNgayHetHan.Name = "dtpNgayHetHan";
             this.dtpNgayHetHan.Size = new System.Drawing.Size(378, 27);
@@ -200,7 +201,9 @@
             // 
             // dtpNgayNhap
             // 
+            this.dtpNgayNhap.Enabled = false;
             this.dtpNgayNhap.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayNhap.Location = new System.Drawing.Point(32, 283);
             this.dtpNgayNhap.Name = "dtpNgayNhap";
             this.dtpNgayNhap.Size = new System.Drawing.Size(378, 27);

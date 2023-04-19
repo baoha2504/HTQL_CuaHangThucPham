@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gbThongTinChiTiet = new System.Windows.Forms.GroupBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSoSanPham = new System.Windows.Forms.TextBox();
@@ -42,27 +42,27 @@
             this.flowLayoutPanelDonHangQuet = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBox4.SuspendLayout();
+            this.gbThongTinChiTiet.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox4
+            // gbThongTinChiTiet
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.txtTongTien);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.txtSoSanPham);
-            this.groupBox4.Controls.Add(this.btnThanhToan);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.groupBox4.Location = new System.Drawing.Point(763, 389);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(430, 139);
-            this.groupBox4.TabIndex = 21;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Thông tin chi tiết";
+            this.gbThongTinChiTiet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbThongTinChiTiet.Controls.Add(this.txtTongTien);
+            this.gbThongTinChiTiet.Controls.Add(this.label2);
+            this.gbThongTinChiTiet.Controls.Add(this.txtSoSanPham);
+            this.gbThongTinChiTiet.Controls.Add(this.btnThanhToan);
+            this.gbThongTinChiTiet.Controls.Add(this.label1);
+            this.gbThongTinChiTiet.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gbThongTinChiTiet.Location = new System.Drawing.Point(763, 389);
+            this.gbThongTinChiTiet.Name = "gbThongTinChiTiet";
+            this.gbThongTinChiTiet.Size = new System.Drawing.Size(430, 139);
+            this.gbThongTinChiTiet.TabIndex = 21;
+            this.gbThongTinChiTiet.TabStop = false;
+            this.gbThongTinChiTiet.Text = "Thông tin chi tiết";
             // 
             // txtTongTien
             // 
@@ -203,15 +203,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.gbThongTinChiTiet);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "usrQuetMaSanPham";
             this.Size = new System.Drawing.Size(1196, 696);
             this.Load += new System.EventHandler(this.usrQuetMaSanPham_Load);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gbThongTinChiTiet.ResumeLayout(false);
+            this.gbThongTinChiTiet.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -222,7 +222,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gbThongTinChiTiet;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnQuet;

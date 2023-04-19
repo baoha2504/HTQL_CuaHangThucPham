@@ -61,11 +61,28 @@ namespace CuaHangThucPham_Desktop
             var myObject = JsonConvert.DeserializeObject< List<Inventory>>(json);
             return myObject;
         }
+        public async Task<Inventory> CreateInventory(Inventory inventory)
+        {
+            var jsonData = JsonConvert.SerializeObject(inventory);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("api/Inventory", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Inventory>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
 
         //Bill
-        public async Task<List<Bill>> GetAllBill()
+        public async Task<List<Bill>> GetBillByBillStatus(int billStatus)
         {
-            var response = await client.GetAsync("api/Bill");
+            var response = await client.GetAsync($"api/Bill/{billStatus}");
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             var myObject = JsonConvert.DeserializeObject<List<Bill>>(json);

@@ -30,5 +30,29 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        [HttpPost]
+        public IActionResult CreateInventory([FromBody] Inventory inventory)
+        {
+            try
+            {
+                var i = new Inventory
+                {
+                    Quantity = inventory.Quantity,
+                    InventoryNumber = inventory.InventoryNumber,
+                    DateAdded = inventory.DateAdded,
+                    ExpirationDate = inventory.ExpirationDate,
+                    CustomerId = inventory.CustomerId,
+                    ProductId = inventory.ProductId,
+                };
+                _context.Add(i);
+                _context.SaveChanges();
+                return Ok(i);
+            }
+            catch
+            {
+                return BadRequest(0);
+            }
+        }
     }
 }

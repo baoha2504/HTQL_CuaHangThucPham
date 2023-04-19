@@ -80,6 +80,7 @@
             this.pass.PasswordChar = '*';
             this.pass.Size = new System.Drawing.Size(281, 36);
             this.pass.TabIndex = 4;
+            this.pass.Text = "a";
             // 
             // email
             // 
@@ -89,6 +90,7 @@
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(281, 36);
             this.email.TabIndex = 3;
+            this.email.Text = "@gmail.com";
             // 
             // label2
             // 

@@ -1,4 +1,6 @@
 ﻿using CuaHangThucPham_Desktop.Models;
+using DevExpress.Utils.About;
+using DevExpress.Utils.Gesture;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -55,6 +57,61 @@ namespace CuaHangThucPham_Desktop.BanHang
             }
             txtSoSanPham.Text = sosanpham.ToString();
             txtTongTien.Text = string.Format("{0:#,##0}", tongtien);
+        }
+
+        private async void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            if (thucPhamAddeds.Count != 0)
+            {
+                xyly();
+                List<BillDetail> billDetails = new List<BillDetail>();
+                //List<Inventory> inventories = new List<Inventory>();
+
+                //tạo Bill với BillStatus = 0 (Bán hàng)
+                Bill bill = new Bill();
+                bill.OrderDate = DateTime.Now;
+                if (frmLogin.id == 0)
+                {
+                    bill.CustomerID = 1;
+                }
+                else
+                {
+                    bill.CustomerID = frmLogin.id;
+                }
+                bill.CustomerID = 1; //////////////////////////sẽ sửa
+
+                bill.Total = tongtien;
+                bill.BillStatus = 0;
+                var bl = await webApiService.CreateBill(bill);
+
+                //tạo BillDetail
+                foreach (var item in thucPhamAddeds)
+                {
+                    BillDetail bdt = new BillDetail();
+                    bdt.Quantity = item.soluong;
+                    bdt.Price = item.gia;
+                    bdt.BillID = bl.BillID;
+                    bdt.ProductID = item.id;
+                    billDetails.Add(bdt);
+                }
+
+                for (int i = 0; i < billDetails.Count; i++)
+                {
+                    billDetails[i].BillID = bl.BillID;
+                    var bldt = await webApiService.CreateBillDetail(billDetails[i]);
+                    //var ivt = await webApiService.CreateInventory(inventories[i]);
+                }
+
+                MessageBox.Show($"Lập đơn hàng #{bl.BillID} thành công", "Thông báo", MessageBoxButtons.OK);
+            } else
+            {
+                MessageBox.Show("Kiểm tra lại đơn hàng", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void gbThongTinChiTiet_Enter(object sender, EventArgs e)
+        {
+            xyly();
         }
     }
 }

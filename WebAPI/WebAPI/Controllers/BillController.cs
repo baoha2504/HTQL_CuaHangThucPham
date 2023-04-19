@@ -17,6 +17,13 @@ namespace WebAPI.Controllers
             return Ok(bills);
         }
 
+        [HttpGet("{billStatus}")]
+        public IActionResult GetBillByBillStatus(int billStatus)
+        {
+            var bills = _context.Bills.Where(m => m.BillStatus == billStatus).ToList();
+            return Ok(bills);
+        }
+
         [HttpPost]
         public IActionResult CreateBill([FromBody] Bill bill)
         {
@@ -27,6 +34,7 @@ namespace WebAPI.Controllers
                     OrderDate = bill.OrderDate,
                     CustomerId = bill.CustomerId,
                     Total = bill.Total,
+                    BillStatus = bill.BillStatus,
                 };
                 _context.Add(b);
                 _context.SaveChanges();

@@ -23,6 +23,8 @@ namespace CuaHangThucPham.Models
         public int? CustomerID { get; set; }
 
         public long? Total { get; set; }
+        
+        public int BillStatus { get; set; }
 
         public virtual Customer Customer { get; set; }
 
