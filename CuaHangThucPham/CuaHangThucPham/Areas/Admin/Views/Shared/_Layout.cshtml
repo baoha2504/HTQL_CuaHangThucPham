@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Quản Lý Thực Phẩm Sạch</title>
     <link rel="shortcut icon" href="~/Public/image/basket.png" type="image/png">
 
     <!-- Custom fonts for this template-->
@@ -81,7 +81,7 @@
                 </a>
                 <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Danh sách bán hàng</a>
+                        <a class="collapse-item" href="/Admin/BillAdmin/Index">Danh sách bán hàng</a>
                     </div>
                 </div>
             </li>
@@ -93,9 +93,9 @@
                 </a>
                 <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Danh sách kho hàng</a>
-                        <a class="collapse-item" href="cards.html">Lịch sử nhập kho</a>
-                        <a class="collapse-item" href="cards.html">Hàng hết hạn</a>
+                        <a class="collapse-item" href="/Admin/InventoryAdmin/Index">Danh sách kho hàng</a>
+                        <a class="collapse-item" href="/Admin/InventoryAdmin/History">Lịch sử nhập kho</a>
+                        <a class="collapse-item" href="/Admin/InventoryAdmin/Expired">Hàng hết hạn</a>
                     </div>
                 </div>
             </li>
@@ -107,9 +107,8 @@
                 </a>
                 <div id="collapseTwo3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Danh sách thực phẩm</a>
-                        <a class="collapse-item" href="cards.html">Thêm thực phẩm</a>
-                        <a class="collapse-item" href="cards.html">Sửa thông tin</a>
+                        <a class="collapse-item" href="/Admin/ProductAdmin/Index">Danh sách thực phẩm</a>
+                        <a class="collapse-item" href="/Admin/ProductAdmin/AddProduct">Thêm thực phẩm</a>
                     </div>
                 </div>
             </li>
@@ -121,9 +120,8 @@
                 </a>
                 <div id="collapseTwo4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Danh sách bài biết</a>
-                        <a class="collapse-item" href="cards.html">Thêm bài viết</a>
-                        <a class="collapse-item" href="cards.html">Sửa bài viết</a>
+                        <a class="collapse-item" href="/Admin/BlogAdmin/Index">Danh sách bài biết</a>
+                        <a class="collapse-item" href="/Admin/BlogAdmin/AddBlog">Thêm bài viết</a>
                     </div>
                 </div>
             </li>
@@ -135,60 +133,59 @@
                 </a>
                 <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Danh sách khuyến mãi</a>
-                        <a class="collapse-item" href="cards.html">Thêm khuyến mãi</a>
-                        <a class="collapse-item" href="cards.html">Sửa khuyến mãi</a>
+                        <a class="collapse-item" href="/Admin/VoucherAdmin/Index">Danh sách khuyến mãi</a>
+                        <a class="collapse-item" href="/Admin/VoucherAdmin/AddVoucher">Thêm khuyến mãi</a>
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Pages bình luận -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo5" aria-expanded="true" aria-controls="collapseTwo5">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo6" aria-expanded="true" aria-controls="collapseTwo6">
                     <i class="fas fa-fw fa-comments"></i>
                     <span>Bình luận</span>
                 </a>
-                <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Danh sách bình luận</a>
-                        <a class="collapse-item" href="cards.html">Trả lời bình luận</a>
+                        <a class="collapse-item" href="/Admin/ReviewAdmin/Index">Danh sách bình luận</a>
+                        <a class="collapse-item" href="/Admin/ReviewAdmin/Reply">Trả lời bình luận</a>
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Pages khách hàng -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo6" aria-expanded="true" aria-controls="collapseTwo6">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo7" aria-expanded="true" aria-controls="collapseTwo7">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Khách hàng</span>
                 </a>
-                <div id="collapseTwo6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo7" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Danh sách khách hàng</a>
+                        <a class="collapse-item" href="/Admin/CustomerAdmin/Index">Danh sách khách hàng</a>
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Pages nhân viên -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo7" aria-expanded="true" aria-controls="collapseTwo7">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo8" aria-expanded="true" aria-controls="collapseTwo8">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Nhân viên</span>
                 </a>
-                <div id="collapseTwo7" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo8" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Danh sách nhân viên</a>
+                        <a class="collapse-item" href="/Admin/StaffAdmin/Index">Danh sách nhân viên</a>
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Pages tài khoản -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo8" aria-expanded="true" aria-controls="collapseTwo8">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo9" aria-expanded="true" aria-controls="collapseTwo9">
                     <i class="fas fa-fw fa-key"></i>
                     <span>Tài khoản</span>
                 </a>
-                <div id="collapseTwo8" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo9" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Tài khoản khách hàng</a>
-                        <a class="collapse-item" href="cards.html">Tài khoản nhân viên</a>
-                        <a class="collapse-item" href="cards.html">Tài khoản admin</a>
+                        <a class="collapse-item" href="/Admin/AccountAdmin/Customer">Tài khoản khách hàng</a>
+                        <a class="collapse-item" href="/Admin/AccountAdmin/Staff">Tài khoản nhân viên</a>
+                        <a class="collapse-item" href="/Admin/AccountAdmin/Admin">Tài khoản admin</a>
                     </div>
                 </div>
             </li>
@@ -312,7 +309,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
+                                        <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -322,7 +319,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="Areas/Admin/Public/img/undraw_profile_2.png" alt="...">
+                                        <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_2.png" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -332,7 +329,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="Areas/Admin/Public/img/undraw_profile_3.png" alt="...">
+                                        <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_3.png" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -359,23 +356,23 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="Areas/Admin/Public/img/undraw_profile.png">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@Session["name"]</span>
+                                <img class="img-profile rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Thông tin
                                 </a>
                                 <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Cài đặt
                                 </a>
                                 <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Hoạt động
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Đăng xuất
                                 </a>
                             </div>
                         </li>
@@ -392,7 +389,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Quốc Bảo 2023</span>
                     </div>
                 </div>
             </footer>
@@ -413,15 +410,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Đăng xuất khỏi trang?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Bạn có chắc chắn muốn đăng xuất</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                    <a class="btn btn-primary" href="/Account/Logout">Đăng xuất</a>
                 </div>
             </div>
         </div>

@@ -164,11 +164,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\BlogAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomerAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InventoryAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReviewAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\StaffAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\VoucherAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -4155,6 +4158,19 @@
     <Content Include="Areas\Admin\plugins\tinymce\themes\inlite\src\test\.eslintrc" />
     <Content Include="Areas\Admin\Views\OrderAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OrderAdmin\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\BillAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InventoryAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InventoryAdmin\History.cshtml" />
+    <Content Include="Areas\Admin\Views\InventoryAdmin\Expired.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BlogAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VoucherAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ReviewAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CustomerAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\StaffAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountAdmin\Admin.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountAdmin\Staff.cshtml" />
+    <Content Include="Areas\Admin\Views\AccountAdmin\Customer.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4203,12 +4219,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\AccountAdmin\" />
-    <Folder Include="Areas\Admin\Views\BlogAdmin\" />
-    <Folder Include="Areas\Admin\Views\CustomerAdmin\" />
-    <Folder Include="Areas\Admin\Views\ProductAdmin\" />
-    <Folder Include="Areas\Admin\Views\StaffAdmin\" />
-    <Folder Include="Areas\Admin\Views\VoucherAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

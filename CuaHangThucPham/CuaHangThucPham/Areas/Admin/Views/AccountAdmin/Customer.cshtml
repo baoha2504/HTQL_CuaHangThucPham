@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var customers = (List<CuaHangThucPham.Models.Customer>)ViewBag.customers;
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách tài khoản khách hàng</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Quyền</th>
+                            <th>Tình trạng</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < customers.Count; i++)
+                        {
+                            <tr>
+                                <td>@customers[i].CustomerID</td>
+                                <td>@customers[i].Email</td>
+                                @if (customers[i].Access == 1)
+                                {
+                                    <td>Admin hệ thống</td>
+                                }
+                                else if (customers[i].Access == 2)
+                                {
+                                    <td>Nhân viên bán hàng</td>
+                                }
+                                else if (customers[i].Access == 3)
+                                {
+                                    <td>Nhân viên kho</td>
+                                }
+                                else if (customers[i].Access == 4)
+                                {
+                                    <td>Người dùng</td>
+                                }
+                                @if (customers[i].Prohibit == 1)
+                                {
+                                    <td>Hoạt động</td>
+                                }
+                                else
+                                {
+                                    <td>Bị khóa</td>
+                                }
+                                <td>
+                                    <div class="dropdown mb-4">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Cập nhật
+                                        </button>
+                                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                            @if (customers[i].Prohibit == 1)
+                                            {
+                                                <a class="dropdown-item" href="#">Bị khóa</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="dropdown-item" href="#">Hoạt động</a>
+                                            }
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

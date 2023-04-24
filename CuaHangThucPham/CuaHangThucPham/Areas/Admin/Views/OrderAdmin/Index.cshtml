@@ -36,7 +36,7 @@
                             <tr>
                                 <td>@orders[i].OrderID</td>
                                 <td>@customers[i].FirstName @customers[i].LastName</td>
-                                <td>@orders[i].DateAdd</td>
+                                <td>@string.Format("{0:dd/MM/yyyy}", orders[i].DateAdd)</td>
                                 <td>@orders[i].ShippingAddress</td>
                                 <td>@orderStatusHistories[i].OrderStatusName</td>
                                 <td>@string.Format("{0:#,##0}", orders[i].Total)</td>

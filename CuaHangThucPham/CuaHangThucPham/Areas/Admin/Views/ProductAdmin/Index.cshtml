@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var subCategories = (List<CuaHangThucPham.Models.SubCategory>)ViewBag.subCategories;
+    var products = (List<CuaHangThucPham.Models.Product>)ViewBag.products;
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách thực phẩm</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên sản phầm</th>
+                            <th>Ảnh</th>
+                            <th>Ngày thêm</th>
+                            <th>Giá mới</th>
+                            <th>Giá cũ</th>
+                            <th>Danh mục</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < products.Count; i++)
+                        {
+                            <tr>
+                                <td>@products[i].ProductID</td>
+                                <td>@products[i].ProductName</td>
+                                <td>
+                                    <img style="width: 90px; height: 75px; " src="/Public/image/product/@products[i].Image" alt="@products[i].ProductName" title="@products[i].ProductName" class="img-responsive" />
+                                </td>
+                                <td>@string.Format("{0:dd/MM/yyyy}", products[i].DateAdded)</td>
+                                <td>@string.Format("{0:#,##0}", products[i].PriceNew)</td>
+                                <td>@string.Format("{0:#,##0}", products[i].PriceOld)</td>
+                                <td>@subCategories[i].SubCategoriesName</td>
+                                <td>
+                                    <div>
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Sửa</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

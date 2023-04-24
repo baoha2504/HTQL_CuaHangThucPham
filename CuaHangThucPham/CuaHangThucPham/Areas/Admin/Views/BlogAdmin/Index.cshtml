@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var blogs = (List<CuaHangThucPham.Models.Blog>)ViewBag.blogs;
+    var customers = (List<CuaHangThucPham.Models.Customer>)ViewBag.customers;
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách bài viết</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Thời gian đăng</th>
+                            <th>Tiêu đề</th>
+                            <th>Ảnh chính</th>
+                            <th>Người đăng</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < blogs.Count; i++)
+                        {
+                            <tr>
+                                <td>@blogs[i].BlogID</td>
+                                <td>@string.Format("{0:dd/MM/yyyy}", blogs[i].DateAdded)</td>
+                                <td>@blogs[i].Title</td>
+                                <td>
+                                    <img style="width: 90px; height: 70px; " src="/Public/image/blog/@blogs[i].Image" class="img-responsive" />
+                                </td>
+
+                                <td>@customers[i].FirstName @customers[i].LastName</td>
+                                <td>
+                                    <div>
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Sửa</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,7 +11,7 @@ namespace WebAPI.Controllers
     {
         GroceryStoreContext _context = new GroceryStoreContext();
         [HttpGet]
-        public IActionResult GetAllInventory()
+        public IActionResult GetAllVouchers()
         {
             var vouchers = _context.Vouchers.ToList();
             return Ok(vouchers);

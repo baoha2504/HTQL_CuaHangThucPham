@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var reviews = (List<CuaHangThucPham.Models.Review>)ViewBag.reviews;
+    var customers = (List<CuaHangThucPham.Models.Customer>)ViewBag.customers;
+    var products = (List<CuaHangThucPham.Models.Product>)ViewBag.products;
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách bình luận</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Người bình luận</th>
+                            <th>Sản phẩm</th>
+                            <th>Ảnh</th>
+                            <th>Số sao</th>
+                            <th>Bình luận</th>
+                            <th>Ngày bình luận</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < reviews.Count; i++)
+                        {
+                            <tr>
+                                <td>@reviews[i].ReviewID</td>
+                                <td>@customers[i].FirstName @customers[i].LastName</td>
+                                <td>@products[i].ProductName</td>
+                                <td>
+                                    <img style="width: 90px; height: 70px; " src="/Public/image/product/@products[i].Image" class="img-responsive" />
+                                </td>
+                                <td>@reviews[i].NumStar</td>
+                                <td>@reviews[i].Comment</td>
+                                <td>@string.Format("{0:dd/MM/yyyy}", reviews[i].DateAdded)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

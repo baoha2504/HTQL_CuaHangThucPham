@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var vouchers = (List<CuaHangThucPham.Models.Voucher>)ViewBag.vouchers;
+    var customers = (List<CuaHangThucPham.Models.Customer>)ViewBag.customers;
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách khuyến mãi</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Code</th>
+                            <th>Nhân viên thêm</th>
+                            <th>Phần trăm giảm giá</th>
+                            <th>Giảm lớn nhất</th>
+                            <th>Mức được giảm</th>
+                            <th>Hạn sử dụng</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < vouchers.Count; i++)
+                        {
+                            <tr>
+                                <td>@vouchers[i].VoucherID</td>
+                                <td>@vouchers[i].VoucherCode</td>
+                                <td>@customers[i].FirstName @customers[i].LastName</td>
+                                <td>@vouchers[i].SalePercent %</td>
+                                <td>@string.Format("{0:#,##0}", vouchers[i].MaximumDis)</td>
+                                <td>@string.Format("{0:#,##0}", vouchers[i].MiximunVal)</td>
+                                <td>@string.Format("{0:dd/MM/yyyy}", vouchers[i].Expiry)</td>
+                                <td>
+                                    <div>
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Sửa</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

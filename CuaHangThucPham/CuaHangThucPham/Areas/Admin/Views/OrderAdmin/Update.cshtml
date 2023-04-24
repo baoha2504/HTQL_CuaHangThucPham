@@ -37,13 +37,33 @@
                             <tr>
                                 <td>@orders[i].OrderID</td>
                                 <td>@customers[i].FirstName @customers[i].LastName</td>
-                                <td>@orders[i].DateAdd</td>
+                                <td>@string.Format("{0:dd/MM/yyyy}", orders[i].DateAdd)</td>
                                 <td>@orders[i].ShippingAddress</td>
                                 <td>@orderStatusHistories[i].OrderStatusName</td>
                                 <td>@string.Format("{0:#,##0}", orders[i].Total)</td>
                                 <td>
-                                    <div>
-                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="updatestatus(@orders[i].OrderID);">Cập Nhật</button>
+                                    <div class="dropdown mb-4">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Cập nhật
+                                        </button>
+                                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                            @if (orderStatusHistories[i].OrderStatusName == "Đang Chờ Xác Nhận")
+                                            {
+                                                <a class="dropdown-item" href="#">Đã Xác Nhận</a>
+                                                <a class="dropdown-item" href="#">Đang Giao Hàng</a>
+                                                <a class="dropdown-item" href="#">Đã Giao Hàng</a>
+                                                <a class="dropdown-item" href="#">Hủy</a>
+                                            }
+                                            else if (orderStatusHistories[i].OrderStatusName == "Đã Xác Nhận")
+                                            {
+                                                <a class="dropdown-item" href="#">Đang Giao Hàng</a>
+                                                <a class="dropdown-item" href="#">Đã Giao Hàng</a>
+                                            }
+                                            else if (orderStatusHistories[i].OrderStatusName == "Đang Giao Hàng")
+                                            {
+                                                <a class="dropdown-item" href="#">Đã Giao Hàng</a>
+                                            }
+                                        </div>
                                     </div>
                                 </td>
                             </tr>

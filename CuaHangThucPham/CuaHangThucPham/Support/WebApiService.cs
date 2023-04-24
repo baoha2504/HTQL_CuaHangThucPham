@@ -56,14 +56,14 @@ namespace CuaHangThucPham
             var response = await client.GetAsync("api/Inventory");
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
-            var myObject = JsonConvert.DeserializeObject< List<Inventory>>(json);
+            var myObject = JsonConvert.DeserializeObject<List<Inventory>>(json);
             return myObject;
         }
 
         //Bill
-        public async Task<List<Bill>> GetAllBill()
+        public async Task<List<Bill>> GetAllBill(int billStatus)
         {
-            var response = await client.GetAsync("api/Bill");
+            var response = await client.GetAsync($"api/Bill/{billStatus}");
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             var myObject = JsonConvert.DeserializeObject<List<Bill>>(json);
@@ -89,6 +89,15 @@ namespace CuaHangThucPham
             return myObject;
         }
 
+        public async Task<List<Customer>> GetAllAccount()
+        {
+            var response = await client.GetAsync("api/Account");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<Customer>>(json);
+            return myObject;
+        }
+
         //order
         public async Task<List<Order>> GetAllOrder()
         {
@@ -111,7 +120,7 @@ namespace CuaHangThucPham
         }
 
         //orderStatusHistory
-        public async Task<List<OrderStatusHistory>> GetOrderStatusHistoryById(int id)//lấy 1
+        public async Task<List<OrderStatusHistory>> GetOrderStatusHistoryById(int id)
         {
             var response = await client.GetAsync($"api/OrderStatusHistory/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
             response.EnsureSuccessStatusCode();
@@ -120,5 +129,44 @@ namespace CuaHangThucPham
             return myObject;
         }
 
+        //subCategories
+        public async Task<SubCategory> GetSubCategoriesById(int id)
+        {
+            var response = await client.GetAsync($"api/SubCategory/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<SubCategory>(json);
+            return myObject;
+        }
+
+        //blog
+        public async Task<List<Blog>> GetAllBlogById()
+        {
+            var response = await client.GetAsync($"api/Blog"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<Blog>>(json);
+            return myObject;
+        }
+
+        //voucher
+        public async Task<List<Voucher>> GetAllVoucher()
+        {
+            var response = await client.GetAsync("api/Voucher");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<Voucher>>(json);
+            return myObject;
+        }
+
+        //review
+        public async Task<List<Review>> GetAllReview()
+        {
+            var response = await client.GetAsync("api/Review");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<Review>>(json);
+            return myObject;
+        }
     }
 }
