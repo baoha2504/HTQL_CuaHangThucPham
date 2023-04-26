@@ -10,7 +10,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+            <i class="fas fa-download fa-sm text-white-50"></i> Xuất báo cáo
         </a>
     </div>
 
@@ -24,7 +24,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Earnings (Monthly)
+                                Tổng thu trong ngày
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                         </div>
@@ -43,7 +43,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Earnings (Annual)
+                                Tổng chi trong ngày
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                         </div>
@@ -62,7 +62,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Tasks
+                                Đơn xử lý trong ngày
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
@@ -90,7 +90,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Pending Requests
+                                Bình luận
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                         </div>
@@ -112,7 +112,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Biều Đồ Doanh Thu</h6>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -140,7 +140,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Nguồn Doanh Thu</h6>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -174,5 +174,105 @@
             </div>
         </div>
     </div>
+    <div class="row">
+
+        <!-- Grow In Utility -->
+        <div class="col-lg-6">
+
+            <div class="card position-relative">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Đánh Giá Trong Tháng</h6>
+                </div>
+                <div class="card-body">
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="mr-3">
+                            <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="mr-3">
+                            <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="mr-3">
+                            <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fade In Utility -->
+        <div class="col-lg-6">
+
+            <div class="card position-relative">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Thông Báo</h6>
+                </div>
+                <div class="card-body">
+                    <a class="dropdown-item d-flex align-items-center" @*href="#"*@>
+                        <div class="mr-3">
+                            <div class="icon-circle bg-gradient-primary">
+                                <i class="fas fa-file-alt text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                            <div class="small text-gray-500">December 12, 2019</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-gradient-success">
+                                <i class="fas fa-donate text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                            <div class="small text-gray-500">December 12, 2019</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-gradient-warning">
+                                <i class="fas fa-exclamation-triangle text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                            <div class="small text-gray-500">December 12, 2019</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </div>
-<!-- /.container-fluid -->
+    <!-- /.container-fluid -->

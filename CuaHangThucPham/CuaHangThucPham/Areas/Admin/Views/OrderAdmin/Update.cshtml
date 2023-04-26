@@ -49,19 +49,23 @@
                                         <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
                                             @if (orderStatusHistories[i].OrderStatusName == "Đang Chờ Xác Nhận")
                                             {
-                                                <a class="dropdown-item" href="#">Đã Xác Nhận</a>
-                                                <a class="dropdown-item" href="#">Đang Giao Hàng</a>
-                                                <a class="dropdown-item" href="#">Đã Giao Hàng</a>
-                                                <a class="dropdown-item" href="#">Hủy</a>
+                                                <a class="dropdown-item" href="">Da Xac Nhan</a>
+                                                <a class="dropdown-item" href="">Dang Giao Hang</a>
+                                                <a class="dropdown-item" href="">Da Giao Hang</a>
+                                                <a class="dropdown-item" href="">Huy</a>
                                             }
                                             else if (orderStatusHistories[i].OrderStatusName == "Đã Xác Nhận")
                                             {
-                                                <a class="dropdown-item" href="#">Đang Giao Hàng</a>
-                                                <a class="dropdown-item" href="#">Đã Giao Hàng</a>
+                                                <a class="dropdown-item" href="">Dang Giao Hang</a>
+                                                <a class="dropdown-item" href="">Da Giao Hang</a>
                                             }
                                             else if (orderStatusHistories[i].OrderStatusName == "Đang Giao Hàng")
                                             {
-                                                <a class="dropdown-item" href="#">Đã Giao Hàng</a>
+                                                <a class="dropdown-item" href="">Da Giao Hang</a>
+                                            }
+                                            else if (orderStatusHistories[i].OrderStatusName == "Đã Hủy")
+                                            {
+                                                <a class="dropdown-item" href="">Da Huy</a>
                                             }
                                         </div>
                                     </div>

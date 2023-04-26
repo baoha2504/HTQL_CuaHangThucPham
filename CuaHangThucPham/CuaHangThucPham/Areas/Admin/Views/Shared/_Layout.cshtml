@@ -20,6 +20,7 @@
     @Styles.Render("~/Areas/Admin/Public/css/sb-admin-2.min.css")
     @Styles.Render("~/Areas/Admin/Public/vendor/datatables/dataTables.bootstrap4.min.css")
 
+
 </head>
 
 <body id="page-top">
@@ -356,7 +357,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@Session["name"]</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Quốc Bảo</span>
                                 <img class="img-profile rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile.png">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -424,8 +425,17 @@
         </div>
     </div>
 
+    <!-- jQuery  -->
+    @Scripts.Render("~/Areas/Admin/assets/js/jquery.min.js")
+    @Scripts.Render("~/Areas/Admin/assets/js/bootstrap.bundle.min.js")
+    @Scripts.Render("~/Areas/Admin/assets/js/modernizr.min.js")
+    @Scripts.Render("~/Areas/Admin/assets/js/metisMenu.min.js")
+    @Scripts.Render("~/Areas/Admin/assets/js/jquery.slimscroll.js")
+    @Scripts.Render("~/Areas/Admin/assets/js/waves.js")
+    @Scripts.Render("~/Areas/Admin/plugins/peity-chart/jquery.peity.min.js")
+
     <!-- Bootstrap core JavaScript-->
-    @Scripts.Render("~/Areas/Admin/Public/vendor/jquery/jquery.min.js")
+    @*@Scripts.Render("~/Areas/Admin/Public/vendor/jquery/jquery.min.js")*@
     @Scripts.Render("~/Areas/Admin/Public/vendor/bootstrap/js/bootstrap.bundle.min.js")
 
     <!-- Core plugin JavaScript-->

@@ -25,5 +25,10 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.subCategories = subCategories;
             return View();
         }
+
+        public async Task<ActionResult> AddProduct()
+        {
+            return View();
+        }
     }
 }
