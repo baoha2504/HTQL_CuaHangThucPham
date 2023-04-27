@@ -1,0 +1,96 @@
+﻿@using CuaHangThucPham.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layoutLeft.cshtml";
+    var products = (List<CuaHangThucPham.Models.Product>)ViewBag.Products;
+}
+<div id="content" class="col-sm-9">
+    <div class="row category-banner">
+        <div class="col-sm-12 category-image"><img src="/Public/image/banners/category-banner.jpg" alt="Desktops" title="Desktops" class="img-thumbnail" /></div>
+        <div class="col-sm-12 category-desc">
+            Chuyên sỉ lẻ rau, củ, quả giá tốt nhất khi mua online tại Thực phẩm Nhanh, giao hàng 24h ở Hà Nội
+            <br> Liên hệ hotline 0358.775.132 để được tư vấn tận tình
+        </div>
+    </div>
+    <div class="category-page-wrapper">
+        <div class="col-md-6 list-grid-wrapper">
+            <div class="btn-group btn-list-grid">
+                <button type="button" id="list-view" class="btn btn-default list" data-toggle="tooltip" title="Danh sách"><i class="fa fa-th-list"></i></button>
+                <button type="button" id="grid-view" class="btn btn-default grid" data-toggle="tooltip" title="Lưới"><i class="fa fa-th"></i></button>
+            </div>
+            <a id="compare-total">Chế độ hiển thị</a>
+        </div>
+        <div class="col-md-1 text-right page-wrapper">
+            <label class="control-label" for="input-limit">Số sản phẩm:</label>
+            <div class="limit">
+                <select id="input-limit" class="form-control">
+                    <option value="10">10</option>
+                    <option value="20" selected="selected">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2 text-right sort-wrapper">
+            <label class="control-label" for="input-sort">Sắp xếp theo:</label>
+            <div class="sort-inner">
+                <select id="input-sort" class="form-control">
+                    <option value="ASC" selected="selected">Mặc định</option>
+                    <option value="ASC">Tên (A - Z)</option>
+                    <option value="DESC">Tên (Z - A)</option>
+                    <option value="ASC">Giá (Cao &gt; Thấp)</option>
+                    <option value="DESC">Giá (Cao &gt; Thấp)</option>
+                    <option value="DESC">Đánh giá (Cao)</option>
+                    <option value="ASC">Đánh giá (Thấp)</option>
+                    <option value="ASC">Loại (A - Z)</option>
+                    <option value="DESC">Loại (Z - A)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="grid-list-wrapper">
+        @for (int i = 0; i < products.Count; i++)
+        {
+            <div class="product-layout product-list col-xs-12">
+                <div class="product-thumb">
+                    <div class="image product-imageblock">
+                        <a href="\Product\DetailProduct?id=@products[i].ProductID">
+                            <img style="width: 230px; height: 180px; " src="/Public/image/product/@products[i].Image" alt="@products[i].ProductName" title="@products[i].ProductName" class="img-responsive" />
+                        </a>
+                        <div class="button-group">
+                            <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào danh sách yêu thích"><i class="fa fa-heart-o"></i></button>
+                            <button type="button" class="addtocart-btn">Thêm vào giỏ</button>
+                            <button type="button" class="compare" data-toggle="tooltip" title="Chuyển ảnh sản phẩm"><i class="fa fa-exchange"></i></button>
+                        </div>
+                    </div>
+                    <div class="caption product-detail">
+                        <h4 class="product-name"> <a href="\Product\DetailProduct?id=@products[i].ProductID" title="@products[i].ProductName"> @products[i].ProductName </a> </h4>
+                        <p class="product-desc">
+                            @products[i].Summary
+                        </p>
+                        <p class="price product-price"><span class="price-old">@string.Format("{0:#,##0}", products[i].PriceOld)</span> @string.Format("{0:#,##0}", products[i].PriceNew) đ <span class="price-tax">Ex Tax: $100.00</span> </p>
+                        <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>                                    </div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="wishlist" data-toggle="tooltip" title="Thêm vào danh sách yêu thích"><i class="fa fa-heart-o"></i></button>
+                        <button type="button" class="addtocart-btn">Thêm vào giỏ</button>
+                        <button type="button" class="compare" data-toggle="tooltip" title="Chuyển ảnh sản phẩm"><i class="fa fa-exchange"></i></button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="category-page-wrapper">
+        <div class="result-inner">Đang hiển thị trang <strong>1/10</strong> </div>
+        <div class="pagination-inner">
+            <ul class="pagination">
+                <li class="active"><span>1</span></li>
+                <li><a href="category.html">2</a></li>
+                <li><a href="category.html">&gt;</a></li>
+                <li><a href="category.html">&gt;|</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

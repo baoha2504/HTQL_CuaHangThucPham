@@ -26,6 +26,8 @@
     @Styles.Render("~/Public/css/ringphone.css")
     @Scripts.Render("~/Public/libs.js")
     @Styles.Render("~/Public/css/lib.css")
+    @Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" )
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js")
 </head>
 
 <body class="category col-2 left-col">
@@ -73,18 +75,13 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a id="wishlist-total" title="Giỏ hàng" href="\CheckOut\Index">
+                                            <a id="wishlist-total" title="Giỏ hàng" href="\Cart\Index">
                                                 <i class="fa fa-reorder"></i>
                                                 <span>Giỏ hàng </span>
                                             </a>
                                         </li>
                                     }
                                 </ul>
-                                <div class="search-box">
-                                    <input class="input-text" placeholder="search.." type="text">
-                                    <button class="search-btn"><i class="fa fa-search"></i></button>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -160,7 +157,7 @@
                         }
                         else
                         {
-                            <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
+                            @*<button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
                                 <span id="cart-total">
                                     <span class="cart-title">Giỏ hảng</span><br>
                                     1 sản phẩm
@@ -195,7 +192,7 @@
                                         <p class="text-right"> <span class="btn-viewcart"><a href="\Cart\Index"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span class="btn-checkout"><a href="" \CheckOut\Index""><strong><i class="fa fa-share"></i> Checkout</strong></a></span>                                        </p>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul>*@
                         }
                     </div>
                 </div>
@@ -225,7 +222,7 @@
     <div class="container">
         <ul class="breadcrumb">
             <li><a href="\Home\Index"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">Electronics</a></li>
+            <li><a href="#"> </a></li>
         </ul>
         <div class="row">
             <div id="column-left" class="col-sm-3 hidden-xs column-left">
@@ -312,63 +309,29 @@
                         </ul>
                     </div>
                 </div>
-                <div class="panel panel-default filter">
-                    <div class="panel-heading columnblock-title">Lọc</div>
-                    <div class="filter-block">
-                        <div class="list-group">
-                            <a class="list-group-item">Màu</a>
-                            <div class="list-group-item">
-                                <div id="filter-group1">
-                                    <label class="checkbox">
-                                        <input name="filter[]" type="checkbox" value="1" />
-                                        Trắng
-                                    </label>
-                                    <label class="checkbox">
-                                        <input name="filter[]" type="checkbox" value="2" />
-                                        Xanh
-                                    </label>
-                                    <label class="checkbox">
-                                        <input name="filter[]" type="checkbox" value="3" />
-                                        Đỏ
-                                    </label>
+                <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/Product/SearchProduct">
+                    <div class="panel panel-default filter">
+                        <div class="panel-heading columnblock-title">Lọc</div>
+                        <div class="filter-block">
+                            <div class="list-group">
+                                <a class="list-group-item">Màu</a>
+                                <div class="list-group-item">
+                                    <input name="name" type="text" value="" placeholder="Nhập..."/>
                                 </div>
-                            </div>
-                            <a class="list-group-item">Price</a>
-                            <div class="list-group-item">
-                                <div id="filter-group2">
-                                    <label class="checkbox">
-                                        <input name="filter[]" type="checkbox" value="4" />
-                                        $100-$300 (6)
-                                    </label>
-                                    <label class="checkbox">
-                                        <input name="filter[]" type="checkbox" value="5" />
-                                        $301-$1000 (6)
-                                    </label>
+                                <a class="list-group-item"></br>Khoảng giá</a>
+                                <div class="list-group-item">
+                                    <div id="slider"></div>
                                 </div>
+                                @*<a class="list-group-item" id="giatri" name="price" val></a>*@
+                                </br><input name="price" type="text" value="" id="giatri" />
                             </div>
-                            <a class="list-group-item">Kích thước</a>
-                            <div class="list-group-item">
-                                <div id="filter-group3">
-                                    <label class="checkbox">
-                                        <input name="filter[]" type="checkbox" value="6" />
-                                        Lớn (3)
-                                    </label>
-                                    <label class="checkbox">
-                                        <input name="filter[]" type="checkbox" value="7" />
-                                        Vừa (3)
-                                    </label>
-                                    <label class="checkbox">
-                                        <input name="filter[]" type="checkbox" value="8" />
-                                        Bé (1)
-                                    </label>
-                                </div>
+                            <div class="panel-footer text-right">
+                                <button type="submit" id="button-filter" class="btn btn-primary">Tìm kiếm</button>
                             </div>
-                        </div>
-                        <div class="panel-footer text-right">
-                            <button type="button" id="button-filter" class="btn btn-primary">Tìm kiếm</button>
                         </div>
                     </div>
-                </div>
+                </form>
+                
                 <div class="banner">
                     <div class="item">
                         <a href="#"><img src="~/Public/image/banners/LeftBanner.jpg" alt="Left Banner" class="img-responsive" /></a>
@@ -557,3 +520,24 @@
 </body>
 
 </html>
+
+<script>
+    var slider = document.getElementById('slider');
+    noUiSlider.create(slider, {
+        start: [0, 500000], // Giá trị ban đầu của 2 đầu thanh kéo
+        connect: true, // Kết nối 2 đầu thanh kéo bằng một đường thẳng
+        range: {
+            'min': 0,
+            'max': 500000
+        }
+    });
+
+    slider.noUiSlider.on('update', function (values, handle) {
+        var value1 = parseInt(values[0]); // Lấy giá trị đầu tiên của thanh kéo và chuyển sang kiểu số nguyên
+        var value2 = parseInt(values[1]); // Lấy giá trị thứ hai của thanh kéo và chuyển sang kiểu số nguyên
+        var formatted1 = value1.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }); // Định dạng số thành chuỗi tiền tệ VND
+        var formatted2 = value2.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }); // Định dạng số thành chuỗi tiền tệ VND
+        $('#giatri').val(formatted1 + ' - ' + formatted2); // Thay đổi giá trị của thẻ input với định dạng tiền tệ
+    });
+
+</script>

@@ -44,7 +44,12 @@ namespace CuaHangThucPham.Controllers
 
         public ActionResult About()
         {
-            return View();
+            using (var ctx = new GroceryStoreDbContext())
+            {
+                var blogs = ctx.Blogs.SqlQuery("select * from Blog").ToList();
+                ViewBag.Blogs = blogs;
+                return View();
+            }
         }
         public ActionResult Contact()
         {

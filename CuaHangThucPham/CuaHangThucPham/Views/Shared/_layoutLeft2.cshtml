@@ -73,18 +73,13 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a id="wishlist-total" title="Giỏ hàng" href="\CheckOut\Index">
+                                            <a id="wishlist-total" title="Giỏ hàng" href="\Cart\Index">
                                                 <i class="fa fa-reorder"></i>
                                                 <span>Giỏ hàng </span>
                                             </a>
                                         </li>
                                     }
                                 </ul>
-                                <div class="search-box">
-                                    <input class="input-text" placeholder="search.." type="text">
-                                    <button class="search-btn"><i class="fa fa-search"></i></button>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -141,8 +136,11 @@
                                         <table class="table table-bordered">
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-right"><strong>Tổng tiền</strong></td>
-                                                    <td class="text-right">@string.Format("{0:#,##0}", ViewBag.sum)</td>
+                                                    @if (ViewBag.sum != null)
+                                                    {
+                                                        <td class="text-right"><strong>Tổng tiền</strong></td>
+                                                        <td class="text-right">@string.Format("{0:#,##0}", ViewBag.sum)</td>
+                                                    }
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -160,7 +158,7 @@
                         }
                         else
                         {
-                            <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
+                            @*<button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button">
                                 <span id="cart-total">
                                     <span class="cart-title">Giỏ hảng</span><br>
                                     1 sản phẩm
@@ -195,7 +193,7 @@
                                         <p class="text-right"> <span class="btn-viewcart"><a href="\Cart\Index"><strong><i class="fa fa-shopping-cart"></i> View Cart</strong></a></span> <span class="btn-checkout"><a href="" \CheckOut\Index""><strong><i class="fa fa-share"></i> Checkout</strong></a></span>                                        </p>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul>*@
                         }
                     </div>
                 </div>
@@ -225,14 +223,20 @@
     <div class="container">
         <ul class="breadcrumb">
             <li><a href="\Home\Index"><i class="fa fa-home"></i></a></li>
-            <li><a href="\Home\ForgetPassword.html">Forgotten Password</a></li>
+            <li><a href="\Home\ForgetPassword"></a></li>
         </ul>
         <div class="row">
             <div id="column-left" class="col-sm-3 hidden-xs column-left">
                 <div class="column-block">
-                    <div class="columnblock-title">Affiliate</div>
+                    <div class="columnblock-title">Danh mục</div>
                     <div class="affiliate-block">
-                        <div class="list-group"> <a href="\Account\Login" class="list-group-item">Login</a> <a href="register.html" class="list-group-item">Register</a> <a href="forgetpassword.html" class="list-group-item">Forgotten Password</a> <a href="#" class="list-group-item">My Account</a>                            <a href="3" class="list-group-item">Payment Options</a> <a href="#" class="list-group-item">Affiliate Tracking</a> <a href="#" class="list-group-item last">Transactions</a> </div>
+                        <div class="list-group"> 
+                        <a href="\Account\Register" class="list-group-item">Thông tin tài khoản</a> 
+                        <a href="\Cart\Index" class="list-group-item">Giỏ hàng</a> 
+                        <a href="\CheckOut\Index" class="list-group-item">Thanh toán</a> 
+                        <a href="" class="list-group-item">Danh sách yêu thích</a>
+                        <a href="\Account\Logout" class="list-group-item">Đăng xuất</a>
+                        </div>
                     </div>
                 </div>
             </div>
