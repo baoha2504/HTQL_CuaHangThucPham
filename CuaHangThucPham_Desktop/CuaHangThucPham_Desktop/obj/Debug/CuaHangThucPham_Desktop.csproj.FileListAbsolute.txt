@@ -80,3 +80,13 @@ D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\obj\Debu
 D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\obj\Debug\CuaHangThucPham_Desktop.BanHang.usrTrangChu.resources
 D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\obj\Debug\CuaHangThucPham_Desktop.frmQuestion.resources
 D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\obj\Debug\CuaHangThucPham_Desktop.KhachHang.KhachXemSP.resources
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\AForge.dll
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\AForge.Video.DirectShow.dll
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\AForge.Video.dll
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\zxing.dll
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\zxing.presentation.dll
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\AForge.xml
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\AForge.Video.xml
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\AForge.Video.DirectShow.xml
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\zxing.xml
+D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\bin\Debug\zxing.presentation.xml

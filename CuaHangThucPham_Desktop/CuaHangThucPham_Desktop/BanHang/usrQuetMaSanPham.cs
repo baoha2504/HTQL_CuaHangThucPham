@@ -2,6 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Media;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using ZXing;
+using DevExpress.Utils;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace CuaHangThucPham_Desktop.BanHang
 {
@@ -14,9 +22,26 @@ namespace CuaHangThucPham_Desktop.BanHang
         public int sosanpham;
         public int tongtien;
         public string noidungquet = "";
+        private FilterInfoCollection CaptureDevice;
+        private VideoCaptureDevice FinalFrame;
+        string decoded = "";
+        private Timer timer;
         public usrQuetMaSanPham()
         {
             InitializeComponent();
+            timer = new Timer();
+            timer.Interval = 2000;
+
+            // Thiết lập sự kiện để thực hiện hàm MyFunction
+            timer.Tick += new EventHandler(MyFunction);
+
+            // Bắt đầu timer
+            timer.Start();
+        }
+
+        private void MyFunction(object sender, EventArgs e)
+        {
+            decoded = "";
         }
 
         private async void usrQuetMaSanPham_Load(object sender, EventArgs e)
@@ -30,9 +55,34 @@ namespace CuaHangThucPham_Desktop.BanHang
                 flowLayoutPanel.Controls.Add(thucPham);
                 thucPhams.Add(thucPham);
             }
+            CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo Device in CaptureDevice)
+            {
+                comboBox1.Items.Add(Device.Name);
+            }
+            comboBox1.SelectedIndex = 0;
+            FinalFrame = new VideoCaptureDevice();
+            FinalFrame = new VideoCaptureDevice(CaptureDevice[comboBox1.SelectedIndex].MonikerString);
+            FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_Newframe);
+            FinalFrame.Start();
         }
 
-        private void btnQuet_Click(object sender, EventArgs e)
+        private void FinalFrame_Newframe(object sender, NewFrameEventArgs eventArgs)
+        {
+            var newWidth = 500; // kích thước mới của hình ảnh
+            var newHeight = 500;
+            var newImage = new Bitmap(newWidth, newHeight);
+            using (var graphics = Graphics.FromImage(newImage))
+            {
+                //graphics.DrawImage((Bitmap)eventArgs.Frame.Clone(), 0, 0, 150, 147);
+                graphics.DrawImage((Bitmap)eventArgs.Frame.Clone(), 0, 0, 217, 147);
+            }
+
+
+            pictureBox1.Image = newImage;
+        }
+
+        private void QuetMa()
         {
             if (flowLayoutPanelDonHangQuet.Controls.Count == 0)
             {// chưa có gì trong giỏ
@@ -146,6 +196,49 @@ namespace CuaHangThucPham_Desktop.BanHang
             {
                 MessageBox.Show("Kiểm tra lại đơn hàng", "Thông báo", MessageBoxButtons.OK);
             }
+        }
+
+        private void btnQuet_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void txtNoiDungQuet_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNoiDungQuet.Text != "")
+            {
+                SoundPlayer player = new SoundPlayer(@"D:\HTQL_CuaHangThucPham\CuaHangThucPham_Desktop\CuaHangThucPham_Desktop\Resources\pip.wav");
+                player.Play();
+                QuetMa();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            BarcodeReader reader = new BarcodeReader();
+            Result result = reader.Decode((Bitmap)pictureBox1.Image);
+
+            try
+            {
+                if (result != null)
+                {
+                    if (txtNoiDungQuet.Text == "" || txtNoiDungQuet.Text == string.Empty)
+                    {
+                        decoded = result.ToString().Trim();
+                        txtNoiDungQuet.Text = decoded;
+                    }
+                }
+                else
+                {
+                    txtNoiDungQuet.Text = decoded;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
     }
 }
