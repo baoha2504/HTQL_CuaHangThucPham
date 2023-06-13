@@ -9,6 +9,14 @@ namespace WebAPI.Controllers
     public class SubCategoryController : ControllerBase
     {
         GroceryStoreContext _context = new GroceryStoreContext();
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var dsSubcategories = _context.SubCategories.ToList();
+            return Ok(dsSubcategories);
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetBillByBillStatus(int id)
         {

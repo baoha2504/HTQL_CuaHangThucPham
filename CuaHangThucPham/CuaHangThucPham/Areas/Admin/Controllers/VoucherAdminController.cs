@@ -25,5 +25,10 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.vouchers = vouchers;
             return View();
         }
+
+        public async Task<ActionResult> AddVoucher()
+        {
+            return View();
+        }
     }
 }

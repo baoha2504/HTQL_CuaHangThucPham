@@ -4173,6 +4173,10 @@
     <Content Include="Areas\Admin\Views\AccountAdmin\Staff.cshtml" />
     <Content Include="Areas\Admin\Views\AccountAdmin\Customer.cshtml" />
     <Content Include="Areas\Admin\Views\ProductAdmin\AddProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\BlogAdmin\AddBlog.cshtml" />
+    <Content Include="Areas\Admin\Views\VoucherAdmin\AddVoucher.cshtml" />
+    <Content Include="Areas\Admin\Views\ReviewAdmin\Reply.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductAdmin\EditProduct.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -29,5 +29,9 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.reviews = reviews;
             return View();
         }
+        public async Task<ActionResult> Reply()
+        {
+            return View();
+        }
     }
 }

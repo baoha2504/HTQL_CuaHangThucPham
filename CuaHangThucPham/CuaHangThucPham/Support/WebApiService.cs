@@ -50,6 +50,43 @@ namespace CuaHangThucPham
             return myObject;
         }
 
+        public async Task<Product> CreateProduct(Product product)
+        {
+            var jsonData = JsonConvert.SerializeObject(product);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("api/Product", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Product>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
+
+        public async Task<Product> UpdateProduct(Product product)
+        {
+            var jsonData = JsonConvert.SerializeObject(product);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+           // var response = await client.PostAsync("api/Product", content);
+            var response = await client.PutAsync($"api/Product/{product.ProductID}", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Product>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
+
         //Inventory
         public async Task<List<Inventory>> GetAllInventory()
         {
@@ -130,6 +167,15 @@ namespace CuaHangThucPham
         }
 
         //subCategories
+        public async Task<List<SubCategory>> GetAllSubCategory()
+        {
+            var response = await client.GetAsync($"api/SubCategory"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<SubCategory>>(json);
+            return myObject;
+        }
+
         public async Task<SubCategory> GetSubCategoriesById(int id)
         {
             var response = await client.GetAsync($"api/SubCategory/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây

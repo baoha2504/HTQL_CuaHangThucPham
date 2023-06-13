@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebAPI.Entities;
 
 namespace WebAPI.Controllers
@@ -29,7 +28,8 @@ namespace WebAPI.Controllers
             if (dsProduct != null)
             {
                 return Ok(dsProduct);
-            } else
+            }
+            else
             {
                 return NotFound();
             }
@@ -52,12 +52,22 @@ namespace WebAPI.Controllers
         {
             try
             {
+
                 var prd = new Product
                 {
                     ProductId = product.ProductId,
+                    SubCategoriesId = product.SubCategoriesId,
                     ProductName = product.ProductName,
-                    PriceOld = product.PriceOld,
+                    Summary = product.Summary,
+                    Description = product.Description,
+                    Image = product.Image,
                     PriceNew = product.PriceNew,
+                    PriceOld = product.PriceOld,
+                    Brand = product.Brand,
+                    Model = product.Model,
+                    Suppiler = product.Suppiler,
+                    Status = product.Status,
+                    DateAdded = product.DateAdded,
                 };
                 _context.Add(prd);
                 _context.SaveChanges();
@@ -69,15 +79,23 @@ namespace WebAPI.Controllers
             }
         }
         [HttpPut("{id}")]
-        public IActionResult UpdateProductById(int id, Product prd)
+        public IActionResult UpdateProductById(int id, Product product)
         {
             var dsProduct = _context.Products.SingleOrDefault(m => m.ProductId == id);
             if (dsProduct != null)
             {
-                dsProduct.SubCategoriesId = prd.SubCategoriesId; 
-                dsProduct.ProductName = prd.ProductName;
-                dsProduct.PriceOld = prd.PriceOld;
-                dsProduct.PriceNew = prd.PriceNew;
+                dsProduct.SubCategoriesId = product.SubCategoriesId;
+                dsProduct.ProductName = product.ProductName;
+                dsProduct.Summary = product.Summary;
+                dsProduct.Description = product.Description;
+                dsProduct.Image = product.Image;
+                dsProduct.PriceNew = product.PriceNew;
+                dsProduct.PriceOld = product.PriceOld;
+                dsProduct.Brand = product.Brand;
+                dsProduct.Model = product.Model;
+                dsProduct.Suppiler = product.Suppiler;
+                dsProduct.Status = product.Status;
+                dsProduct.DateAdded = product.DateAdded;
                 _context.SaveChanges();
                 return NoContent();
             }

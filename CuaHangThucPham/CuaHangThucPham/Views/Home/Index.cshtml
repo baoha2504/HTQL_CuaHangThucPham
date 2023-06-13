@@ -210,14 +210,14 @@
                             <li class="item blog-slider-item">
                                 <div class="panel-default">
                                     <div class="blog-image">
-                                        <a href="#" class="blog-imagelink"><img src="~/Public/image/blog/@item.Image" alt="#"></a> <span class="blog-hover"></span> <span class="blog-date">15/05/2023</span> <span class="blog-readmore-outer"><a href="#" class="blog-readmore">Đọc tiếp</a></span>
+                                        <a href="/Blog/SingaleBlog/@item.BlogID" class="blog-imagelink"><img src="~/Public/image/blog/@item.Image" alt="#"></a> <span class="blog-hover"></span> <span class="blog-date">15/05/2023</span> <span class="blog-readmore-outer"><a href="/Blog/SingaleBlog/@item.BlogID" class="blog-readmore">Đọc tiếp</a></span>
                                     </div>
                                     <div class="blog-content">
                                         <a href="#" class="blog-name">
                                             <h2>@item.Title</h2>
                                         </a>
                                         <div class="blog-desc">@item.Content.Substring(0, 100);...</div>
-                                        <a href="#" class="blog-readmore">Đọc tiếp</a> <span class="blog-date">@item.DateAdded</span>
+                                        <a href="/Blog/SingaleBlog/@item.BlogID" class="blog-readmore">Đọc tiếp</a> <span class="blog-date">@item.DateAdded</span>
                                     </div>
                                 </div>
                             </li>

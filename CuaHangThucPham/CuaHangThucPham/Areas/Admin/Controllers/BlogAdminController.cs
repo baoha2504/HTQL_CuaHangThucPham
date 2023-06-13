@@ -25,5 +25,10 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.blogs = blogs;
             return View();
         }
+
+        public async Task<ActionResult> AddBlog()
+        {
+            return View();
+        }
     }
 }

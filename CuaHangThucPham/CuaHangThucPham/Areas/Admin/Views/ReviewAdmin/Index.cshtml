@@ -27,8 +27,9 @@
                             <th>Sản phẩm</th>
                             <th>Ảnh</th>
                             <th>Số sao</th>
-                            <th>Bình luận</th>
-                            <th>Ngày bình luận</th>
+                            <th>Nội dung</th>
+                            <th>Thời gian</th>
+                            <th>Trả lời bình luận</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +45,11 @@
                                 <td>@reviews[i].NumStar</td>
                                 <td>@reviews[i].Comment</td>
                                 <td>@string.Format("{0:dd/MM/yyyy}", reviews[i].DateAdded)</td>
+                                <td>
+                                    <div>
+                                        <a class="btn btn-primary waves-effect waves-light" href="/Admin/ReviewAdmin/Reply">Trả lời</a>
+                                    </div>
+                                </td>
                             </tr>
                         }
                     </tbody>
