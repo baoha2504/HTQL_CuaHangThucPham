@@ -10,7 +10,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+    
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -47,7 +47,9 @@
                                 <td>@string.Format("{0:dd/MM/yyyy}", reviews[i].DateAdded)</td>
                                 <td>
                                     <div>
-                                        <a class="btn btn-primary waves-effect waves-light" href="/Admin/ReviewAdmin/Reply">Trả lời</a>
+                                        <a href="Reply/@reviews[i].ReviewID">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Trả lời</button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

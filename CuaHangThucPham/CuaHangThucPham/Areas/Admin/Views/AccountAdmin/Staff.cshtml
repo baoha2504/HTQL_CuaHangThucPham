@@ -8,7 +8,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+    
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -51,29 +51,29 @@
                                 }
                                 @if (customers[i].Prohibit == 1)
                                 {
-                                    <td>Hoạt động</td>
+                                    <td style="color:dodgerblue">Hoạt động</td>
                                 }
                                 else
                                 {
-                                    <td>Bị khóa</td>
+                                    <td style="color:red">Khóa</td>
                                 }
-                            <td>
-                                <div class="dropdown mb-4">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Cập nhật
-                                    </button>
-                                    <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                                        @if (customers[i].Prohibit == 1)
-                                        {
-                                            <a class="dropdown-item" href="#">Bị khóa</a>
-                                        }
-                                        else
-                                        {
-                                            <a class="dropdown-item" href="#">Hoạt động</a>
-                                        }
+                                <td>
+                                    <div class="dropdown mb-4">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Cập nhật
+                                        </button>
+                                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                            @if (customers[i].Prohibit == 1)
+                                            {
+                                                <a class="dropdown-item" href="UpdateStatusStaff?id=@customers[i].CustomerID&prohibit=2">Khóa</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="dropdown-item" href="UpdateStatusStaff?id=@customers[i].CustomerID&prohibit=1">Hoạt động</a>
+                                            }
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
                             </tr>
                         }
                     </tbody>

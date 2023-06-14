@@ -30,5 +30,19 @@ namespace WebAPI.Controllers
                 return BadRequest(0);
             }
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetOrderDetailByID(int id)
+        {
+            var oddt = _context.OrderDetails.Where(m => m.OrderId == id).ToList();
+            if (oddt != null)
+            {
+                return Ok(oddt);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }

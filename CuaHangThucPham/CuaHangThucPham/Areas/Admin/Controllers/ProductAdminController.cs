@@ -1,9 +1,7 @@
 ﻿using CuaHangThucPham.Models;
 using System;
 using System.Collections.Generic;
-using System.EnterpriseServices.Internal;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -29,6 +27,38 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             return View();
         }
 
+        public string RemoveVietnameseDiacritics(string input)
+        {
+            string[] diacritics = new string[]
+            {
+            "aAeEoOuUiIdDyY",
+            "áàạảãâấầậẩẫăắằặẳẵ",
+            "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
+            "éèẹẻẽêếềệểễ",
+            "ÉÈẸẺẼÊẾỀỆỂỄ",
+            "óòọỏõôốồộổỗơớờợởỡ",
+            "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
+            "úùụủũưứừựửữ",
+            "ÚÙỤỦŨƯỨỪỰỬỮ",
+            "íìịỉĩ",
+            "ÍÌỊỈĨ",
+            "đ",
+            "Đ",
+            "ýỳỵỷỹ",
+            "ÝỲỴỶỸ"
+            };
+
+            for (int i = 1; i < diacritics.Length; i++)
+            {
+                for (int j = 0; j < diacritics[i].Length; j++)
+                {
+                    input = input.Replace(diacritics[i][j], diacritics[0][i - 1]);
+                }
+            }
+
+            return input;
+        }
+
         public async Task<ActionResult> AddProduct()
         {
             var subCategories = await webApiService.GetAllSubCategory();
@@ -37,7 +67,6 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateInput(false)]
         public async Task<ActionResult> AddProduct(int subcate, HttpPostedFileBase file, string productname, string brand, string model, string suppiler, string pricenew, string priceold, string summary, string area, string date)
         {
             // lấy tên ảnh
@@ -47,7 +76,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             // lấy tên sản phẩm làm slug
 
             //lấy tên mới của ảnh + [đuôi ảnh lấy đc]
-            string namefilenew = productname + "." + ExtensionFile;
+            string namefilenew = RemoveVietnameseDiacritics(productname) + "." + ExtensionFile;
             //lưu ảnh vào đường đẫn
             var path = Path.Combine(Server.MapPath("~/Public/image/product"), namefilenew);
             //nếu thư mục k tồn tại thì tạo thư mục
@@ -75,10 +104,10 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             product.Image = namefilenew;
             product.DateAdded = DateTime.Parse(date);
 
-            var productResponse= await webApiService.CreateProduct(product);    
+            var productResponse = await webApiService.CreateProduct(product);
 
             ViewBag.alert = "Thêm thành công";
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
 
         public async Task<ActionResult> EditProduct(string id)
@@ -103,10 +132,8 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateInput(false)]
         public async Task<ActionResult> EditProduct(string prdid, int subcate, HttpPostedFileBase file, string productname, string brand, string model, string suppiler, string pricenew, string priceold, string summary, string area)
         {
-
             var product = await webApiService.GetProductById(Int32.Parse(prdid));
             file = Request.Files["file"];
             string filename = file.FileName.ToString();
@@ -117,7 +144,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
                 // lấy tên sản phẩm làm slug
 
                 //lấy tên mới của ảnh + [đuôi ảnh lấy đc]
-                string namefilenew = productname + "." + ExtensionFile;
+                string namefilenew = RemoveVietnameseDiacritics(productname) + "." + ExtensionFile;
                 //lưu ảnh vào đường đẫn
                 var path = Path.Combine(Server.MapPath("~/Public/image/product"), namefilenew);
                 //nếu thư mục k tồn tại thì tạo thư mục

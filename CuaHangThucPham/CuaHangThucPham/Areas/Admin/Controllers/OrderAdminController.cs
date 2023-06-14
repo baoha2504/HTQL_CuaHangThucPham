@@ -1,10 +1,7 @@
 ﻿using CuaHangThucPham.Models;
-using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CuaHangThucPham.Areas.Admin.Controllers
@@ -26,13 +23,51 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
                 customers.Add(customer);
                 var orderStatusHistory = await webApiService.GetOrderStatusHistoryById((int)orders[i].OrderID);
                 int a = orderStatusHistory.Count;
-                orderStatusHistories.Add(orderStatusHistory[a-1]);
+                orderStatusHistories.Add(orderStatusHistory[a - 1]);
             }
             ViewBag.customers = customers;
             ViewBag.orders = orders;
             ViewBag.orderStatusHistories = orderStatusHistories;
             return View();
         }
+
+        public async Task<ActionResult> ViewOrder(string id)
+        {
+            List<Product> prd = new List<Product>();
+            var order = await webApiService.GetOrderById(Int32.Parse(id));
+            var customer = await webApiService.GetAccountById((int)order.CustomerID);
+            var shipping = await webApiService.GetShippingById((int)order.ShippingID);
+            var payment = await webApiService.GetPaymentById((int)order.PaymentID);
+            var orderStatusHistories = await webApiService.GetOrderStatusHistoryById((int)order.OrderID);
+            var orderDetails = await webApiService.GetOrderDetailById((int)order.OrderID);
+            var products = await webApiService.GetAllProduct();
+            for(int i = 0; i < orderDetails.Count; i++)
+            {
+                for(int j = 0; j < products.Count; j++)
+                {
+                    if (orderDetails[i].ProductID == products[j].ProductID)
+                    {
+                        prd.Add(products[j]);
+                    }
+                }
+            }
+            ViewBag.CustomerName = customer.FirstName + " " + customer.LastName;
+            ViewBag.DateAdd = order.DateAdd;
+            ViewBag.ShippingAddress = order.ShippingAddress;
+            ViewBag.Name = order.Name;
+            ViewBag.Phone = order.Phone;
+            ViewBag.Note = order.Note;
+            ViewBag.ShippingFee = order.ShippingFee;
+            ViewBag.Discount = order.Discount;
+            ViewBag.Total = order.Total;
+            ViewBag.shipping = shipping.ShippingName;
+            ViewBag.payment = payment.PaymentName;
+            ViewBag.orderStatusHistoryName = orderStatusHistories[orderStatusHistories.Count - 1].OrderStatusName;
+            ViewBag.orderDetails = orderDetails;
+            ViewBag.prd = prd;
+            return View();
+        }
+
 
         public async Task<ActionResult> Update()
         {
@@ -45,7 +80,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
                 customers.Add(customer);
                 var orderStatusHistory = await webApiService.GetOrderStatusHistoryById((int)orders[i].OrderID);
                 int a = orderStatusHistory.Count;
-                orderStatusHistories.Add(orderStatusHistory[a-1]);
+                orderStatusHistories.Add(orderStatusHistory[a - 1]);
             }
             ViewBag.customers = customers;
             ViewBag.orders = orders;
@@ -53,17 +88,36 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             return View();
         }
 
-        public JsonResult UpdateStatus(int id, string status)
+        // 1. Đã Xác Nhận
+        // 2. Đang Giao Hàng
+        // 3. Đã Giao Hàng
+        // 4. Hủy
+        public async Task<ActionResult> UpdateStatus(int id, int status)
         {
             OrderStatusHistory orderStatusHistory = new OrderStatusHistory();
+            orderStatusHistory.DateAdd = DateTime.Now;
             orderStatusHistory.OrderID = id;
-            orderStatusHistory.OrderStatusName = status;
-            orderStatusHistory.CanceledBy = "Người Bán";
-            //checkDAO.InsertOrderHistory(orderStatusHistory);
-            return Json(new
+            if (status == 1)
             {
-                status = true
-            });
+                orderStatusHistory.OrderStatusName = "Đã Xác Nhận";
+            } 
+            else if (status == 2)
+            {
+                orderStatusHistory.OrderStatusName = "Đang Giao Hàng";
+            }
+            else if (status == 3)
+            {
+                orderStatusHistory.OrderStatusName = "Đã Giao Hàng";
+            }
+            else if (status == 4)
+            {
+                orderStatusHistory.OrderStatusName = "Đã hủy";
+            }
+
+            orderStatusHistory.CanceledBy = "Người Bán";
+            orderStatusHistory.CanceledBy = (string)Session["name"];
+            var responseOrderStatusHistory = await webApiService.CreateOrderStatusHistory(orderStatusHistory);
+            return RedirectToAction("Update");
         }
     }
 }

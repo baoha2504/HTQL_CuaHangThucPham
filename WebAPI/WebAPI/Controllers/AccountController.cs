@@ -85,5 +85,32 @@ namespace WebAPI.Controllers
                 return NotFound();
             }
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateAccountById(int id, Customer customer)
+        {
+            var cus = _context.Customers.SingleOrDefault(m => m.CustomerId == id);
+            if (cus != null)
+            {
+                cus.FirstName = customer.FirstName;
+                cus.LastName = customer.LastName;
+                cus.Email = customer.Email;
+                cus.PassWord = customer.PassWord;
+                cus.Phone = customer.Phone;
+                cus.Company = customer.Company;
+                cus.Address1 = customer.Address1;
+                cus.Address2 = customer.Address2;
+                cus.City = customer.City;
+                cus.Access = customer.Access;
+                cus.Prohibit = customer.Prohibit;
+
+                _context.SaveChanges();
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }

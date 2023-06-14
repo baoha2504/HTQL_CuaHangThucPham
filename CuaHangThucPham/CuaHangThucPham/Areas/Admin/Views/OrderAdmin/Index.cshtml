@@ -10,7 +10,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+    
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -28,6 +28,7 @@
                             <th>Địa chỉ</th>
                             <th>Hình thức</th>
                             <th>Tổng tiền</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,8 +39,31 @@
                                 <td>@customers[i].FirstName @customers[i].LastName</td>
                                 <td>@string.Format("{0:dd/MM/yyyy}", orders[i].DateAdd)</td>
                                 <td>@orders[i].ShippingAddress</td>
-                                <td>@orderStatusHistories[i].OrderStatusName</td>
+                                @if (orderStatusHistories[i].OrderStatusName == "Đang Chờ Xác Nhận")
+                                {
+                                    <td style="color:blue">@orderStatusHistories[i].OrderStatusName</td>
+                                }
+                                else if (orderStatusHistories[i].OrderStatusName == "Đã Xác Nhận")
+                                {
+                                    <td style="color:yellowgreen">@orderStatusHistories[i].OrderStatusName</td>
+                                }
+                                else if (orderStatusHistories[i].OrderStatusName == "Đang Giao Hàng")
+                                {
+                                    <td style="color:green">@orderStatusHistories[i].OrderStatusName</td>
+                                }
+                                else if (orderStatusHistories[i].OrderStatusName == "Đã Hủy")
+                                {
+                                    <td style="color:red">@orderStatusHistories[i].OrderStatusName</td>
+                                }
+                                else {
+                                    <td>@orderStatusHistories[i].OrderStatusName</td>
+                                }
                                 <td>@string.Format("{0:#,##0}", orders[i].Total)</td>
+                                <td>
+                                    <a href="ViewOrder/@orders[i].OrderID">
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Xem</button>
+                                    </a>
+                                </td>
                             </tr>
                         }
                     </tbody>

@@ -9,7 +9,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+    
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -25,6 +25,7 @@
                             <th>Thời gian</th>
                             <th>Nhân viên bán</th>
                             <th>Tổng tiền</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,11 @@
                                 <td>@string.Format("{0:dd/MM/yyyy}", bills[i].OrderDate)</td>
                                 <td>@customers[i].FirstName @customers[i].LastName</td>
                                 <td>@string.Format("{0:#,##0}", bills[i].Total)</td>
+                                <td>
+                                    <a href="ViewBill/@bills[i].BillID">
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Xem</button>
+                                    </a>
+                                </td>
                             </tr>
                         }
                     </tbody>

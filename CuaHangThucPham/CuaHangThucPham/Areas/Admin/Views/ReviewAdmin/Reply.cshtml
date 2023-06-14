@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Reply";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var check = ViewBag.DateAddedAdmin;
 }
 
 <div class="content-page">
@@ -13,47 +14,71 @@
                         <div class="card-body">
                             <h4 class="mt-0 header-title">Trả Lời Bình Luận</h4>
                             </br>
-                            <form method="post" action="/Admin/ProductAdmin/AddProduct" enctype="multipart/form-data">
+                            <form method="post" action="/Admin/ReviewAdmin/Reply" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-sm-3 col-form-label">Người Bình Luận</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" type="text" placeholder="" id="example-text-input" name="productname" required>
+                                                <input class="form-control" type="text" placeholder="" value="@ViewBag.CustomerName" id="example-text-input" name="cusname" required>
+                                                <input class="form-control" type="text" placeholder="" value="@ViewBag.id" id="example-text-input" name="adminid" hidden>
+                                                <input class="form-control" type="text" placeholder="" value="@ViewBag.ReviewId" id="example-text-input" name="reviewid" hidden>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-sm-3 col-form-label">Thời Gian</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" name="brand" type="text" placeholder="" id="example-text-input" required>
+                                                <input class="form-control" name="cusdate" type="text" value="@ViewBag.DateAdded" placeholder="" id="example-text-input" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="example-text-input-sm" class="col-sm-3 col-form-label">Nôi Dung</label>
+                                            <label for="example-text-input-sm" class="col-sm-3 col-form-label">Nội Dung</label>
                                             <div class="col-sm-9">
-                                                <textarea required name="summary" class="form-control" rows="13"></textarea>
+                                                <textarea required name="cuscontent" class="form-control" rows="14">@ViewBag.Comment</textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-sm-2 col-form-label">Người Trả Lời</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" name="model" type="text" placeholder="" id="example-text-input" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="example-text-input-sm" class="col-sm-2 col-form-label">Nôi Dung Trả Lời</label>
-                                            <div class="col-sm-10">
-                                                <textarea required name="summary" class="form-control" rows="14"></textarea>
+                                            <label for="example-text-input" class="col-sm-3 col-form-label">Người Trả Lời</label>
+                                            <div class="col-sm-9">
+                                                @if (check == null)
+                                                {
+                                                    <input class="form-control" name="adminname" type="text" value="@ViewBag.name" placeholder="" id="example-text-input" required readonly>
+                                                }
+                                                else
+                                                {
+                                                    <input class="form-control" name="adminname" type="text" value="@ViewBag.CustomerName" placeholder="" id="example-text-input" required readonly>
+                                                }
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="example-date-input" class="col-sm-3 col-form-label">Ngày Trả Lời</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" type="date" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now)" id="example-date-input">
+                                                @if (check == null)
+                                                {
+                                                    <input class="form-control" type="date" name="admindate" value="@String.Format("{0:yyyy-MM-dd}", DateTime.Now)" id="example-date-input">
+                                                }
+                                                else
+                                                {
+                                                    <input class="form-control" type="text" name="admindate" value="@ViewBag.DateAddedAdmin" id="example-date-input">
+                                                }
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <label for="example-text-input-sm" class="col-sm-3 col-form-label">Nội Dung Trả Lời</label>
+                                            <div class="col-sm-9">
+                                                @if (check == null)
+                                                {
+                                                    <textarea required name="admincontent" class="form-control" rows="14"></textarea>
+                                                }
+                                                else
+                                                {
+                                                    <textarea required name="admincontent" class="form-control" rows="14">@ViewBag.CommentAdmin</textarea>
+                                                }
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="row">
@@ -61,12 +86,14 @@
                                     <div class="col-sm-5">
                                     </div>
                                     <div class="col-sm-4">
+                                        @if (check == null) {
                                         <button type="submit" class="btn btn-primary">
-                                            Lưu
+                                            Trả lời
                                         </button>
                                         <button type="reset" class="btn btn-secondary">
                                             Hủy
-                                        </button>
+                                        </button> 
+                                        }
                                     </div>
 
                                 </div>

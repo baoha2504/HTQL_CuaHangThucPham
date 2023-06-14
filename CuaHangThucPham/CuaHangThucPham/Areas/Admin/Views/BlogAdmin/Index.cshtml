@@ -9,7 +9,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+    
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -43,7 +43,9 @@
                                 <td>@customers[i].FirstName @customers[i].LastName</td>
                                 <td>
                                     <div>
-                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Sửa</button>
+                                        <a href="EditBlog/@blogs[i].BlogID">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Xem</button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

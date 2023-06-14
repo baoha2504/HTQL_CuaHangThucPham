@@ -24,6 +24,10 @@ namespace CuaHangThucPham.Controllers
             {
                 if (customers[0].Access == 1 && customers[0].Prohibit == 1)
                 {
+                    Session["id"] = customers[0].CustomerID;
+                    Session["name"] = customers[0].FirstName + " " + customers[0].LastName;
+                    Session["email"] = email;
+                    Session["pass"] = pass;
                     return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
                 }
                 else if (customers[0].Access == 4 && customers[0].Prohibit == 1)

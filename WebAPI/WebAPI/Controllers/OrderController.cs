@@ -15,5 +15,19 @@ namespace WebAPI.Controllers
             var orders = _context.Orders.ToList();
             return Ok(orders);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetOrderByID(int id)
+        {
+            var order = _context.Orders.SingleOrDefault(m => m.OrderId == id);
+            if (order != null)
+            {
+                return Ok(order);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }

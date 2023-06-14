@@ -49,6 +49,12 @@ namespace CuaHangThucPham_Desktop
                         frmKhoHang.lblThoiGian.Caption = DateTime.Now.ToShortDateString();
                         this.Hide();
                     }
+                    else if (admins.Access == 4 && admins.Prohibit == 1) {
+                        MessageBox.Show("Tài khoản không có quyền truy cập vào hệ thống này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if(admins.Prohibit != 1) {
+                        MessageBox.Show("Tài khoản đã bị khóa. Vui lòng liên hệ với admin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -57,7 +63,7 @@ namespace CuaHangThucPham_Desktop
             }
             catch
             {
-                MessageBox.Show("Không lấy được thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không lấy được thông tin từ API", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -107,6 +107,16 @@ namespace CuaHangThucPham
             return myObject;
         }
 
+        //BillDetail
+        public async Task<List<BillDetail>> GetAllBillDetailByBillId(int billid)
+        {
+            var response = await client.GetAsync($"api/BillDetail/{billid}");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<BillDetail>>(json);
+            return myObject;
+        }
+
         //Account
         public async Task<Customer> GetAccountById(int id)//lấy 1
         {
@@ -135,7 +145,34 @@ namespace CuaHangThucPham
             return myObject;
         }
 
+        public async Task<Customer> UpdateAccount(Customer customer)
+        {
+            var jsonData = JsonConvert.SerializeObject(customer);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PutAsync($"api/Customer/{customer.CustomerID}", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Customer>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
+
         //order
+        public async Task<Order> GetOrderById(int id)
+        {
+            var response = await client.GetAsync($"api/Order/{id}");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<Order>(json);
+            return myObject;
+        }
+
         public async Task<List<Order>> GetAllOrder()
         {
             var response = await client.GetAsync("api/Order");
@@ -145,6 +182,43 @@ namespace CuaHangThucPham
             return myObject;
         }
 
+        //OrderDetail
+        public async Task<List<OrderDetail>> GetOrderDetailById(int id)
+        {
+            var response = await client.GetAsync($"api/OrderDetail/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<OrderDetail>>(json);
+            return myObject;
+        }
+
+        //orderStatusHistory
+        public async Task<List<OrderStatusHistory>> GetOrderStatusHistoryById(int id)
+        {
+            var response = await client.GetAsync($"api/OrderStatusHistory/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<OrderStatusHistory>>(json);
+            return myObject;
+        }
+
+        public async Task<OrderStatusHistory> CreateOrderStatusHistory(OrderStatusHistory orderStatusHistory)
+        {
+            var jsonData = JsonConvert.SerializeObject(orderStatusHistory);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("api/OrderStatusHistory", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<OrderStatusHistory>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
 
         //shipping
         public async Task<Shipping> GetShippingById(int id)//lấy 1
@@ -156,13 +230,13 @@ namespace CuaHangThucPham
             return myObject;
         }
 
-        //orderStatusHistory
-        public async Task<List<OrderStatusHistory>> GetOrderStatusHistoryById(int id)
+        //payment
+        public async Task<Payment> GetPaymentById(int id)//lấy 1
         {
-            var response = await client.GetAsync($"api/OrderStatusHistory/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            var response = await client.GetAsync($"api/Payment/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
-            var myObject = JsonConvert.DeserializeObject<List<OrderStatusHistory>>(json);
+            var myObject = JsonConvert.DeserializeObject<Payment>(json);
             return myObject;
         }
 
@@ -186,6 +260,15 @@ namespace CuaHangThucPham
         }
 
         //blog
+        public async Task<Blog> GetBlogById(int id)
+        {
+            var response = await client.GetAsync($"api/Blog/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<Blog>(json);
+            return myObject;
+        }
+
         public async Task<List<Blog>> GetAllBlogById()
         {
             var response = await client.GetAsync($"api/Blog"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
@@ -195,7 +278,53 @@ namespace CuaHangThucPham
             return myObject;
         }
 
+        public async Task<Blog> CreateBlog(Blog blog)
+        {
+            var jsonData = JsonConvert.SerializeObject(blog);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("api/Blog", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Blog>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
+
+        public async Task<Blog> UpdateBlog(Blog blog)
+        {
+            var jsonData = JsonConvert.SerializeObject(blog);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            // var response = await client.PostAsync("api/Product", content);
+            var response = await client.PutAsync($"api/Blog/{blog.BlogID}", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Blog>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
+
         //voucher
+        public async Task<Voucher> GetVoucherById(int id)
+        {
+            var response = await client.GetAsync($"api/Voucher/{id}");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<Voucher>(json);
+            return myObject;
+        }
+
         public async Task<List<Voucher>> GetAllVoucher()
         {
             var response = await client.GetAsync("api/Voucher");
@@ -205,7 +334,52 @@ namespace CuaHangThucPham
             return myObject;
         }
 
+        public async Task<Voucher> CreateVoucher(Voucher voucher)
+        {
+            var jsonData = JsonConvert.SerializeObject(voucher);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("api/Voucher", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Voucher>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
+
+        public async Task<Voucher> UpdateVoucher(Voucher voucher)
+        {
+            var jsonData = JsonConvert.SerializeObject(voucher);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PutAsync($"api/Voucher/{voucher.VoucherID}", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Voucher>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
+        }
+
         //review
+        public async Task<Review> GetReviewById(int id)
+        {
+            var response = await client.GetAsync($"api/Review/{id}");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<Review>(json);
+            return myObject;
+        }
+
         public async Task<List<Review>> GetAllReview()
         {
             var response = await client.GetAsync("api/Review");
@@ -213,6 +387,24 @@ namespace CuaHangThucPham
             var json = await response.Content.ReadAsStringAsync();
             var myObject = JsonConvert.DeserializeObject<List<Review>>(json);
             return myObject;
+        }
+
+        public async Task<Review> CreateReview(Review review)
+        {
+            var jsonData = JsonConvert.SerializeObject(review);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("api/Review", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var myObject = JsonConvert.DeserializeObject<Review>(responseContent);
+                return myObject;
+            }
+            else
+            {
+                throw new Exception($"Failed to add product to API. Status code: {response.StatusCode}");
+            }
         }
     }
 }

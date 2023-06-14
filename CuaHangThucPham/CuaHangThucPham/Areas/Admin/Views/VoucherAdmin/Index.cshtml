@@ -9,7 +9,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+    
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -44,7 +44,9 @@
                                 <td>@string.Format("{0:dd/MM/yyyy}", vouchers[i].Expiry)</td>
                                 <td>
                                     <div>
-                                        <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Sửa</button>
+                                        <a href="/Admin/VoucherAdmin/EditVoucher/@vouchers[i].VoucherID">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light" onclick="">Sửa</button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

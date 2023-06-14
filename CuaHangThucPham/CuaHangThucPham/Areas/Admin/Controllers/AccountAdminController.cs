@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CuaHangThucPham.Areas.Admin.Controllers
@@ -40,6 +37,18 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<ActionResult> UpdateStatusStaff(string id, int prohibit)
+        {
+            var customer = await webApiService.GetAccountById(Int32.Parse(id));
+            if (customer != null)
+            {
+                customer.Prohibit = prohibit;
+                var responseAccount = await webApiService.UpdateAccount(customer);
+            }
+            return RedirectToAction("Staff");
+        }
+
         // GET: Admin/Customer
         public async Task<ActionResult> Customer()
         {
@@ -53,6 +62,18 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             }
             ViewBag.customers = customers;
             return View();
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> UpdateStatusCustomer(string id, int prohibit)
+        {
+            var customer = await webApiService.GetAccountById(Int32.Parse(id));
+            if (customer != null)
+            {
+                customer.Prohibit = prohibit;
+                var responseAccount = await webApiService.UpdateAccount(customer);
+            }
+            return RedirectToAction("Customer");
         }
     }
 }

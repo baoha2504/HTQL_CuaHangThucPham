@@ -10,12 +10,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Table</h1>
+    
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Danh sách đơn hàng</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Cập nhật tình trạng đơn hàng</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -39,7 +39,26 @@
                                 <td>@customers[i].FirstName @customers[i].LastName</td>
                                 <td>@string.Format("{0:dd/MM/yyyy}", orders[i].DateAdd)</td>
                                 <td>@orders[i].ShippingAddress</td>
-                                <td>@orderStatusHistories[i].OrderStatusName</td>
+                                @if (orderStatusHistories[i].OrderStatusName == "Đang Chờ Xác Nhận")
+                                {
+                                    <td style="color:blue">@orderStatusHistories[i].OrderStatusName</td>
+                                }
+                                else if (orderStatusHistories[i].OrderStatusName == "Đã Xác Nhận")
+                                {
+                                    <td style="color:yellowgreen">@orderStatusHistories[i].OrderStatusName</td>
+                                }
+                                else if (orderStatusHistories[i].OrderStatusName == "Đang Giao Hàng")
+                                {
+                                    <td style="color:green">@orderStatusHistories[i].OrderStatusName</td>
+                                }
+                                else if (orderStatusHistories[i].OrderStatusName == "Đã Hủy")
+                                {
+                                    <td style="color:red">@orderStatusHistories[i].OrderStatusName</td>
+                                }
+                                else
+                                {
+                                    <td>@orderStatusHistories[i].OrderStatusName</td>
+                                }
                                 <td>@string.Format("{0:#,##0}", orders[i].Total)</td>
                                 <td>
                                     <div class="dropdown mb-4">
@@ -49,23 +68,24 @@
                                         <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
                                             @if (orderStatusHistories[i].OrderStatusName == "Đang Chờ Xác Nhận")
                                             {
-                                                <a class="dropdown-item" href="">Da Xac Nhan</a>
-                                                <a class="dropdown-item" href="">Dang Giao Hang</a>
-                                                <a class="dropdown-item" href="">Da Giao Hang</a>
-                                                <a class="dropdown-item" href="">Huy</a>
+                                                <a class="dropdown-item" href="UpdateStatus?id=@orders[i].OrderID&status=1">Đã Xác Nhận</a>
+                                                <a class="dropdown-item" href="UpdateStatus?id=@orders[i].OrderID&status=2">Đang Giao Hàng</a>
+                                                <a class="dropdown-item" href="UpdateStatus?id=@orders[i].OrderID&status=3">Đã Giao Hàng</a>
+                                                <a class="dropdown-item" href="UpdateStatus?id=@orders[i].OrderID&status=4">Hủy</a>
                                             }
                                             else if (orderStatusHistories[i].OrderStatusName == "Đã Xác Nhận")
                                             {
-                                                <a class="dropdown-item" href="">Dang Giao Hang</a>
-                                                <a class="dropdown-item" href="">Da Giao Hang</a>
+                                                <a class="dropdown-item" href="UpdateStatus?id=@orders[i].OrderID&status=2">Đang Giao Hàng</a>
+                                                <a class="dropdown-item" href="UpdateStatus?id=@orders[i].OrderID&status=3">Đã Giao Hàng</a>
+                                                <a class="dropdown-item" href="UpdateStatus?id=@orders[i].OrderID&status=4">Hủy</a>
                                             }
                                             else if (orderStatusHistories[i].OrderStatusName == "Đang Giao Hàng")
                                             {
-                                                <a class="dropdown-item" href="">Da Giao Hang</a>
+                                                <a class="dropdown-item" href="UpdateStatus?id=@orders[i].OrderID&status=3">Đã Giao Hàng</a>
                                             }
                                             else if (orderStatusHistories[i].OrderStatusName == "Đã Hủy")
                                             {
-                                                <a class="dropdown-item" href="">Da Huy</a>
+
                                             }
                                         </div>
                                     </div>

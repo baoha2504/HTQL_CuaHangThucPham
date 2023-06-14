@@ -11,6 +11,7 @@ namespace WebAPI.Entities
         public int? NumStar { get; set; }
         public string? Comment { get; set; }
         public DateTime? DateAdded { get; set; }
+        public int? Reply { get; set; }
 
         public virtual Customer? Customer { get; set; }
         public virtual Product? Product { get; set; }

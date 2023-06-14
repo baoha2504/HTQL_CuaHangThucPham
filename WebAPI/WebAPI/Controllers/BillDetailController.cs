@@ -31,5 +31,19 @@ namespace WebAPI.Controllers
                 return BadRequest(0);
             }
         }
+
+        [HttpGet("{billid}")]
+        public IActionResult GetBillDetailByID(int billid)
+        {
+            var billDetails = _context.BillDetails.Where(m => m.BillId == billid).ToList();
+            if (billDetails != null)
+            {
+                return Ok(billDetails);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }
