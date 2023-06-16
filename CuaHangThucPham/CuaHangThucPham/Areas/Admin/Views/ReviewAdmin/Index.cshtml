@@ -5,6 +5,7 @@
     var reviews = (List<CuaHangThucPham.Models.Review>)ViewBag.reviews;
     var customers = (List<CuaHangThucPham.Models.Customer>)ViewBag.customers;
     var products = (List<CuaHangThucPham.Models.Product>)ViewBag.products;
+    var rv = (int[])ViewBag.rv;
 }
 
 <div class="container-fluid">
@@ -29,6 +30,7 @@
                             <th>Số sao</th>
                             <th>Nội dung</th>
                             <th>Thời gian</th>
+                            <th>Tình trạng</th>
                             <th>Trả lời bình luận</th>
                         </tr>
                     </thead>
@@ -45,6 +47,14 @@
                                 <td>@reviews[i].NumStar</td>
                                 <td>@reviews[i].Comment</td>
                                 <td>@string.Format("{0:dd/MM/yyyy}", reviews[i].DateAdded)</td>
+                                @if (rv[i] == 1)
+                                {
+                                    <td style="color:blue">Đã trả lời</td>
+                                }
+                                else
+                                {
+                                    <td style="color:red">Chưa trả lời</td>
+                                }
                                 <td>
                                     <div>
                                         <a href="Reply/@reviews[i].ReviewID">

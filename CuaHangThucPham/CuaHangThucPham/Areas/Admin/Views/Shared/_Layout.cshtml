@@ -21,6 +21,7 @@
     @Styles.Render("~/Areas/Admin/Public/vendor/datatables/dataTables.bootstrap4.min.css")
 
 
+
 </head>
 
 <body id="page-top">
@@ -356,7 +357,8 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Quốc Bảo</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@Session["name"]</span>
+                                <input id="sessionid" value="@Session["id"]" hidden>
                                 <img class="img-profile rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile.png">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -424,6 +426,14 @@
         </div>
     </div>
 
+    <!-- Phân quyền  -->
+    <script>
+        var sessionid = document.getElementById('sessionid').value;
+        if (sessionid == '') {
+            window.location.href = "/Account/Login";
+        }
+    </script>
+
     <!-- jQuery  -->
     @Scripts.Render("~/Areas/Admin/assets/js/jquery.min.js")
     @Scripts.Render("~/Areas/Admin/assets/js/bootstrap.bundle.min.js")
@@ -454,6 +464,6 @@
 
     <!-- Page level custom scripts -->
     @Scripts.Render("~/Areas/Admin/Public/js/demo/datatables-demo.js")
-</body>
 
+</body>
 </html>

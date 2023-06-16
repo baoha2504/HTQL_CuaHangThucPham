@@ -14,26 +14,38 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
         // GET: Admin/ReviewAdmin
         public async Task<ActionResult> Index()
         {
+            List<Customer> customers = new List<Customer>();
+            List<Product> products = new List<Product>();
             var reviews = await webApiService.GetAllReview();
-            for(int i = reviews.Count-1; i >=0 ; i--)
+            var rev = await webApiService.GetAllReview();
+            for (int i = reviews.Count-1; i >=0 ; i--)
             {
                 if (reviews[i].Reply != null)
                 {
                     reviews.Remove(reviews[i]);
                 }
             }
-            List<Customer> customers = new List<Customer>();
-            List<Product> products = new List<Product>();
+            int[] rv = new int[100];
             for (int i = 0; i < reviews.Count; i++)
             {
                 var customer = await webApiService.GetAccountById((int)reviews[i].CustomerID);
                 customers.Add(customer);
                 var product = await webApiService.GetProductById((int)reviews[i].CustomerID);
                 products.Add(product);
+                for(int j = 0; j < rev.Count; j++)
+                {
+                    if (reviews[i].ReviewID == rev[j].Reply)
+                    {
+                        rv[i] = 1;
+                        break;
+                    }
+                }
             }
+
             ViewBag.customers = customers;
             ViewBag.products = products;
             ViewBag.reviews = reviews;
+            ViewBag.rv = rv;
             return View();
         }
 
