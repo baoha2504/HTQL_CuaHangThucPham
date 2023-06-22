@@ -33,7 +33,7 @@ namespace CuaHangThucPham.Controllers
                 Session["SessionCart"] = (List<Cart_item>)list;
                 foreach (var cart in carts)
                 {
-                    sum += (int)cart.Product.PriceNew;
+                    sum += ((int)cart.Product.PriceNew * (int)cart.Quantity);
                 }
                 ViewBag.sum = sum;
                 ViewBag.Products = products;

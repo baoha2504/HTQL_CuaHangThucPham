@@ -193,6 +193,15 @@ namespace CuaHangThucPham
         }
 
         //orderStatusHistory
+        public async Task<List<OrderStatusHistory>> GetAllOrderStatusHistory()
+        {
+            var response = await client.GetAsync("api/OrderStatusHistory");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<List<OrderStatusHistory>>(json);
+            return myObject;
+        }
+
         public async Task<List<OrderStatusHistory>> GetOrderStatusHistoryById(int id)
         {
             var response = await client.GetAsync($"api/OrderStatusHistory/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây

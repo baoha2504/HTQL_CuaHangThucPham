@@ -3681,6 +3681,8 @@
     <Content Include="Public\image\brand\brand8.png" />
     <Content Include="Public\image\brand\brand9.png" />
     <Content Include="Public\image\cart.png" />
+    <Content Include="Public\image\customer\customer-service.png" />
+    <Content Include="Public\image\customer\user.png" />
     <Content Include="Public\image\flags\gb.png" />
     <Content Include="Public\image\flags\lb.png" />
     <Content Include="Public\image\heaer-ptn.jpg" />

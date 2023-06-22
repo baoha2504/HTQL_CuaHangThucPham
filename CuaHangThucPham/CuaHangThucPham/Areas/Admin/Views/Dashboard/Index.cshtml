@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var rv = (List<CuaHangThucPham.Models.Review>)ViewBag.rv;
+    var odshs = (List<CuaHangThucPham.Models.OrderStatusHistory>)ViewBag.odshs;
+    var bl0 = (List<CuaHangThucPham.Models.Bill>)ViewBag.bl0;
+    var bl1 = (List<CuaHangThucPham.Models.Bill>)ViewBag.bl1;
+    var cus0 = (List<CuaHangThucPham.Models.Customer>)ViewBag.cus0;
+    var cus1 = (List<CuaHangThucPham.Models.Customer>)ViewBag.cus1;
 }
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -26,7 +32,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Tổng thu trong tháng
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@string.Format("{0:#,##0}", ViewBag.tongdoanhthu)</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -45,7 +51,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Tổng chi trong tháng
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@string.Format("{0:#,##0}", ViewBag.tongchi)</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -62,15 +68,15 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Đơn xử lý trong tháng
+                                Đơn đặt hàng đã xử lý
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewBag.demchuaxuly%</div>
                                 </div>
                                 <div class="col">
                                     <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: @ViewBag.demchuaxuly%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
@@ -83,16 +89,24 @@
             </div>
         </div>
 
-        <!-- Pending Requests Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Bình luận
+                                Phản hồi bình luận
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewBag.tylephanhoi%</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: @ViewBag.tylephanhoi%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -118,11 +132,11 @@
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-header">Xem thêm</div>
+                            <a class="dropdown-item" href="#">Trong ngày</a>
+                            <a class="dropdown-item" href="#">Trong tháng</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Xem khoảng lớn hơn</a>
                         </div>
                     </div>
                 </div>
@@ -146,11 +160,11 @@
                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-header">Xem thêm</div>
+                            <a class="dropdown-item" href="#">Trong ngày</a>
+                            <a class="dropdown-item" href="#">Trong tháng</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Xem khoảng lớn hơn</a>
                         </div>
                     </div>
                 </div>
@@ -161,118 +175,140 @@
                     </div>
                     <div class="mt-4 text-center small">
                         <span class="mr-2">
-                            <i class="fas fa-circle text-primary"></i> Direct
+                            <i class="fas fa-circle text-primary"></i> Trực tuyến
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-success"></i> Social
+                            <i class="fas fa-circle text-success"></i> Tại cửa hàng
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Referral
+                            <i class="fas fa-circle text-info"></i> Khác
                         </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row">
-
-        <!-- Grow In Utility -->
+        <!-- Bình luận -->
         <div class="col-lg-6">
-
             <div class="card position-relative">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Đánh Giá Trong Tháng</h6>
                 </div>
-                <div class="card-body">
-                    <a class="dropdown-item d-flex align-items-center">
-                        <div class="mr-3">
-                            <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
-                            <div class="status-indicator bg-success"></div>
-                        </div>
-                        <div>
-                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                            <div class="small text-gray-500">Emily Fowler · 58m</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <a class="dropdown-item d-flex align-items-center">
-                        <div class="mr-3">
-                            <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
-                            <div class="status-indicator bg-success"></div>
-                        </div>
-                        <div>
-                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                            <div class="small text-gray-500">Emily Fowler · 58m</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <a class="dropdown-item d-flex align-items-center">
-                        <div class="mr-3">
-                            <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
-                            <div class="status-indicator bg-success"></div>
-                        </div>
-                        <div>
-                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                            <div class="small text-gray-500">Emily Fowler · 58m</div>
-                        </div>
-                    </a>
-                </div>
+                @for (int i = 0; i < rv.Count; i++) { 
+                    <div class="card-body">
+                        <a class="dropdown-item d-flex align-items-center" href="/Admin/ReviewAdmin/Reply/@rv[i].ReviewID">
+                            <div class="mr-3">
+                                @if (i % 3 == 1)
+                                {
+                                    <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
+                                }
+                                else if (i % 3 == 2)
+                                {
+                                    <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_2.png" alt="...">
+                                }
+                                else
+                                {
+                                    <img style="width:35px; height:auto" class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_3.png" alt="...">
+                                }
+                                <div class="status-indicator bg-success"></div>
+                            </div>
+                            <div>
+                                <span class="font-weight-bold">@rv[i].Comment</span>
+                                <div class="small text-gray-500">Khách hàng #@rv[i].CustomerID · @string.Format("{0:dd/MM/yyyy}", rv[i].DateAdded) </div>
+                            </div>
+                        </a>
+                    </div>
+                }
             </div>
 
         </div>
 
-        <!-- Fade In Utility -->
+        <!-- Đơn đặt hàng -->
         <div class="col-lg-6">
 
             <div class="card position-relative">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Thông Báo</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Đơn Đặt Hàng</h6>
                 </div>
+                @for (int i = 0; i < odshs.Count; i++)
+                { 
                 <div class="card-body">
-                    <a class="dropdown-item d-flex align-items-center" @*href="#"*@>
+                    <a class="dropdown-item d-flex align-items-center" href="/Admin/OrderAdmin/ViewOrder/@odshs[i].OrderID">
                         <div class="mr-3">
                             <div class="icon-circle bg-gradient-primary">
                                 <i class="fas fa-file-alt text-white"></i>
                             </div>
                         </div>
                         <div>
-                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                            <div class="small text-gray-500">December 12, 2019</div>
+                            <span class="font-weight-bold">Đơn hàng #@odshs[i].OrderID đang trong tình trạng @odshs[i].OrderStatusName.ToLower()</span>
+                            <div class="small text-gray-500">@odshs[i].DateAdd</div>
                         </div>
                     </a>
                 </div>
-                <div class="card-body">
-                    <a class="dropdown-item d-flex align-items-center">
-                        <div class="mr-3">
-                            <div class="icon-circle bg-gradient-success">
-                                <i class="fas fa-donate text-white"></i>
+                }                    
+                </div>
+
+        </div>
+    </div>
+
+    <div class="row" style="padding-top:20px">
+        
+        <!-- Bán hàng tại cửa hàng -->
+        <div class="col-lg-6">
+
+            <div class="card position-relative">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Bán Hàng Tại Cửa Hàng</h6>
+                </div>
+                @for (int i = 0; i < bl0.Count; i++)
+                {
+                    <div class="card-body">
+                        <a class="dropdown-item d-flex align-items-center" href="/Admin/BillAdmin/ViewBill/@bl0[i].BillID">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-gradient-success">
+                                    <i class="fas fa-donate text-white"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                            <div class="small text-gray-500">December 12, 2019</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <a class="dropdown-item d-flex align-items-center">
-                        <div class="mr-3">
-                            <div class="icon-circle bg-gradient-warning">
-                                <i class="fas fa-exclamation-triangle text-white"></i>
+                            <div>
+                                <span class="font-weight-bold">Hóa đơn #@bl0[i].BillID được nhân viên @cus0[i].FirstName @cus0[i].LastName xử lý tại cửa hàng</span>
+                                <div class="small text-gray-500">@bl0[i].OrderDate · @string.Format("{0:#,##0}", bl0[i].Total) đ</div>
                             </div>
-                        </div>
-                        <div>
-                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                            <div class="small text-gray-500">December 12, 2019</div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                 }
                 </div>
-            </div>
+
+        </div>
+
+        <!-- Nhập hàng -->
+        <div class="col-lg-6">
+
+            <div class="card position-relative">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Nhập Hàng Tại Kho</h6>
+                </div>
+                @for (int i = 0; i < bl1.Count; i++)
+                {
+                    <div class="card-body">
+                        <a class="dropdown-item d-flex align-items-center" href="/Admin/InventoryAdmin/Index">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-gradient-warning">
+                                    <i class="fas fa-database text-white"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="font-weight-bold">Nhân viên @cus1[i].FirstName @cus1[i].LastName đã nhập lô hàng @bl1[i].CustomerID tại kho</span>
+                                <div class="small text-gray-500">@bl1[i].OrderDate · @string.Format("{0:#,##0}", bl1[i].Total) đ</div>
+                            </div>
+                        </a>
+                    </div>
+                }
+                </div>
 
         </div>
 
     </div>
 </div>
-    <!-- /.container-fluid -->
+<!-- /.container-fluid -->

@@ -98,7 +98,7 @@
                 <div class="col-sm-4 col-xs-12 header-middle">
                     <div class="header-middle-top">
                         <div id="logo">
-                            <a href="index.html"><img src="~/Public/image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a>
+                            <a href="/Home/Index"><img src="~/Public/image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a>
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,6 @@
                             @if (Session["name"] != null)
                             {
                                 <a href="\Account\Register" class="list-group-item">Thông tin tài khoản</a>
-                                <a href="\Cart\Index" class="list-group-item">Giỏ hàng</a>
                                 <a href="\Order\Index" class="list-group-item">Đơn hàng đã mua</a>
                                 <a href="\CheckOut\Index" class="list-group-item">Thanh toán</a>
                                 <a href="" class="list-group-item">Danh sách yêu thích</a>
@@ -244,7 +243,7 @@
                             else
                             {
                                 <a href="\Account\Register" class="list-group-item">Đăng ký</a>
-                                <a href="\Account\Logout" class="list-group-item">Đăng nhập</a>
+                                <a href="\Account\Login" class="list-group-item">Đăng nhập</a>
                             }
 
                         </div>
