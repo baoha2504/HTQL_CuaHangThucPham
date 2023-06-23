@@ -24,6 +24,59 @@
 
 </head>
 
+@{
+    var menu1 = ""; 
+    var menu2 = "";
+    var menu3 = "";
+    var menu4 = "";
+    var menu5 = "";
+    var menu6 = "";
+    var menu7 = "";
+    var menu8 = "";
+    var menu9 = "";
+    var menu10 = "";
+}
+@if (ViewBag.menu == 1)
+{
+    menu1 = "show";
+
+}
+else if(ViewBag.menu == 2)
+{
+    menu2 = "show";
+}
+else if (ViewBag.menu == 3)
+{
+    menu3 = "show";
+}
+else if (ViewBag.menu == 4)
+{
+    menu4 = "show";
+}
+else if (ViewBag.menu == 5)
+{
+    menu5 = "show";
+}
+else if (ViewBag.menu == 6)
+{
+    menu6 = "show";
+}
+else if (ViewBag.menu == 7)
+{
+    menu7 = "show";
+}
+else if (ViewBag.menu == 8)
+{
+    menu8 = "show";
+}
+else if (ViewBag.menu == 9)
+{
+    menu9 = "show";
+}
+else if (ViewBag.menu == 10)
+{
+    menu10 = "show";
+}
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -68,7 +121,7 @@
                     <i class="fas fa-fw fa-list"></i>
                     <span>Đơn hàng</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse @menu1" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/OrderAdmin/Index">Danh sách đơn hàng</a>
                         <a class="collapse-item" href="/Admin/OrderAdmin/Update">Cập nhật thông tin</a>
@@ -81,7 +134,7 @@
                     <i class="fas fa-fw fa-list-alt"></i>
                     <span>Bán hàng</span>
                 </a>
-                <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo1" class="collapse @menu2" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/BillAdmin/Index">Danh sách bán hàng</a>
                     </div>
@@ -93,7 +146,7 @@
                     <i class="fas fa-fw fa-server"></i>
                     <span>Kho hàng</span>
                 </a>
-                <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo2" class="collapse @menu3" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/InventoryAdmin/Index">Danh sách kho hàng</a>
                         <a class="collapse-item" href="/Admin/InventoryAdmin/History">Lịch sử nhập kho</a>
@@ -107,7 +160,7 @@
                     <i class="fas fa-fw fa-lemon"></i>
                     <span>Thực phẩm</span>
                 </a>
-                <div id="collapseTwo3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo3" class="collapse @menu4" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/ProductAdmin/Index">Danh sách thực phẩm</a>
                         <a class="collapse-item" href="/Admin/ProductAdmin/AddProduct">Thêm thực phẩm</a>
@@ -120,7 +173,7 @@
                     <i class="fas fa-fw fa-rss-square"></i>
                     <span>Bài viết</span>
                 </a>
-                <div id="collapseTwo4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo4" class="collapse @menu5" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/BlogAdmin/Index">Danh sách bài biết</a>
                         <a class="collapse-item" href="/Admin/BlogAdmin/AddBlog">Thêm bài viết</a>
@@ -133,7 +186,7 @@
                     <i class="fas fa-fw fa-users"></i>
                     <span>Khuyễn mãi</span>
                 </a>
-                <div id="collapseTwo5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo5" class="collapse @menu6" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/VoucherAdmin/Index">Danh sách khuyến mãi</a>
                         <a class="collapse-item" href="/Admin/VoucherAdmin/AddVoucher">Thêm khuyến mãi</a>
@@ -146,7 +199,7 @@
                     <i class="fas fa-fw fa-comments"></i>
                     <span>Bình luận</span>
                 </a>
-                <div id="collapseTwo6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo6" class="collapse @menu7" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/ReviewAdmin/Index">Danh sách bình luận</a>
                     </div>
@@ -158,7 +211,7 @@
                     <i class="fas fa-fw fa-users"></i>
                     <span>Khách hàng</span>
                 </a>
-                <div id="collapseTwo7" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo7" class="collapse @menu8" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/CustomerAdmin/Index">Danh sách khách hàng</a>
                     </div>
@@ -170,7 +223,7 @@
                     <i class="fas fa-fw fa-user"></i>
                     <span>Nhân viên</span>
                 </a>
-                <div id="collapseTwo8" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo8" class="collapse @menu9" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/StaffAdmin/Index">Danh sách nhân viên</a>
                     </div>
@@ -182,7 +235,7 @@
                     <i class="fas fa-fw fa-key"></i>
                     <span>Tài khoản</span>
                 </a>
-                <div id="collapseTwo9" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo9" class="collapse @menu10" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/Admin/AccountAdmin/Customer">Tài khoản khách hàng</a>
                         <a class="collapse-item" href="/Admin/AccountAdmin/Staff">Tài khoản nhân viên</a>
@@ -260,38 +313,38 @@
                                     Thông báo
                                 </h6>
                                 @*<a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-primary">
+                                                <i class="fas fa-file-alt text-white"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
+                                        <div>
+                                            <div class="small text-gray-500">December 12, 2019</div>
+                                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-success">
+                                                <i class="fas fa-donate text-white"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>*@
+                                        <div>
+                                            <div class="small text-gray-500">December 7, 2019</div>
+                                            $290.29 has been deposited into your account!
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 2, 2019</div>
+                                            Spending Alert: We've noticed unusually high spending for your account.
+                                        </div>
+                                    </a>*@
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Xem tất cả thông báo</a>
                             </div>
                         </li>
@@ -309,45 +362,45 @@
                                     Tin nhắn
                                 </h6>
                                 @*<a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_2.png" alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_3.png" alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>*@
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_1.png" alt="...">
+                                            <div class="status-indicator bg-success"></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_2.png" alt="...">
+                                            <div class="status-indicator"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="~/Areas/Admin/Public/img/undraw_profile_3.png" alt="...">
+                                            <div class="status-indicator bg-warning"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
+                                            <div class="status-indicator bg-success"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                        </div>
+                                    </a>*@
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Xem tất cả tin nhắn</a>
                             </div>
                         </li>
@@ -427,12 +480,12 @@
     </div>
 
     <!-- Phân quyền  -->
-     <script>
+    <script>
         var sessionid = document.getElementById('sessionid').value;
-         if (sessionid == '' || sessionid != 1) {
+        if (sessionid == '' || sessionid != 1) {
             window.location.href = "/Account/Login";
         }
-    </script> 
+    </script>
 
     <!-- jQuery  -->
     @Scripts.Render("~/Areas/Admin/assets/js/jquery.min.js")

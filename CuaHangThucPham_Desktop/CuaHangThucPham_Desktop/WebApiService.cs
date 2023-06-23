@@ -127,6 +127,15 @@ namespace CuaHangThucPham_Desktop
         }
 
         //Account
+        public async Task<Customer> GetAccountById(int id)//lấy 1
+        {
+            var response = await client.GetAsync($"api/Account/{id}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var myObject = JsonConvert.DeserializeObject<Customer>(json);
+            return myObject;
+        }
+
         public async Task<Customer> GetAccountByEmail(string email, string pass)//lấy 1
         {
             var response = await client.GetAsync($"api/Account/{email}&{pass}"); // Đổi đường dẫn API lấy đối tượng của bạn ở đây

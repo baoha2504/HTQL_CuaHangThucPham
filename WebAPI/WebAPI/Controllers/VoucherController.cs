@@ -54,10 +54,10 @@ namespace WebAPI.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateVoucherById(int id, Voucher voucher)
+        [HttpPut("{id}&{VoucherCode}")]
+        public IActionResult UpdateVoucherById(int id, string VoucherCode,  Voucher voucher)
         {
-            var dsVoucher = _context.Vouchers.Where(m => m.VoucherId == id).ToList();
+            var dsVoucher = _context.Vouchers.Where(m => m.VoucherId == id && m.VoucherCode == VoucherCode).ToList();
             if (dsVoucher != null)
             {
                 dsVoucher[0].VoucherCode = voucher.VoucherCode;

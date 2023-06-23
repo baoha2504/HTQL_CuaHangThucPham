@@ -63,7 +63,7 @@ namespace CuaHangThucPham_Desktop
             }
             catch
             {
-                MessageBox.Show("Không lấy được thông tin từ API", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Kiểm tra lại thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -32,6 +32,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.customers = customers;
             ViewBag.products = products;
             ViewBag.inventories = inventories;
+            ViewBag.menu = 3;
             return View();
         }
         public async Task<ActionResult> History()
@@ -49,6 +50,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.customers = customers;
             ViewBag.products = products;
             ViewBag.inventories = inventories;
+            ViewBag.menu = 3;
             return View();
         }
         public async Task<ActionResult> Expired()
@@ -73,6 +75,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.customers = customers;
             ViewBag.products = products;
             ViewBag.inventories = inventories;
+            ViewBag.menu = 3;
             return View();
         }
     }

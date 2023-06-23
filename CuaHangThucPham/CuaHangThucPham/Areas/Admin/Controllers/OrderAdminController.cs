@@ -28,6 +28,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.customers = customers;
             ViewBag.orders = orders;
             ViewBag.orderStatusHistories = orderStatusHistories;
+            ViewBag.menu = 1;
             return View();
         }
 
@@ -65,6 +66,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.orderStatusHistoryName = orderStatusHistories[orderStatusHistories.Count - 1].OrderStatusName;
             ViewBag.orderDetails = orderDetails;
             ViewBag.prd = prd;
+            ViewBag.menu = 1;
             return View();
         }
 
@@ -85,6 +87,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.customers = customers;
             ViewBag.orders = orders;
             ViewBag.orderStatusHistories = orderStatusHistories;
+            ViewBag.menu = 1;
             return View();
         }
 
@@ -117,6 +120,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             orderStatusHistory.CanceledBy = "Người Bán";
             orderStatusHistory.CanceledBy = (string)Session["name"];
             var responseOrderStatusHistory = await webApiService.CreateOrderStatusHistory(orderStatusHistory);
+            ViewBag.menu = 1;
             return RedirectToAction("Update");
         }
     }

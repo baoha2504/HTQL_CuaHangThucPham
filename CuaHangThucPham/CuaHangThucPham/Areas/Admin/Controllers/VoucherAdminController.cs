@@ -24,6 +24,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             }
             ViewBag.customers = customers;
             ViewBag.vouchers = vouchers;
+            ViewBag.menu = 6;
             return View();
         }
 
@@ -31,6 +32,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
         {
             ViewBag.name = Session["name"];
             ViewBag.id = Session["id"];
+            ViewBag.menu = 6;
             return View();
         }
 
@@ -61,6 +63,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             var customer = await webApiService.GetAccountById((int)voucher.CustomerID);
             ViewBag.name = customer.FirstName + " " + customer.LastName;
             ViewBag.id = customer.CustomerID;
+            ViewBag.menu = 6;
             return View();
         }
 

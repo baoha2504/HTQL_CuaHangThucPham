@@ -144,7 +144,7 @@ namespace CuaHangThucPham
             var myObject = JsonConvert.DeserializeObject<List<Customer>>(json);
             return myObject;
         }
-
+        
         public async Task<Customer> UpdateAccount(Customer customer)
         {
             var jsonData = JsonConvert.SerializeObject(customer);
@@ -365,7 +365,7 @@ namespace CuaHangThucPham
         {
             var jsonData = JsonConvert.SerializeObject(voucher);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync($"api/Voucher/{voucher.VoucherID}", content);
+            var response = await client.PutAsync($"api/Voucher/{voucher.VoucherID}&{voucher.VoucherCode}", content);
 
             if (response.IsSuccessStatusCode)
             {

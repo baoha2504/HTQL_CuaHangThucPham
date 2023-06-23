@@ -9,7 +9,7 @@ using AForge.Video.DirectShow;
 using ZXing;
 using DevExpress.Utils;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using DevExpress.XtraReports.UI;
 
 namespace CuaHangThucPham_Desktop.BanHang
 {
@@ -191,6 +191,26 @@ namespace CuaHangThucPham_Desktop.BanHang
                 }
 
                 MessageBox.Show($"Lập đơn hàng #{bl.BillID} thành công", "Thông báo", MessageBoxButtons.OK);
+
+                // tạo báo cáo
+                List<report> reports = new List<report>();
+                for (int i = 0; i < billDetails.Count; i++)
+                {
+                    report rp = new report();
+                    rp.BillId = bl.BillID;
+                    rp.Total = bill.Total;
+                    rp.OrderDate = bill.OrderDate;
+                    var cus = await webApiService.GetAccountById((int)bill.CustomerID);
+                    rp.NameStaff = cus.FirstName + " " + cus.LastName;
+                    rp.Quantity = billDetails[i].Quantity;
+                    rp.Price = billDetails[i].Price;
+                    var prd = await webApiService.GetProductById((int)billDetails[i].ProductID);
+                    rp.ProductName = prd.ProductName;
+                    reports.Add(rp);
+                }
+                reportHoaDonBanHang reportHoaDonBanHang = new reportHoaDonBanHang();
+                reportHoaDonBanHang.DataSource = reports;
+                reportHoaDonBanHang.ShowPreviewDialog();
             }
             else
             {

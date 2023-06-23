@@ -30,7 +30,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             {
                 var customer = await webApiService.GetAccountById((int)reviews[i].CustomerID);
                 customers.Add(customer);
-                var product = await webApiService.GetProductById((int)reviews[i].CustomerID);
+                var product = await webApiService.GetProductById((int)reviews[i].ProductID);
                 products.Add(product);
                 for(int j = 0; j < rev.Count; j++)
                 {
@@ -46,6 +46,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.products = products;
             ViewBag.reviews = reviews;
             ViewBag.rv = rv;
+            ViewBag.menu = 7;
             return View();
         }
 
@@ -72,6 +73,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
                 ViewBag.id = Session["id"];
                 ViewBag.name = Session["name"];
                 ViewBag.CustomerName = customer.FirstName + " " + customer.LastName;
+                ViewBag.menu = 7;
                 return View();
             } else
             {
@@ -84,6 +86,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
                 ViewBag.CustomerName = customer.FirstName + " " + customer.LastName;
                 ViewBag.CommentAdmin = reviewReply.Comment;
                 ViewBag.DateAddedAdmin = reviewReply.DateAdded;
+                ViewBag.menu = 7;
                 return View();
             }
         }

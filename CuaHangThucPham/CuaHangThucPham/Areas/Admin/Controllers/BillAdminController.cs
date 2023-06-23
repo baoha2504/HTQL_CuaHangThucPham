@@ -21,6 +21,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             }
             ViewBag.bills = bills;
             ViewBag.customers = customers;
+            ViewBag.menu = 2;
             return View();
         }
 
@@ -57,6 +58,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.OrderDate = bill.OrderDate;
             ViewBag.Total = bill.Total;
             ViewBag.prd = prd;
+            ViewBag.menu = 2;
             return View();
         }
     }

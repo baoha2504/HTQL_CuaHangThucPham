@@ -24,6 +24,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             }
             ViewBag.products = products;
             ViewBag.subCategories = subCategories;
+            ViewBag.menu = 4;
             return View();
         }
 
@@ -63,6 +64,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
         {
             var subCategories = await webApiService.GetAllSubCategory();
             ViewBag.subCategories = subCategories;
+            ViewBag.menu = 4;
             return View();
         }
 
@@ -128,6 +130,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.Suppiler = product.Suppiler;
             ViewBag.Status = product.Status;
             ViewBag.DateAdded = product.DateAdded;
+            ViewBag.menu = 4;
             return View();
         }
 

@@ -19,6 +19,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
                 }
             }
             ViewBag.customers = customers;
+            ViewBag.menu = 10;
             return View();
         }
 
@@ -34,6 +35,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
                 }
             }
             ViewBag.customers = customers;
+            ViewBag.menu = 10;
             return View();
         }
 
@@ -61,6 +63,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
                 }
             }
             ViewBag.customers = customers;
+            ViewBag.menu = 10;
             return View();
         }
 

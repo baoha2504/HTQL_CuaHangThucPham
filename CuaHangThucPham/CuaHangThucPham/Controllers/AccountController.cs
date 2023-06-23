@@ -39,10 +39,17 @@ namespace CuaHangThucPham.Controllers
                     Session["email"] = email;
                     Session["pass"] = pass;
                     return RedirectToAction("Index", "Home");
-                } else
+                }
+                else if (customers[0].Access != 1 && customers[0].Access != 4 && customers[0].Prohibit == 1)
                 {
-                    TempData["Error"] = "Kiểm tra lại mật khẩu";
-                    Message.set_flash("Kiểm tra lại mật khẩu", "error");
+                    TempData["Error"] = "Tài khoản của bạn không thể đăng nhập ở đây";
+                    Message.set_flash("Tài khoản của bạn không thể đăng nhập ở đây", "error");
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+                {
+                    TempData["Error"] = "Tài khoản đã bị khóa";
+                    Message.set_flash("Tài khoản đã bị khóa", "error");
                     return RedirectToAction("Login", "Account");
                 }
             }

@@ -26,6 +26,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             }
             ViewBag.customers = customers;
             ViewBag.blogs = blogs;
+            ViewBag.menu = 5;
             return View();
         }
 
@@ -33,6 +34,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
         {
             ViewBag.id = Session["id"];
             ViewBag.name = Session["name"];
+            ViewBag.menu = 5;
             return View();
         }
 
@@ -115,6 +117,7 @@ namespace CuaHangThucPham.Areas.Admin.Controllers
             ViewBag.id = customer.CustomerID;
             ViewBag.name = customer.FirstName + " " + customer.LastName;
             ViewBag.dateadded = blog.DateAdded;
+            ViewBag.menu = 5;
             return View();
         }
 
